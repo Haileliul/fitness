@@ -1,4 +1,4 @@
-import 'package:e_fit/screens/main_landing_page.dart';
+import './main_landing_page.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
