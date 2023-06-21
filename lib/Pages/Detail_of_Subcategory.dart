@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import '../Widgets/animatedIcon.dart';
 import '../Widgets/backButton.dart';
-import 'YotubePlayerPage.dart';
+import '../Widgets/YotubePlayerPage.dart';
 import 'package:assets_audio_player/assets_audio_player.dart';
 
 class DetailSubList extends StatelessWidget {

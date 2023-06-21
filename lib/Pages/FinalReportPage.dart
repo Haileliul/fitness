@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:fl_chart/fl_chart.dart';
 
 import '../Widgets/backButton.dart';
-import 'chart.dart';
+import 'package:fitness/Widgets/chart.dart';
 
 class FinalReportPage extends StatefulWidget {
   const FinalReportPage({super.key});

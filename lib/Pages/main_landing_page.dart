@@ -1,9 +1,11 @@
-import 'package:e_fit/screens/sport_category_page.dart';
+import 'package:fitness/Pages/sport_category_page.dart';
 import 'package:flutter/material.dart';
-import 'package:e_fit/widgets/app_bar_container.dart';
+import 'package:fitness/Widgets/app_bar_container.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:e_fit/lists/exercises_categories.dart';
+import 'package:fitness/lists/exercises_categories.dart';
+import 'package:fitness/constants/constants.dart';
 
+import '../Widgets/bottom_nav_bar.dart';
 import '../widgets/grid_view_builder.dart';
 
 class MainLandingPage extends StatefulWidget {
@@ -31,6 +33,42 @@ class _MainLandingPageState extends State<MainLandingPage> {
         );
       },
       child: Scaffold(
+        bottomNavigationBar: BottomNavBar(),
+        drawer: Drawer(
+          // Add a ListView to the drawer. This ensures the user can scroll
+          // through the options in the drawer if there isn't enough vertical
+          // space to fit everything.
+          child: ListView(
+            // Important: Remove any padding from the ListView.
+            padding: EdgeInsets.zero,
+            children: [
+              const DrawerHeader(
+                decoration: BoxDecoration(
+                  color: kSecondaryColor,
+                ),
+                child: Text('Drawer Header'),
+              ),
+              ListTile(
+                title: const Text('Item 1'),
+                onTap: () {
+                  // Update the state of the app
+                  // ...
+                  // Then close the drawer
+                  Navigator.pop(context);
+                },
+              ),
+              ListTile(
+                title: const Text('Item 2'),
+                onTap: () {
+                  // Update the state of the app
+                  // ...
+                  // Then close the drawer
+                  Navigator.pop(context);
+                },
+              ),
+            ],
+          ),
+        ),
         body: SafeArea(
           child: Column(
             children: [

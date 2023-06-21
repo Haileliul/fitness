@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../lists/exercises_categories.dart';
-import '../screens/sport_category_page.dart';
+import 'package:fitness/Pages/sport_category_page.dart';
 
 ExerciseCategories exerciseCategories = ExerciseCategories();
 

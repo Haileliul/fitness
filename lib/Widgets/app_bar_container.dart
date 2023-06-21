@@ -1,4 +1,4 @@
-import 'package:e_fit/constants/constants.dart';
+import 'package:fitness/constants/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 

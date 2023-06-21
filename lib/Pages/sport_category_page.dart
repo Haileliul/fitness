@@ -1,7 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
-import 'package:e_fit/constants/constants.dart';
+import 'package:fitness/constants/constants.dart';
 import 'package:flutter/material.dart';
 
 int activeIndex = 0;
