@@ -1,10 +1,10 @@
-import 'package:e_fit/screens/sport_category_page.dart';
+import './sport_category_page.dart';
 import 'package:flutter/material.dart';
-import 'package:e_fit/widgets/app_bar_container.dart';
+import '../Widgets/app_bar_container.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:e_fit/lists/exercises_categories.dart';
+import '../lists/exercises_categories.dart';
 
-import '../widgets/grid_view_builder.dart';
+import '../Widgets/grid_view_builder.dart';
 
 class MainLandingPage extends StatefulWidget {
   MainLandingPage({Key? key}) : super(key: key);
