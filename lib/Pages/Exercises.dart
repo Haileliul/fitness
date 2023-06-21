@@ -3,15 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 
-// import 'Pages/Detail_of_Subcategory.dart';
-// import 'Pages/FinalReportPage.dart';
-// import 'Pages/YotubePlayerPage.dart';
-// import 'Pages/chart.dart';
-// import 'Pages/login_screen.dart';
-// import 'Pages/signUp_screen.dart';
-// import 'Pages/splash_screen.dart';
-// import 'Widgets/backButton.dart';
-
 void main() {
   runApp(const MyApp());
 }
