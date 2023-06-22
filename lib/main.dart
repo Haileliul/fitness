@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 
 import 'Pages/Detail_of_Subcategory.dart';
 import 'Pages/FinalReportPage.dart';
+import 'Pages/SchedulList.dart';
+import 'Pages/WorkoutList.dart';
 import 'Widgets/YotubePlayerPage.dart';
 import 'Widgets/chart.dart';
 import 'Pages/login_screen.dart';
@@ -26,7 +28,10 @@ class MyApp extends StatelessWidget {
       theme: ThemeData.dark(),
 
       title: 'Flutter Example',
-      home: SplashScreen(),
+      home:
+          // WorkoutList(),
+          SchedulList(),
+      // SplashScreen(),
       // SignUpScreen(),
       //  LoginScreen(),
       // FinalReportPage(),
