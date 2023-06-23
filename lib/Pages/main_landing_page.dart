@@ -1,6 +1,7 @@
+import '../Widgets/BottomNavigationBar.dart';
 import './sport_category_page.dart';
 import 'package:flutter/material.dart';
-import '../Widgets/app_bar_container.dart';
+
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../lists/exercises_categories.dart';
 
@@ -31,10 +32,24 @@ class _MainLandingPageState extends State<MainLandingPage> {
         );
       },
       child: Scaffold(
+        appBar: AppBar(
+          leading: IconButton(
+            onPressed: () {},
+            icon: Icon(Icons.menu),
+          ),
+          title: Text("Exercises"),
+          centerTitle: true,
+          actions: [
+            CircleAvatar(
+              backgroundColor: Colors.white,
+              backgroundImage: NetworkImage(
+                  'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8cHJvZmlsZXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60'),
+            ),
+          ],
+        ),
         body: SafeArea(
           child: Column(
             children: [
-              AppBarContainer(),
               Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [
@@ -80,6 +95,7 @@ class _MainLandingPageState extends State<MainLandingPage> {
             ],
           ),
         ),
+        bottomNavigationBar: BottomnavigationBar(),
       ),
     );
   }

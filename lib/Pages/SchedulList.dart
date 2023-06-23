@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../Widgets/backButton.dart';
+
 class SchedulList extends StatelessWidget {
   List<Map> Scheduller = [
     {
@@ -124,9 +126,6 @@ class SchedulList extends StatelessWidget {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
-      /* appBar: AppBar(
-        leading: Text("this is the place of Back Button"),
-      ), */
       body: Container(
         width: size.width,
         height: size.height,
@@ -141,7 +140,10 @@ class SchedulList extends StatelessWidget {
               padding: const EdgeInsets.only(bottom: 18.0),
               child: Row(
                 children: [
-                  Text("this is the place of Back Button"),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: backButton(),
+                  ),
                 ],
               ),
             ),

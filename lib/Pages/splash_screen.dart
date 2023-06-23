@@ -52,14 +52,6 @@ class _SplashScreenState extends State<SplashScreen> {
               const SizedBox(
                 height: 20,
               ),
-              // const Text(
-              //   'FITNESS GYM',
-              //   style: TextStyle(
-              //     fontWeight: FontWeight.bold,
-              //     fontSize: 40,
-              //     color: Colors.white,
-              //   ),
-              // ),
             ],
           ),
         ),

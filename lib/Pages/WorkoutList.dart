@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 
+import '../Widgets/backButton.dart';
+
 class WorkoutList extends StatelessWidget {
   const WorkoutList({
     super.key,
@@ -12,7 +14,10 @@ class WorkoutList extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
-        // back button
+        leading: IconButton(
+          onPressed: () {},
+          icon: Icon(Icons.arrow_back),
+        ),
         actions: [
           IconButton(
             onPressed: () {},

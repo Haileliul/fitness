@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import '../Widgets/animatedIcon.dart';
 import '../Widgets/backButton.dart';
 import '../Widgets/YotubePlayerPage.dart';
-import 'package:assets_audio_player/assets_audio_player.dart';
+// import 'package:assets_audio_player/assets_audio_player.dart';
 
 class DetailSubList extends StatelessWidget {
   const DetailSubList({super.key});
@@ -11,7 +11,7 @@ class DetailSubList extends StatelessWidget {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     //create a new player
-    final assetsAudioPlayer = AssetsAudioPlayer();
+    // final assetsAudioPlayer = AssetsAudioPlayer();
     return Scaffold(
       body: SafeArea(
         child: Container(
