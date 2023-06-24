@@ -1,12 +1,29 @@
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
+import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 import '../Widgets/backButton.dart';
 
 class WorkoutList extends StatelessWidget {
-  const WorkoutList({
+  WorkoutList({
     super.key,
   });
+  static String myVideoId = 'T_X5rb3G5lk';
+  final YoutubePlayerController _controller = YoutubePlayerController(
+    initialVideoId: myVideoId,
+    flags: const YoutubePlayerFlags(
+      // autoPlay: true,
+
+      mute: false,
+      autoPlay: false,
+      disableDragSeek: false,
+      loop: true,
+      isLive: false,
+      forceHD: false,
+      /*  enableCaption: true, */
+      hideThumbnail: true,
+    ),
+  );
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +32,9 @@ class WorkoutList extends StatelessWidget {
       appBar: AppBar(
         elevation: 0,
         leading: IconButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
           icon: Icon(Icons.arrow_back),
         ),
         actions: [
@@ -98,8 +117,9 @@ class WorkoutList extends StatelessWidget {
               ),
               width: size.width,
               height: size.height * 0.3,
-              child: Text("Hi"),
-              color: Color(0xFFA70808),
+              child: YoutubePlayer(
+                controller: _controller,
+              ),
             ),
             Padding(
               padding: const EdgeInsets.all(8.0),

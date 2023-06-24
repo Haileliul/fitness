@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'signUp_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:easy_localization/easy_localization.dart';
+import '../translations/local_keys.g.dart';
 
 class LoginScreen extends StatefulWidget {
   @override
@@ -26,6 +28,7 @@ class _LoginScreenState extends State<LoginScreen> {
     _emailController.dispose();
     super.dispose();
   }
+
   Widget _buildPasswordTextField() {
     return TextField(
       focusNode: _passwordFocusNode,
@@ -35,6 +38,7 @@ class _LoginScreenState extends State<LoginScreen> {
         hintText: 'Password',
         filled: true,
         fillColor: Color(0xFFFFF6F6),
+        hintStyle: TextStyle(color: Colors.black),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(8),
         ),
@@ -66,13 +70,31 @@ class _LoginScreenState extends State<LoginScreen> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  TextButton(
+                    onPressed: () async {
+                      await context.setLocale(Locale("en"));
+                    },
+                    child: Text("english"),
+                  ),
+                  TextButton(
+                    onPressed: () async {
+                      await context.setLocale(Locale("am"));
+                    },
+                    child: Text("Amharic"),
+                  ),
+                ],
+              ),
+              //
               SizedBox(
-                height: 160,
+                height: 100,
               ),
               CircleAvatar(
-
                 radius: 70,
-                backgroundImage: AssetImage('assets/images/fitness-sport-gym-logo-real - Copy.png'),
+                backgroundImage: AssetImage(
+                    'assets/images/fitness-sport-gym-logo-real - Copy.png'),
                 backgroundColor: Colors.transparent,
               ),
               SizedBox(
@@ -92,7 +114,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'Login',
+                        LocaleKeys.Login.tr(),
                         style: TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.bold,
@@ -102,12 +124,11 @@ class _LoginScreenState extends State<LoginScreen> {
                       SizedBox(
                         height: 20,
                       ),
-
                       TextField(
                         focusNode: _emailFocusNode,
                         controller: _emailController,
                         decoration: InputDecoration(
-                          hintText: 'Email',
+                          hintText: LocaleKeys.Email.tr(),
                           filled: true,
                           fillColor: Color(0xFFFFF6F6),
                           border: OutlineInputBorder(
@@ -118,15 +139,10 @@ class _LoginScreenState extends State<LoginScreen> {
                       SizedBox(
                         height: 20,
                       ),
-
                       _buildPasswordTextField(),
                       SizedBox(
                         height: 20,
                       ),
-
-
-
-
                       Align(
                         alignment: Alignment.center,
                         child: Container(
@@ -149,7 +165,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           child: ElevatedButton(
                             onPressed: () {},
                             child: Text(
-                              'Sign In',
+                              LocaleKeys.SignIn.tr(),
                               style: TextStyle(
                                 fontWeight: FontWeight.bold,
                               ),
@@ -171,13 +187,12 @@ class _LoginScreenState extends State<LoginScreen> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Text(
-                            'Don\'t have an account? ',
+                            LocaleKeys.have_no_account.tr(),
                             style: TextStyle(
                               fontWeight: FontWeight.bold,
                               color: Colors.white,
                             ),
                           ),
-
                           Container(
                             height: 26,
                             width: 100,
@@ -205,7 +220,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                 );
                               },
                               child: Text(
-                                'Sign Up',
+                                LocaleKeys.Sign_up.tr(),
                                 style: TextStyle(
                                   fontWeight: FontWeight.bold,
                                 ),
