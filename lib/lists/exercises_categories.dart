@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class ExerciseCategories {
-  static List<Map> containerData = [
+  final List<Map> containerData = [
     {
       'exerciseCategoryImage': 'assets/images/cat0n.png',
       'exerciseCategoryName': 'ABs',

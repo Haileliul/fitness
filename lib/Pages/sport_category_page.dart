@@ -4,6 +4,8 @@ import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import '../constants/constants.dart';
 import 'package:flutter/material.dart';
 
+import '../lists/exercises_categories.dart';
+
 int activeIndex = 0;
 
 final imagesUrl = [
@@ -22,14 +24,16 @@ class SportsCategory extends StatefulWidget {
 }
 
 class _SportsCategoryState extends State<SportsCategory> {
-  
+  get containerData => null;
+
   @override
   Widget build(BuildContext context) {
-    final index = ModalRoute.of(context)?.settings.arguments;
+    final value = ModalRoute.of(context)?.settings.arguments;
+    final int  index = ModalRoute.of(context)?.settings.arguments ["Index"];
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          '${index}',
+          '${containerData[index]["exerciseCategoryName"]}',
           style: TextStyle(
             fontSize: 20.0,
             fontWeight: FontWeight.w300,
