@@ -12,7 +12,9 @@ class backButton extends StatelessWidget {
       ),
       child: IconButton(
         icon: Icon(Icons.keyboard_arrow_left),
-        onPressed: () {},
+        onPressed: () {
+          Navigator.pop(context);
+        },
       ),
     );
   }

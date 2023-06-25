@@ -22,12 +22,14 @@ class SportsCategory extends StatefulWidget {
 }
 
 class _SportsCategoryState extends State<SportsCategory> {
+  
   @override
   Widget build(BuildContext context) {
+    final index = ModalRoute.of(context)?.settings.arguments;
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'Abs',
+          '${index}',
           style: TextStyle(
             fontSize: 20.0,
             fontWeight: FontWeight.w300,

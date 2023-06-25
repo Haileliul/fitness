@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 // import 'Pages/Detail_of_Subcategory.txt';
 
+import 'Pages/Detail_of_Subcategory.dart';
 import 'Pages/FinalReportPage.dart';
 import 'Pages/LanguageLocalTest.dart';
 import 'Pages/SchedulList.dart';
@@ -53,18 +54,35 @@ class Home extends StatelessWidget {
       debugShowCheckedModeBanner: false,
 
       // Theme of the page
-      // theme: ThemeData.dark(),
+      theme: ThemeData.dark(),
       title: 'Flutter Example',
+
+      routes: {
+        // '/': (context) => SplashScreen(),
+        '/Login': (context) => LoginScreen(),
+        '/Signup': (context) => SignUpScreen(),
+        '/Main': (context) => MainLandingPage(),
+
+        '/Final': (context) => FinalReportPage(),
+        '/Detail': (context) => DetailSubList(),
+        '/SportCat': (context) => SportsCategory(),
+        // Pages for pro version
+        '/Schedule': (context) => SchedulList(),
+        '/Workout': (context) => WorkoutList(),
+      },
+
       home:
+          //  SportsCategory(),
+
           // WorkoutList(),
 
           // SchedulList(),
           // SplashScreen(),
           // SignUpScreen(),
-          LoginScreen(),
-      // FinalReportPage(),
+          // LoginScreen(),
+          // FinalReportPage(),
 
-      // MainLandingPage(),
+          MainLandingPage(),
       // SchedulList(),
       // mongotest(),
       // Lang(),

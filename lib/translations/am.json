@@ -5,5 +5,11 @@
     "Email": "ኢሜይል",
     "SignIn": "ግባ",
     "have_no_account": "መለያ የለህም?",
-    "Sign_up": "ይመዝገቡ"
+    "Sign_up": "ይመዝገቡ",
+    "Male" : "ወንድ",
+    "Femaile" : "ሴት",
+    "hint_name": "ሙሉ ስም",
+    "Password": "የይለፍ ቃል",
+    "Age":"ዕድሜ",
+    "have_an_account": "መለያ አለህ?"
 }

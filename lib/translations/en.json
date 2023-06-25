@@ -5,7 +5,18 @@
     "Email": "Email",
     "SignIn": "Sign In",
     "have_no_account": "Dont have an account?",
-    "Sign_up": "Sign Up"
+    "Sign_up": "Sign Up",
+    "Male" : "Male",
+    "Femaile" : "Femaile",
+    "hint_name": "Full name",
+    "Password": "Password",
+    "Age":"Age",
+    "have_an_account": "Do you have an account?"
+
+    
+
+
+
 
 
 }

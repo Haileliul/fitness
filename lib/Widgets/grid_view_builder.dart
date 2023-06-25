@@ -31,11 +31,10 @@ class GridViewBuilder extends StatelessWidget {
               padding: const EdgeInsets.all(8.0),
               child: GestureDetector(
                 onTap: () {
-                  Navigator.push(
+                  Navigator.pushNamed(
                     context,
-                    MaterialPageRoute(
-                      builder: (context) => SportsCategory(),
-                    ),
+                    '/SportCat',
+                    arguments: {'Index': index},
                   );
                 },
                 child: Container(

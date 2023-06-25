@@ -21,7 +21,13 @@ class CodegenLoader extends AssetLoader{
   "Email": "Email",
   "SignIn": "Sign In",
   "have_no_account": "Dont have an account?",
-  "Sign_up": "Sign Up"
+  "Sign_up": "Sign Up",
+  "Male": "Male",
+  "Femaile": "Femaile",
+  "hint_name": "Full name",
+  "Password": "Password",
+  "Age": "Age",
+  "have_an_account": "Do you have an account?"
 };
 static const Map<String,dynamic> am = {
   "name": "ሰላም ሀይሌ እባላለሁ!",
@@ -30,7 +36,13 @@ static const Map<String,dynamic> am = {
   "Email": "ኢሜይል",
   "SignIn": "ግባ",
   "have_no_account": "መለያ የለህም?",
-  "Sign_up": "ይመዝገቡ"
+  "Sign_up": "ይመዝገቡ",
+  "Male": "ወንድ",
+  "Femaile": "ሴት",
+  "hint_name": "ሙሉ ስም",
+  "Password": "የይለፍ ቃል",
+  "Age": "ዕድሜ",
+  "have_an_account": "መለያ አለህ?"
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"en": en, "am": am};
 }

@@ -10,6 +10,7 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  String dropdownValue = 'en';
   final FocusNode _nameFocusNode = FocusNode();
   final FocusNode _emailFocusNode = FocusNode();
   final TextEditingController _nameController = TextEditingController();
@@ -34,8 +35,11 @@ class _LoginScreenState extends State<LoginScreen> {
       focusNode: _passwordFocusNode,
       controller: _passwordController,
       obscureText: _isObscured,
+      style: TextStyle(
+        color: Colors.black,
+      ),
       decoration: InputDecoration(
-        hintText: 'Password',
+        hintText: LocaleKeys.Password.tr(),
         filled: true,
         fillColor: Color(0xFFFFF6F6),
         hintStyle: TextStyle(color: Colors.black),
@@ -71,19 +75,32 @@ class _LoginScreenState extends State<LoginScreen> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  TextButton(
-                    onPressed: () async {
-                      await context.setLocale(Locale("en"));
+                  DropdownButton(
+                    onChanged: (newvalu) async {
+                      setState(() {
+                        dropdownValue = newvalu!;
+                      });
+                      await context.setLocale(Locale("$newvalu"));
                     },
-                    child: Text("english"),
-                  ),
-                  TextButton(
-                    onPressed: () async {
-                      await context.setLocale(Locale("am"));
-                    },
-                    child: Text("Amharic"),
+                    items: [
+                      DropdownMenuItem(
+                        child: Text("Eng"),
+                        value: 'en',
+                      ),
+                      DropdownMenuItem(
+                        child: Text(
+                          "አማ",
+                          style: TextStyle(color: Colors.white),
+                        ),
+                        value: 'am',
+                      ),
+                    ],
+                    value: dropdownValue,
+                    style: TextStyle(
+                      color: Colors.white,
+                    ),
                   ),
                 ],
               ),
@@ -127,8 +144,14 @@ class _LoginScreenState extends State<LoginScreen> {
                       TextField(
                         focusNode: _emailFocusNode,
                         controller: _emailController,
+                        style: TextStyle(
+                          color: Colors.black,
+                        ),
                         decoration: InputDecoration(
                           hintText: LocaleKeys.Email.tr(),
+                          hintStyle: TextStyle(
+                            color: Colors.black,
+                          ),
                           filled: true,
                           fillColor: Color(0xFFFFF6F6),
                           border: OutlineInputBorder(

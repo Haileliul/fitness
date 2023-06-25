@@ -1,6 +1,8 @@
 import './login_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:easy_localization/easy_localization.dart';
+import '../translations/local_keys.g.dart';
 
 class SignUpScreen extends StatefulWidget {
   @override
@@ -8,6 +10,8 @@ class SignUpScreen extends StatefulWidget {
 }
 
 class _SignUpScreenState extends State<SignUpScreen> {
+  String dropdownSexValue = LocaleKeys.Male.tr();
+  String dropdownAgeValue = '0';
   final FocusNode _nameFocusNode = FocusNode();
   final FocusNode _emailFocusNode = FocusNode();
   final FocusNode _passwordFocusNode = FocusNode();
@@ -27,6 +31,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
     super.dispose();
   }
 
+  //  LocaleKeys.Login.tr(),
+
   Widget _buildNameTextField() {
     return TextField(
       focusNode: _nameFocusNode,
@@ -35,12 +41,18 @@ class _SignUpScreenState extends State<SignUpScreen> {
         FocusScope.of(context).requestFocus(_emailFocusNode);
       },
       decoration: InputDecoration(
-        hintText: 'Full name',
+        hintText: LocaleKeys.hint_name.tr(),
         filled: true,
         fillColor: Color(0xFFFFF6F6),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(8),
         ),
+        hintStyle: TextStyle(
+          color: Colors.black,
+        ),
+      ),
+      style: TextStyle(
+        color: Colors.black,
       ),
     );
   }
@@ -53,12 +65,18 @@ class _SignUpScreenState extends State<SignUpScreen> {
         FocusScope.of(context).requestFocus(_passwordFocusNode);
       },
       decoration: InputDecoration(
-        hintText: 'Email',
+        hintText: LocaleKeys.Email.tr(),
         filled: true,
         fillColor: Color(0xFFFFF6F6),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(8),
         ),
+        hintStyle: TextStyle(
+          color: Colors.black,
+        ),
+      ),
+      style: TextStyle(
+        color: Colors.black,
       ),
     );
   }
@@ -69,7 +87,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
       controller: _passwordController,
       obscureText: _isObscured,
       decoration: InputDecoration(
-        hintText: 'Password',
+        hintText: LocaleKeys.Password.tr(),
         filled: true,
         fillColor: Color(0xFFFFF6F6),
         border: OutlineInputBorder(
@@ -83,129 +101,203 @@ class _SignUpScreenState extends State<SignUpScreen> {
             });
           },
         ),
+        hintStyle: TextStyle(
+          color: Colors.black,
+        ),
+      ),
+      style: TextStyle(
+        color: Colors.black,
       ),
     );
   }
 
-  String _selectedAge = 'Age';
-  String _selectedSex = 'Sex';
+  // String _selectedAge = 'Age';
+  // String _selectedSex = 'Sex';
 
-  void _selectAge(BuildContext context) async {
-    int startAge = 12;
-    int endAge = 70;
-    List<String> ageList = List.generate(
-      endAge - startAge + 1,
-      (index) => '${startAge + index}',
-    );
-    String? selected = await showMenu(
-      context: context,
-      position: RelativeRect.fromLTRB(100, 100, 0, 0),
-      items: ageList.map((age) {
-        return PopupMenuItem(
-          value: age,
-          child: Text(age),
-        );
-      }).toList(),
-      color: Colors.white,
-    );
-    if (selected != null) {
-      setState(() {
-        _selectedAge = selected;
-      });
-    }
-  }
-
-  void _selectSex(BuildContext context) async {
-    List<String> sexList = ['Male', 'Female'];
-    String? selected = await showMenu(
-      context: context,
-      position: RelativeRect.fromLTRB(100, 100, 0, 0),
-      items: sexList.map((sex) {
-        return PopupMenuItem(
-          value: sex,
-          child: Text(sex),
-        );
-      }).toList(),
-      color: Colors.white,
-    );
-    if (selected != null) {
-      setState(() {
-        _selectedSex = selected;
-      });
-    }
-  }
+  // void _selectAge(BuildContext context) async {
+  //   int startAge = 12;
+  //   int endAge = 70;
+  //   List<String> ageList = List.generate(
+  //     endAge - startAge + 1,
+  //     (index) => '${startAge + index}',
+  //   );
+  //   String? selected = await showMenu(
+  //     context: context,
+  //     position: RelativeRect.fromLTRB(100, 100, 0, 0),
+  //     items: ageList.map((age) {
+  //       return PopupMenuItem(
+  //         value: age,
+  //         child: Text(age),
+  //       );
+  //     }).toList(),
+  //     color: Colors.white,
+  //   );
+  //   if (selected != null) {
+  //     setState(() {
+  //       _selectedAge = selected;
+  //     });
+  //   }
+  // }
 
   Widget _buildAgeButton() {
-    return IconButton(
-      icon: Icon(
-        Icons.arrow_drop_down,
-        color: Colors.grey,
+    return Container(
+      height: 48,
+      width: 116,
+      decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.all(Radius.circular(
+            10,
+          ))),
+      child: Padding(
+        padding: const EdgeInsets.only(left: 28.0),
+        child: DropdownButton(
+          iconDisabledColor: Colors.black,
+          iconEnabledColor: Colors.black,
+          dropdownColor: Colors.white,
+          focusColor: Colors.white,
+          onChanged: (newvalu) {
+            setState(() {
+              dropdownAgeValue = newvalu!;
+            });
+          },
+          items: [
+            DropdownMenuItem(
+              child: Text(
+                LocaleKeys.Age.tr(),
+                style: TextStyle(color: Colors.black),
+              ),
+              value: '0',
+            ),
+            DropdownMenuItem(
+              child: Text(
+                "0-10",
+                style: TextStyle(color: Colors.black),
+              ),
+              value: '0-10',
+            ),
+            DropdownMenuItem(
+              child: Text(
+                "11-23",
+                style: TextStyle(
+                  color: Colors.black,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              value: '11-23',
+            ),
+            DropdownMenuItem(
+              child: Text(
+                "23-35",
+                style: TextStyle(
+                  color: Colors.black,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              value: '23-35',
+            ),
+            DropdownMenuItem(
+              child: Text(
+                "35-45",
+                style: TextStyle(
+                  color: Colors.black,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              value: '35-45',
+            ),
+            DropdownMenuItem(
+              child: Text(
+                "45-80",
+                style: TextStyle(
+                  color: Colors.black,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              value: '45-80',
+            ),
+          ],
+          underline: Text(" "),
+          value: dropdownAgeValue,
+          style: TextStyle(
+            color: Colors.white,
+          ),
+        ),
       ),
-      onPressed: () {
-        _selectAge(context);
-      },
     );
   }
 
   Widget _buildSexButton() {
-    return IconButton(
-      icon: Icon(
-        Icons.arrow_drop_down,
-        color: Colors.grey,
-      ),
-      onPressed: () {
-        _selectSex(context);
-      },
-    );
-  }
-
-  Widget _buildAgeContainer() {
     return Container(
       height: 48,
       width: 116,
       decoration: BoxDecoration(
-        color: Color(0xFFFFF6F6),
-        borderRadius: BorderRadius.circular(8),
-      ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
-        children: [
-          Text(
-            _selectedAge,
-            style: TextStyle(
-              fontSize: 18,
-              color: Colors.black.withOpacity(0.6),
+          color: Colors.white,
+          borderRadius: BorderRadius.all(Radius.circular(
+            10,
+          ))),
+      child: Padding(
+        padding: const EdgeInsets.only(left: 28.0),
+        child: DropdownButton(
+          iconDisabledColor: Colors.black,
+          iconEnabledColor: Colors.black,
+          dropdownColor: Colors.white,
+          focusColor: Colors.white,
+          onChanged: (newvalu) {
+            setState(() {
+              dropdownSexValue = newvalu!;
+            });
+          },
+          items: [
+            DropdownMenuItem(
+              child: Text(
+                LocaleKeys.Male.tr(),
+                style: TextStyle(color: Colors.black),
+              ),
+              value: LocaleKeys.Male.tr(),
             ),
+            DropdownMenuItem(
+              child: Text(
+                LocaleKeys.Femaile.tr(),
+                style: TextStyle(
+                  color: Colors.black,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              value: LocaleKeys.Femaile.tr(),
+            ),
+          ],
+          underline: Text(" "),
+          value: dropdownSexValue,
+          style: TextStyle(
+            color: Colors.white,
           ),
-          _buildAgeButton(),
-        ],
+        ),
       ),
     );
   }
 
-  Widget _buildSexContainer() {
-    return Container(
-      height: 48,
-      width: 116,
-      decoration: BoxDecoration(
-        color: Color(0xFFFFF6F6),
-        borderRadius: BorderRadius.circular(8),
-      ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
-        children: [
-          Text(
-            _selectedSex,
-            style: TextStyle(
-              fontSize: 18,
-              color: Colors.black.withOpacity(0.6),
-            ),
-          ),
-          _buildSexButton(),
-        ],
-      ),
-    );
-  }
+  // Widget _buildAgeContainer() {
+  //   return Container(
+  //     height: 48,
+  //     width: 116,
+  //     decoration: BoxDecoration(
+  //       color: Color(0xFFFFF6F6),
+  //       borderRadius: BorderRadius.circular(8),
+  //     ),
+  //     child: Row(
+  //       mainAxisAlignment: MainAxisAlignment.spaceAround,
+  //       children: [
+  //         Text(
+  //           _selectedAge,
+  //           style: TextStyle(
+  //             fontSize: 18,
+  //             color: Colors.black.withOpacity(0.6),
+  //           ),
+  //         ),
+  //       ],
+  //     ),
+  //   );
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -257,8 +349,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          _buildAgeContainer(),
-                          _buildSexContainer(),
+                          _buildAgeButton(),
+                          _buildSexButton(),
                         ],
                       ),
                       SizedBox(
@@ -286,7 +378,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           child: ElevatedButton(
                             onPressed: () {},
                             child: Text(
-                              'Sign Up',
+                              LocaleKeys.Sign_up.tr(),
                               style: TextStyle(
                                 fontWeight: FontWeight.bold,
                               ),
@@ -308,7 +400,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Text(
-                            'Do you have an account? ',
+                            LocaleKeys.have_an_account.tr(),
                             style: TextStyle(
                               color: Colors.white,
                             ),
@@ -340,7 +432,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                 );
                               },
                               child: Text(
-                                'Sign in',
+                                LocaleKeys.SignIn.tr(),
                                 style: TextStyle(
                                   fontWeight: FontWeight.bold,
                                 ),
