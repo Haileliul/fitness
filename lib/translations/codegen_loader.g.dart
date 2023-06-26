@@ -27,7 +27,17 @@ class CodegenLoader extends AssetLoader{
   "hint_name": "Full name",
   "Password": "Password",
   "Age": "Age",
-  "have_an_account": "Do you have an account?"
+  "have_an_account": "Do you have an account?",
+  "ABs": "ABs",
+  "Back": "Back",
+  "Biceps": "Biceps",
+  "Calf": "Calf",
+  "Chest": "Chest",
+  "Forearm": "Forearm",
+  "Legs": "Legs",
+  "Shoulders": "Shoulders",
+  "Triceps": "Triceps",
+  "All": "All"
 };
 static const Map<String,dynamic> am = {
   "name": "ሰላም ሀይሌ እባላለሁ!",
@@ -42,7 +52,17 @@ static const Map<String,dynamic> am = {
   "hint_name": "ሙሉ ስም",
   "Password": "የይለፍ ቃል",
   "Age": "ዕድሜ",
-  "have_an_account": "መለያ አለህ?"
+  "have_an_account": "መለያ አለህ?",
+  "ABs": "የሆድ ጡንቻ",
+  "Back": "የጀርባ ጡንቻ",
+  "Biceps": "የክንዱ ጡንቻ",
+  "Calf": "የባት ጡንቻ",
+  "Chest": "የደረት ጡንቻ",
+  "Forearm": "የታች ክንድ ጡንቻ",
+  "Legs": "የእግር ጡንቻ",
+  "Shoulders": "የትከሻ ጡንቻ",
+  "Triceps": "የመንሽ ጡንቻ",
+  "All": "ሁሉም"
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"en": en, "am": am};
 }

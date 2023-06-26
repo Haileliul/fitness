@@ -3,8 +3,6 @@ import 'package:flutter/material.dart';
 import '../lists/exercises_categories.dart';
 import '../Pages/sport_category_page.dart';
 
-ExerciseCategories exerciseCategories = ExerciseCategories();
-
 class GridViewBuilder extends StatelessWidget {
   GridViewBuilder({
     required this.length,
@@ -34,7 +32,7 @@ class GridViewBuilder extends StatelessWidget {
                   Navigator.pushNamed(
                     context,
                     '/SportCat',
-                    arguments: {'Index': index},
+                    arguments: {"Index": index},
                   );
                 },
                 child: Container(
@@ -48,14 +46,14 @@ class GridViewBuilder extends StatelessWidget {
                       Opacity(
                         opacity: 0.45,
                         child: Image.asset(
-                          exerciseCategories.containerData[index][image]
+                          ExerciseCategories.containerData[index][image]
                               .toString(),
                           fit: BoxFit.cover,
                         ),
                       ),
                       Center(
                         child: Text(
-                          exerciseCategories.containerData[index][name]
+                          ExerciseCategories.containerData[index][name]
                               .toString(),
                           style: TextStyle(
                             color: Colors.white,

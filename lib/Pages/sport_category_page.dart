@@ -8,13 +8,78 @@ import '../lists/exercises_categories.dart';
 
 int activeIndex = 0;
 
-final imagesUrl = [
-  'https://images.unsplash.com/photo-1545346315-f4c47e3e1b55?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fGFic3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60',
-  'https://images.unsplash.com/photo-1601986313624-28c11ac26334?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8YWJzfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60',
-  'https://images.unsplash.com/photo-1577221084712-45b0445d2b00?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8YWJzfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60',
-  'https://images.unsplash.com/photo-1614396648745-d5de9c9e037e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8YWJzfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60',
-  'https://images.unsplash.com/photo-1611603640928-0a26c496f47e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YWJzfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60'
-];
+final Map imagesUrl = {
+  "0": [
+    'https://images.unsplash.com/photo-1545346315-f4c47e3e1b55?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fGFic3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60',
+    'https://images.unsplash.com/photo-1601986313624-28c11ac26334?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8YWJzfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60',
+    'https://images.unsplash.com/photo-1577221084712-45b0445d2b00?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8YWJzfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60',
+    'https://images.unsplash.com/photo-1614396648745-d5de9c9e037e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8YWJzfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60',
+    'https://images.unsplash.com/photo-1611603640928-0a26c496f47e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YWJzfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60'
+  ],
+  "1": [
+    'https://images.unsplash.com/photo-1545346315-f4c47e3e1b55?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fGFic3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60',
+    'https://images.unsplash.com/photo-1601986313624-28c11ac26334?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8YWJzfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60',
+    'https://images.unsplash.com/photo-1577221084712-45b0445d2b00?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8YWJzfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60',
+    'https://images.unsplash.com/photo-1614396648745-d5de9c9e037e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8YWJzfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60',
+    'https://images.unsplash.com/photo-1611603640928-0a26c496f47e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YWJzfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60'
+  ],
+  "2": [
+    'https://images.unsplash.com/photo-1545346315-f4c47e3e1b55?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fGFic3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60',
+    'https://images.unsplash.com/photo-1601986313624-28c11ac26334?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8YWJzfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60',
+    'https://images.unsplash.com/photo-1577221084712-45b0445d2b00?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8YWJzfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60',
+    'https://images.unsplash.com/photo-1614396648745-d5de9c9e037e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8YWJzfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60',
+    'https://images.unsplash.com/photo-1611603640928-0a26c496f47e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YWJzfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60'
+  ],
+  "3": [
+    'https://images.unsplash.com/photo-1545346315-f4c47e3e1b55?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fGFic3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60',
+    'https://images.unsplash.com/photo-1601986313624-28c11ac26334?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8YWJzfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60',
+    'https://images.unsplash.com/photo-1577221084712-45b0445d2b00?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8YWJzfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60',
+    'https://images.unsplash.com/photo-1614396648745-d5de9c9e037e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8YWJzfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60',
+    'https://images.unsplash.com/photo-1611603640928-0a26c496f47e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YWJzfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60'
+  ],
+  "4": [
+    'https://images.unsplash.com/photo-1545346315-f4c47e3e1b55?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fGFic3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60',
+    'https://images.unsplash.com/photo-1601986313624-28c11ac26334?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8YWJzfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60',
+    'https://images.unsplash.com/photo-1577221084712-45b0445d2b00?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8YWJzfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60',
+    'https://images.unsplash.com/photo-1614396648745-d5de9c9e037e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8YWJzfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60',
+    'https://images.unsplash.com/photo-1611603640928-0a26c496f47e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YWJzfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60'
+  ],
+  "5": [
+    'https://images.unsplash.com/photo-1545346315-f4c47e3e1b55?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fGFic3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60',
+    'https://images.unsplash.com/photo-1601986313624-28c11ac26334?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8YWJzfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60',
+    'https://images.unsplash.com/photo-1577221084712-45b0445d2b00?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8YWJzfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60',
+    'https://images.unsplash.com/photo-1614396648745-d5de9c9e037e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8YWJzfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60',
+    'https://images.unsplash.com/photo-1611603640928-0a26c496f47e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YWJzfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60'
+  ],
+  "6": [
+    'https://images.unsplash.com/photo-1545346315-f4c47e3e1b55?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fGFic3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60',
+    'https://images.unsplash.com/photo-1601986313624-28c11ac26334?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8YWJzfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60',
+    'https://images.unsplash.com/photo-1577221084712-45b0445d2b00?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8YWJzfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60',
+    'https://images.unsplash.com/photo-1614396648745-d5de9c9e037e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8YWJzfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60',
+    'https://images.unsplash.com/photo-1611603640928-0a26c496f47e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YWJzfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60'
+  ],
+  "7": [
+    'https://images.unsplash.com/photo-1545346315-f4c47e3e1b55?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fGFic3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60',
+    'https://images.unsplash.com/photo-1601986313624-28c11ac26334?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8YWJzfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60',
+    'https://images.unsplash.com/photo-1577221084712-45b0445d2b00?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8YWJzfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60',
+    'https://images.unsplash.com/photo-1614396648745-d5de9c9e037e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8YWJzfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60',
+    'https://images.unsplash.com/photo-1611603640928-0a26c496f47e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YWJzfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60'
+  ],
+  "8": [
+    'https://images.unsplash.com/photo-1545346315-f4c47e3e1b55?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fGFic3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60',
+    'https://images.unsplash.com/photo-1601986313624-28c11ac26334?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8YWJzfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60',
+    'https://images.unsplash.com/photo-1577221084712-45b0445d2b00?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8YWJzfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60',
+    'https://images.unsplash.com/photo-1614396648745-d5de9c9e037e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8YWJzfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60',
+    'https://images.unsplash.com/photo-1611603640928-0a26c496f47e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YWJzfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60'
+  ],
+  "9": [
+    'https://images.unsplash.com/photo-1545346315-f4c47e3e1b55?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fGFic3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60',
+    'https://images.unsplash.com/photo-1601986313624-28c11ac26334?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8YWJzfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60',
+    'https://images.unsplash.com/photo-1577221084712-45b0445d2b00?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8YWJzfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60',
+    'https://images.unsplash.com/photo-1614396648745-d5de9c9e037e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8YWJzfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60',
+    'https://images.unsplash.com/photo-1611603640928-0a26c496f47e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YWJzfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60'
+  ],
+};
 
 class SportsCategory extends StatefulWidget {
   const SportsCategory({Key? key}) : super(key: key);
@@ -24,16 +89,15 @@ class SportsCategory extends StatefulWidget {
 }
 
 class _SportsCategoryState extends State<SportsCategory> {
-  get containerData => null;
-
   @override
   Widget build(BuildContext context) {
-    final value = ModalRoute.of(context)?.settings.arguments;
-    final int  index = ModalRoute.of(context)?.settings.arguments ["Index"];
+    final Map arg = ModalRoute.of(context)?.settings.arguments as Map;
+    final int val = arg["Index"];
+
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          '${containerData[index]["exerciseCategoryName"]}',
+          '${ExerciseCategories.containerData[val]["exerciseCategoryName"]}',
           style: TextStyle(
             fontSize: 20.0,
             fontWeight: FontWeight.w300,
@@ -45,10 +109,9 @@ class _SportsCategoryState extends State<SportsCategory> {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           CarouselSlider.builder(
-            itemCount: imagesUrl.length,
+            itemCount: imagesUrl["${val}"].length,
             itemBuilder: (context, index, realIndex) {
-              final urlImage = imagesUrl[index];
-              return buildImage(urlImage, index);
+              return buildImage(imagesUrl["${val}"][index], index);
             },
             options: CarouselOptions(
               height: 250,
@@ -83,9 +146,14 @@ class _SportsCategoryState extends State<SportsCategory> {
                           topLeft: Radius.circular(25.0),
                           bottomRight: Radius.circular(25.0),
                         ),
-                        child: Image.network(
-                          imagesUrl[index],
-                          fit: BoxFit.cover,
+                        child: InkWell(
+                          onTap: () {
+                            print("It has been clicked");
+                          },
+                          child: Image.network(
+                            imagesUrl["${val}"][index],
+                            fit: BoxFit.cover,
+                          ),
                         ),
                       ),
                     ),

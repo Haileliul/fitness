@@ -11,5 +11,17 @@
     "hint_name": "ሙሉ ስም",
     "Password": "የይለፍ ቃል",
     "Age":"ዕድሜ",
-    "have_an_account": "መለያ አለህ?"
+    "have_an_account": "መለያ አለህ?",
+    "ABs":"የሆድ ጡንቻ",
+    "Back":"የጀርባ ጡንቻ",
+    "Biceps":"የክንዱ ጡንቻ",
+    "Calf":"የባት ጡንቻ",
+    "Chest":"የደረት ጡንቻ",
+    "Forearm":"የታች ክንድ ጡንቻ",
+    "Legs":"የእግር ጡንቻ",
+    "Shoulders":"የትከሻ ጡንቻ",
+    "Triceps":"የመንሽ ጡንቻ",
+    "All":"ሁሉም"
+   
+
 }

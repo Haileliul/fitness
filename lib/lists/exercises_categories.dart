@@ -1,46 +1,48 @@
 import 'package:flutter/material.dart';
+import 'package:easy_localization/easy_localization.dart';
+import '../translations/local_keys.g.dart';
 
 class ExerciseCategories {
-  final List<Map> containerData = [
+  static List<Map> containerData = [
     {
       'exerciseCategoryImage': 'assets/images/cat0n.png',
-      'exerciseCategoryName': 'ABs',
+      'exerciseCategoryName': '${LocaleKeys.ABs.tr()}',
     },
     {
       'exerciseCategoryImage': 'assets/images/cat1n.png',
-      'exerciseCategoryName': 'Back',
+      'exerciseCategoryName': '${LocaleKeys.Back.tr()}',
     },
     {
       'exerciseCategoryImage': 'assets/images/cat2n.png',
-      'exerciseCategoryName': 'Biceps',
+      'exerciseCategoryName': '${LocaleKeys.Biceps.tr()}',
     },
     {
       'exerciseCategoryImage': 'assets/images/cat3n.png',
-      'exerciseCategoryName': 'Calf',
+      'exerciseCategoryName': '${LocaleKeys.Calf.tr()}',
     },
     {
       'exerciseCategoryImage': 'assets/images/cat4n.png',
-      'exerciseCategoryName': 'Chest',
+      'exerciseCategoryName': '${LocaleKeys.Chest.tr()}',
     },
     {
       'exerciseCategoryImage': 'assets/images/cat5n.png',
-      'exerciseCategoryName': 'Forearm',
+      'exerciseCategoryName': '${LocaleKeys.Forearm.tr()}',
     },
     {
       'exerciseCategoryImage': 'assets/images/cat6n.png',
-      'exerciseCategoryName': 'Legs',
+      'exerciseCategoryName': '${LocaleKeys.Legs.tr()}',
     },
     {
       'exerciseCategoryImage': 'assets/images/cat7n.png',
-      'exerciseCategoryName': 'Shoulders',
+      'exerciseCategoryName': '${LocaleKeys.Shoulders.tr()}',
     },
     {
       'exerciseCategoryImage': 'assets/images/cat8n.png',
-      'exerciseCategoryName': 'Triceps',
+      'exerciseCategoryName': '${LocaleKeys.Triceps.tr()}',
     },
     {
       'exerciseCategoryImage': 'assets/images/cat9n.png',
-      'exerciseCategoryName': 'All',
+      'exerciseCategoryName': '${LocaleKeys.All.tr()}',
     },
   ];
 }

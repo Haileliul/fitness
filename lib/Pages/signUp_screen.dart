@@ -111,34 +111,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
     );
   }
 
-  // String _selectedAge = 'Age';
-  // String _selectedSex = 'Sex';
-
-  // void _selectAge(BuildContext context) async {
-  //   int startAge = 12;
-  //   int endAge = 70;
-  //   List<String> ageList = List.generate(
-  //     endAge - startAge + 1,
-  //     (index) => '${startAge + index}',
-  //   );
-  //   String? selected = await showMenu(
-  //     context: context,
-  //     position: RelativeRect.fromLTRB(100, 100, 0, 0),
-  //     items: ageList.map((age) {
-  //       return PopupMenuItem(
-  //         value: age,
-  //         child: Text(age),
-  //       );
-  //     }).toList(),
-  //     color: Colors.white,
-  //   );
-  //   if (selected != null) {
-  //     setState(() {
-  //       _selectedAge = selected;
-  //     });
-  //   }
-  // }
-
   Widget _buildAgeButton() {
     return Container(
       height: 48,
@@ -276,29 +248,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
     );
   }
 
-  // Widget _buildAgeContainer() {
-  //   return Container(
-  //     height: 48,
-  //     width: 116,
-  //     decoration: BoxDecoration(
-  //       color: Color(0xFFFFF6F6),
-  //       borderRadius: BorderRadius.circular(8),
-  //     ),
-  //     child: Row(
-  //       mainAxisAlignment: MainAxisAlignment.spaceAround,
-  //       children: [
-  //         Text(
-  //           _selectedAge,
-  //           style: TextStyle(
-  //             fontSize: 18,
-  //             color: Colors.black.withOpacity(0.6),
-  //           ),
-  //         ),
-  //       ],
-  //     ),
-  //   );
-  // }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -376,7 +325,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
                             ),
                           ),
                           child: ElevatedButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              Navigator.pushNamed(context, '/Main');
+                            },
                             child: Text(
                               LocaleKeys.Sign_up.tr(),
                               style: TextStyle(

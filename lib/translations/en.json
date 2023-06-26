@@ -11,8 +11,17 @@
     "hint_name": "Full name",
     "Password": "Password",
     "Age":"Age",
-    "have_an_account": "Do you have an account?"
-
+    "have_an_account": "Do you have an account?",
+     "ABs":"ABs",
+     "Back":"Back",
+     "Biceps":"Biceps",
+     "Calf":"Calf",
+     "Chest":"Chest",
+     "Forearm":"Forearm",
+     "Legs":"Legs",
+     "Shoulders":"Shoulders",
+     "Triceps":"Triceps",
+     "All":"All"
     
 
 

@@ -7,6 +7,9 @@ import '../lists/exercises_categories.dart';
 
 import '../Widgets/grid_view_builder.dart';
 
+import 'package:easy_localization/easy_localization.dart';
+import '../translations/local_keys.g.dart';
+
 class MainLandingPage extends StatefulWidget {
   MainLandingPage({Key? key}) : super(key: key);
 
@@ -87,7 +90,7 @@ class _MainLandingPageState extends State<MainLandingPage> {
               ),
               Expanded(
                 child: GridViewBuilder(
-                  length: exerciseCategories.containerData.length,
+                  length: ExerciseCategories.containerData.length,
                   image: 'exerciseCategoryImage',
                   name: 'exerciseCategoryName',
                 ),

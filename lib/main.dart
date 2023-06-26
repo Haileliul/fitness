@@ -77,12 +77,12 @@ class Home extends StatelessWidget {
           // WorkoutList(),
 
           // SchedulList(),
-          // SplashScreen(),
-          // SignUpScreen(),
-          // LoginScreen(),
-          // FinalReportPage(),
+          SplashScreen(),
+      // SignUpScreen(),
+      // LoginScreen(),
+      // FinalReportPage(),
 
-          MainLandingPage(),
+      // MainLandingPage(),
       // SchedulList(),
       // mongotest(),
       // Lang(),
