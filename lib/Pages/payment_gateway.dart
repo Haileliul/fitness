@@ -75,8 +75,11 @@ class _PaymentGatewayScreenState extends State<PaymentGatewayScreen> {
                             ),
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              crossAxisAlignment: CrossAxisAlignment.end,
                               children: [
-                                Container(
+                                Padding(
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: 8.0),
                                   child: Column(
                                     children: [
                                       Image.asset(
@@ -87,14 +90,35 @@ class _PaymentGatewayScreenState extends State<PaymentGatewayScreen> {
                                     ],
                                   ),
                                 ),
-                                TextButton(
-                                  style: ButtonStyle(
-                                    backgroundColor:
-                                        MaterialStatePropertyAll(Colors.grey),
+                                Padding(
+                                  padding: const EdgeInsets.only(bottom: 8.0),
+                                  child: TextButton(
+                                    style: ButtonStyle(
+                                      foregroundColor:
+                                          MaterialStatePropertyAll<Color>(
+                                        Color.fromRGBO(0, 0, 0, 0.7),
+                                      ),
+                                      alignment: Alignment.center,
+                                      minimumSize:
+                                          MaterialStateProperty.all<Size>(
+                                        Size(70,
+                                            30), // Adjust the width and height as desired
+                                      ),
+                                      shape: MaterialStatePropertyAll<
+                                          RoundedRectangleBorder>(
+                                        RoundedRectangleBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(10.0),
+                                        ),
+                                      ),
+                                      backgroundColor: MaterialStatePropertyAll(
+                                        Color.fromRGBO(217, 217, 217, 0.5),
+                                      ),
+                                    ),
+                                    onPressed: () {},
+                                    child: Text('Buy'),
                                   ),
-                                  onPressed: () {},
-                                  child: Text('Buy'),
-                                )
+                                ),
                               ],
                             ),
                           ),
