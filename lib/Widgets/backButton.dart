@@ -11,6 +11,7 @@ class backButton extends StatelessWidget {
         color: Colors.grey,
       ),
       child: IconButton(
+        alignment: Alignment.center,
         icon: Icon(Icons.keyboard_arrow_left),
         onPressed: () {},
       ),

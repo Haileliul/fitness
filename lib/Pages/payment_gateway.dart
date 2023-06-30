@@ -43,30 +43,63 @@ class _PaymentGatewayScreenState extends State<PaymentGatewayScreen> {
                 child: Padding(
                   padding: const EdgeInsets.symmetric(
                       vertical: 8.0, horizontal: 10.0),
-                  child: SingleChildScrollView(
-                    child: Container(
-                      height: size.height,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10),
-                        color: Color.fromRGBO(217, 217, 217, 0.50),
+                  child: Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      color: Color.fromRGBO(217, 217, 217, 0.50),
+                    ),
+                    child: GridView.builder(
+                      itemCount: 5,
+                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 1,
+                        childAspectRatio: MediaQuery.of(context).size.width /
+                            (MediaQuery.of(context).size.height / 6),
                       ),
-                      child: GridView.builder(
-                        itemCount: 5,
-                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                            crossAxisCount: 1),
-                        itemBuilder: (BuildContext context, int index) {
-                          return Container(
+                      itemBuilder: (context, index) {
+                        return Padding(
+                          padding: const EdgeInsets.symmetric(
+                              vertical: 10.0, horizontal: 12.0),
+                          child: Container(
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(12.0),
+                              gradient: LinearGradient(
+                                begin: Alignment.topLeft,
+                                end: Alignment.bottomRight,
+                                colors: [
+                                  Color(0xFFF43800),
+                                  Color.fromRGBO(244, 56, 0, 0),
+                                  Color(0xFFF43800),
+                                ],
+                                stops: [0.0153, 0.9821, 0.1234],
+                              ),
+                            ),
                             child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                Image.asset(
-                                  'assets/images/dashen_amole.png',
-                                  fit: BoxFit.cover,
+                                Container(
+                                  child: Column(
+                                    children: [
+                                      Image.asset(
+                                        'assets/images/cbe_mobile_banking.png',
+                                        scale: 1.5,
+                                      ),
+                                      Text('CBE Mobile Banking')
+                                    ],
+                                  ),
+                                ),
+                                TextButton(
+                                  style: ButtonStyle(
+                                    backgroundColor:
+                                        MaterialStatePropertyAll(Colors.grey),
+                                  ),
+                                  onPressed: () {},
+                                  child: Text('Buy'),
                                 )
                               ],
                             ),
-                          );
-                        },
-                      ),
+                          ),
+                        );
+                      },
                     ),
                   ),
                 ),
