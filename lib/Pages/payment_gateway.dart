@@ -45,11 +45,25 @@ class _PaymentGatewayScreenState extends State<PaymentGatewayScreen> {
                       vertical: 8.0, horizontal: 10.0),
                   child: SingleChildScrollView(
                     child: Container(
+                      height: size.height,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
                         color: Color.fromRGBO(217, 217, 217, 0.50),
                       ),
-                      child: Placeholder(),
+                      child: GridView.builder(
+                        itemCount: 6,
+                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                            crossAxisCount: 1),
+                        itemBuilder: (BuildContext context, int index) {
+                          return Container(
+                            child: Row(
+                              children: [
+                                Image.asset('assets/images/cat8m.png')
+                              ],
+                            ),
+                          );
+                        },
+                      ),
                     ),
                   ),
                 ),
