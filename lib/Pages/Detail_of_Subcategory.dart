@@ -1,4 +1,6 @@
+import 'package:fitness/constants/constants.dart';
 import 'package:flutter/material.dart';
+import 'package:miniplayer/miniplayer.dart';
 import '../Widgets/animatedIcon.dart';
 import '../Widgets/backButton.dart';
 import '../Widgets/YotubePlayerPage.dart';
@@ -70,41 +72,23 @@ class DetailSubList extends StatelessWidget {
               // here will the music go
 
               Expanded(
-                flex: 2,
-                child: Container(
-                  decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                      colors: [
-                        Colors.black,
-                        Colors.red,
-                        Color.fromARGB(255, 223, 99, 99),
-                      ],
-                      begin: Alignment.centerLeft,
-                      end: Alignment.centerRight,
+                flex: 7,
+                child: Stack(
+                  children: <Widget>[
+                    // YourApp(),
+                    Miniplayer(
+                      minHeight: 70,
+                      maxHeight: size.height,
+                      builder: (height, percentage) {
+                        return Container(
+                          color: kSecondaryColor,
+                          child: Center(
+                            child: Text('Music Player'),
+                          ),
+                        );
+                      },
                     ),
-                    borderRadius: BorderRadius.only(
-                      topRight: Radius.circular(40),
-                      topLeft: Radius.circular(40),
-                    ),
-                  ),
-                  child: Column(
-                    children: [
-                      TextButton(
-                        onPressed: () {},
-                        child: Icon(
-                          Icons.keyboard_arrow_up,
-                          color: Colors.white,
-                        ),
-                        style: ButtonStyle(),
-                      ),
-                      Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          AnimatedIconExample(),
-                        ],
-                      ),
-                    ],
-                  ),
+                  ],
                 ),
               ),
             ],
