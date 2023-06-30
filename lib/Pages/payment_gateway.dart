@@ -51,14 +51,17 @@ class _PaymentGatewayScreenState extends State<PaymentGatewayScreen> {
                         color: Color.fromRGBO(217, 217, 217, 0.50),
                       ),
                       child: GridView.builder(
-                        itemCount: 6,
+                        itemCount: 5,
                         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                             crossAxisCount: 1),
                         itemBuilder: (BuildContext context, int index) {
                           return Container(
                             child: Row(
                               children: [
-                                Image.asset('assets/images/cat8m.png')
+                                Image.asset(
+                                  'assets/images/dashen_amole.png',
+                                  fit: BoxFit.cover,
+                                )
                               ],
                             ),
                           );
