@@ -1,21 +1,27 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import '../Widgets/animatedIcon.dart';
 import '../Widgets/backButton.dart';
 import '../Widgets/YotubePlayerPage.dart';
+import '../Provider/exercises_categories.dart';
 // import 'package:assets_audio_player/assets_audio_player.dart';
 
 class DetailSubList extends StatelessWidget {
-  const DetailSubList({super.key});
+  var productState;
+  var productStateModifier;
 
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     //create a new player
     // final assetsAudioPlayer = AssetsAudioPlayer();
+    productState = Provider.of<ExerciseCategories>(context);
+    productStateModifier =
+        Provider.of<ExerciseCategories>(context, listen: false);
     return Scaffold(
       body: SafeArea(
         child: Container(
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
               // color: Colors.white.withOpacity(0.4),
               ),
           child: Column(
@@ -23,7 +29,7 @@ class DetailSubList extends StatelessWidget {
               Expanded(
                 flex: 12,
                 child: Container(
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                     // color: Colors.grey.withOpacity(0.4),
                     borderRadius: BorderRadius.only(
                       bottomLeft: Radius.circular(40),
@@ -34,13 +40,13 @@ class DetailSubList extends StatelessWidget {
                       Stack(
                         children: [
                           youtubplayer(),
-                          Padding(
-                            padding: const EdgeInsets.all(8.0),
+                          const Padding(
+                            padding: EdgeInsets.all(8.0),
                             child: backButton(),
                           ),
                         ],
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 20,
                       ),
                       Container(
@@ -48,16 +54,19 @@ class DetailSubList extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             ListTile(
-                              leading: Icon(Icons.person),
-                              title: Text("The title of  sport"),
-                              subtitle: Text("The dicription"),
+                              leading: Image.network(
+                                  "${productState.containerData[productState.selectedCategoryIndex]["SubExercises"][productState.SubselectedCategoryIndex]["Img"]}"),
+                              title: Text(
+                                  "${productState.containerData[productState.selectedCategoryIndex]["SubExercises"][productState.SubselectedCategoryIndex]["Name"]}"),
+                              subtitle: Text("this is detaile"),
                             ),
                             Padding(
-                              padding: const EdgeInsets.symmetric(
+                              padding: EdgeInsets.symmetric(
                                 horizontal: 28.0,
                                 vertical: 20,
                               ),
-                              child: Text("This is the place where the"),
+                              child: Text(
+                                  "${productState.containerData[productState.selectedCategoryIndex]["SubExercises"][productState.SubselectedCategoryIndex]["Details"]}"),
                             ),
                           ],
                         ),
@@ -72,7 +81,7 @@ class DetailSubList extends StatelessWidget {
               Expanded(
                 flex: 2,
                 child: Container(
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                     gradient: LinearGradient(
                       colors: [
                         Colors.black,
@@ -91,13 +100,13 @@ class DetailSubList extends StatelessWidget {
                     children: [
                       TextButton(
                         onPressed: () {},
-                        child: Icon(
+                        style: const ButtonStyle(),
+                        child: const Icon(
                           Icons.keyboard_arrow_up,
                           color: Colors.white,
                         ),
-                        style: ButtonStyle(),
                       ),
-                      Row(
+                      const Row(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           AnimatedIconExample(),

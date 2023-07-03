@@ -122,6 +122,8 @@ class SchedulList extends StatelessWidget {
     },
   ];
 
+  SchedulList({super.key});
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -129,19 +131,19 @@ class SchedulList extends StatelessWidget {
       body: Container(
         width: size.width,
         height: size.height,
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
             image: DecorationImage(
           image: AssetImage('assets/images/lo.png'),
           fit: BoxFit.cover,
         )),
         child: Column(
           children: [
-            Padding(
-              padding: const EdgeInsets.only(bottom: 18.0),
+            const Padding(
+              padding: EdgeInsets.only(bottom: 18.0),
               child: Row(
                 children: [
                   Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    padding: EdgeInsets.all(8.0),
                     child: backButton(),
                   ),
                 ],
@@ -149,12 +151,12 @@ class SchedulList extends StatelessWidget {
             ),
             Expanded(
               child: Container(
-                margin: EdgeInsets.only(
+                margin: const EdgeInsets.only(
                   right: 20,
                 ),
                 decoration: BoxDecoration(
                   color: Colors.grey.withOpacity(0.4),
-                  borderRadius: BorderRadius.only(
+                  borderRadius: const BorderRadius.only(
                     topRight: Radius.circular(
                       20,
                     ),
@@ -169,14 +171,14 @@ class SchedulList extends StatelessWidget {
                         Container(
                           child: ShaderMask(
                             shaderCallback: (Rect bounds) {
-                              return RadialGradient(
+                              return const RadialGradient(
                                 center: Alignment.topLeft,
                                 radius: 1.0,
                                 colors: [Colors.yellow, Colors.red],
                                 tileMode: TileMode.mirror,
                               ).createShader(bounds);
                             },
-                            child: Text(
+                            child: const Text(
                               "WorkOut Scheduler",
                               style: TextStyle(
                                 fontSize: 30.0,
@@ -193,10 +195,10 @@ class SchedulList extends StatelessWidget {
                       itemBuilder: (context, index) {
                         return Container(
                           // height: size.height * 0.1,
-                          margin: EdgeInsets.only(bottom: 5),
+                          margin: const EdgeInsets.only(bottom: 5),
                           decoration: BoxDecoration(
                             color: Colors.grey.withOpacity(0.5),
-                            borderRadius: BorderRadius.only(
+                            borderRadius: const BorderRadius.only(
                               bottomRight: Radius.circular(20),
                               topLeft: Radius.circular(20),
                             ),
@@ -213,7 +215,7 @@ class SchedulList extends StatelessWidget {
                                     const EdgeInsets.symmetric(vertical: 45.0),
                                 child: ShaderMask(
                                   shaderCallback: (Rect bounds) {
-                                    return RadialGradient(
+                                    return const RadialGradient(
                                       center: Alignment.topLeft,
                                       radius: 1.0,
                                       colors: [Colors.yellow, Colors.red],
@@ -222,7 +224,7 @@ class SchedulList extends StatelessWidget {
                                   },
                                   child: Text(
                                     "${Scheduller[index]["title"]}",
-                                    style: TextStyle(
+                                    style: const TextStyle(
                                       fontSize: 20.0,
                                       color: Colors.white,
                                     ),
@@ -232,7 +234,7 @@ class SchedulList extends StatelessWidget {
                             ),
 
                             children: [
-                              Container(
+                              SizedBox(
                                 height: 200,
                                 width: double.infinity,
                                 child: ListView.builder(
@@ -241,22 +243,22 @@ class SchedulList extends StatelessWidget {
                                       padding: const EdgeInsets.all(8.0),
                                       child: TextButton(
                                         onPressed: () {},
+                                        style: const ButtonStyle(
+                                            backgroundColor:
+                                                MaterialStatePropertyAll(
+                                          Colors.grey,
+                                        )),
                                         child: Padding(
                                           padding: const EdgeInsets.symmetric(
                                               vertical: 20),
                                           child: Text(
                                             "${Scheduller[0]["Excersise"][index]["day"]}",
-                                            style: TextStyle(
+                                            style: const TextStyle(
                                               color: Colors.white,
                                               fontWeight: FontWeight.bold,
                                             ),
                                           ),
                                         ),
-                                        style: ButtonStyle(
-                                            backgroundColor:
-                                                MaterialStatePropertyAll(
-                                          Colors.grey,
-                                        )),
                                       ),
                                     );
                                   },

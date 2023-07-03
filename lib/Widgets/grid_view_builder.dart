@@ -1,29 +1,27 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
-import '../lists/exercises_categories.dart';
-import '../Pages/sport_category_page.dart';
+import '../Provider/exercises_categories.dart';
 
 class GridViewBuilder extends StatelessWidget {
-  GridViewBuilder({
-    required this.length,
-    required this.image,
-    required this.name,
-  });
+  var productState;
+  var productStateModifier;
 
-  final int length;
-  final String image;
-  final String name;
+  GridViewBuilder({super.key});
   @override
   Widget build(BuildContext context) {
+    productState = Provider.of<ExerciseCategories>(context);
+    productStateModifier =
+        Provider.of<ExerciseCategories>(context, listen: false);
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20.0),
       child: GlowingOverscrollIndicator(
         axisDirection: AxisDirection.down,
-        color: Color(0xFFE81818),
+        color: const Color(0xFFE81818),
         child: GridView.builder(
-          itemCount: length,
-          gridDelegate:
-              SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
+          itemCount: productState.containerData.length,
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2),
           itemBuilder: (context, index) {
             return Padding(
               padding: const EdgeInsets.all(8.0),
@@ -34,6 +32,8 @@ class GridViewBuilder extends StatelessWidget {
                     '/SportCat',
                     arguments: {"Index": index},
                   );
+
+                  productStateModifier.changeIndex(index);
                 },
                 child: Container(
                   decoration: BoxDecoration(
@@ -46,16 +46,16 @@ class GridViewBuilder extends StatelessWidget {
                       Opacity(
                         opacity: 0.45,
                         child: Image.asset(
-                          ExerciseCategories.containerData[index][image]
-                              .toString(),
+                          productState.containerData[index]
+                              ["exerciseCategoryImage"],
                           fit: BoxFit.cover,
                         ),
                       ),
                       Center(
                         child: Text(
-                          ExerciseCategories.containerData[index][name]
-                              .toString(),
-                          style: TextStyle(
+                          productState.containerData[index]
+                              ["exerciseCategoryName"],
+                          style: const TextStyle(
                             color: Colors.white,
                             fontSize: 20,
                             fontWeight: FontWeight.bold,

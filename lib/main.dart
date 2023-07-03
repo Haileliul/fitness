@@ -1,25 +1,20 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 // import 'Pages/Detail_of_Subcategory.txt';
 
 import 'Pages/Detail_of_Subcategory.dart';
 import 'Pages/FinalReportPage.dart';
-import 'Pages/LanguageLocalTest.dart';
 import 'Pages/SchedulList.dart';
 import 'Pages/WorkoutList.dart';
 import 'Pages/main_landing_page.dart';
 import 'Pages/sport_category_page.dart';
-import 'Widgets/YotubePlayerPage.dart';
-import 'Widgets/chart.dart';
 import 'Pages/login_screen.dart';
 import 'Pages/signUp_screen.dart';
 import 'Pages/splash_screen.dart';
-import 'Widgets/backButton.dart';
-import 'model/usermodel.dart';
-import 'mongotest.dart';
 import '../translations/codegen_loader.g.dart';
-import './translations/local_keys.g.dart';
+import 'Provider/exercises_categories.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -27,14 +22,14 @@ Future<void> main() async {
 
   runApp(
     EasyLocalization(
-      supportedLocales: [
+      supportedLocales: const [
         Locale('en'),
         Locale('am'),
       ],
       path: 'assets/translations',
-      fallbackLocale: Locale('am'),
-      assetLoader: CodegenLoader(),
-      child: Home(),
+      fallbackLocale: const Locale('am'),
+      assetLoader: const CodegenLoader(),
+      child: const Home(),
     ),
   );
 }
@@ -44,48 +39,53 @@ class Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      // adding nessesary deligates for app localizasion
-      localizationsDelegates: context.localizationDelegates,
-      supportedLocales: context.supportedLocales,
-      locale: context.locale,
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (context) => ExerciseCategories()),
+      ],
+      child: MaterialApp(
+        // adding nessesary deligates for app localizasion
+        localizationsDelegates: context.localizationDelegates,
+        supportedLocales: context.supportedLocales,
+        locale: context.locale,
 
-      // Hide the debug banner
-      debugShowCheckedModeBanner: false,
+        // Hide the debug banner
+        debugShowCheckedModeBanner: false,
 
-      // Theme of the page
-      theme: ThemeData.dark(),
-      title: 'Flutter Example',
+        // Theme of the page
+        theme: ThemeData.dark(),
+        title: 'Flutter Example',
 
-      routes: {
-        // '/': (context) => SplashScreen(),
-        '/Login': (context) => LoginScreen(),
-        '/Signup': (context) => SignUpScreen(),
-        '/Main': (context) => MainLandingPage(),
+        routes: {
+          // '/': (context) => SplashScreen(),
+          '/Login': (context) => const LoginScreen(),
+          '/Signup': (context) => const SignUpScreen(),
+          '/Main': (context) => const MainLandingPage(),
 
-        '/Final': (context) => FinalReportPage(),
-        '/Detail': (context) => DetailSubList(),
-        '/SportCat': (context) => SportsCategory(),
-        // Pages for pro version
-        '/Schedule': (context) => SchedulList(),
-        '/Workout': (context) => WorkoutList(),
-      },
+          '/Final': (context) => const FinalReportPage(),
+          '/Detail': (context) => DetailSubList(),
+          '/SportCat': (context) => const SportsCategory(),
+          // Pages for pro version
+          '/Schedule': (context) => SchedulList(),
+          '/Workout': (context) => WorkoutList(),
+        },
 
-      home:
-          //  SportsCategory(),
+        home:
+            //  SportsCategory(),
 
-          // WorkoutList(),
+            // WorkoutList(),
 
-          // SchedulList(),
-          SplashScreen(),
-      // SignUpScreen(),
-      // LoginScreen(),
-      // FinalReportPage(),
+            // SchedulList(),
+            const SplashScreen(),
+        // SignUpScreen(),
+        // LoginScreen(),
+        // FinalReportPage(),
 
-      // MainLandingPage(),
-      // SchedulList(),
-      // mongotest(),
-      // Lang(),
+        // MainLandingPage(),
+        // SchedulList(),
+        // mongotest(),
+        // Lang(),
+      ),
     );
   }
 }

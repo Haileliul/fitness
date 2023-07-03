@@ -43,7 +43,7 @@ class _AnimatedIconExampleState extends State<AnimatedIconExample>
         },
         child: CircleAvatar(
           backgroundColor: Colors.white,
-          foregroundColor: Color.fromARGB(255, 245, 16, 0),
+          foregroundColor: const Color.fromARGB(255, 245, 16, 0),
           radius: 25,
           child: AnimatedIcon(
             icon: AnimatedIcons.play_pause,

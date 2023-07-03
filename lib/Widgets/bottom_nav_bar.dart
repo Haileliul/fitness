@@ -19,7 +19,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         borderRadius: BorderRadius.only(
           topRight: Radius.circular(20),
           topLeft: Radius.circular(20),
@@ -34,15 +34,15 @@ class _BottomNavBarState extends State<BottomNavBar> {
             });
           },
           activeColor: kSecondaryColor,
-          textStyle: TextStyle(
+          textStyle: const TextStyle(
             color: Colors.grey,
           ),
           color: Colors.grey,
-          duration: Duration(milliseconds: 200),
+          duration: const Duration(milliseconds: 200),
           gap: 12.0,
-          padding: EdgeInsets.symmetric(vertical: 15.0, horizontal: 10.0),
+          padding: const EdgeInsets.symmetric(vertical: 15.0, horizontal: 10.0),
           tabBorderRadius: 20.0,
-          tabs: [
+          tabs: const [
             GButton(
               icon: FeatherIcons.home,
               text: 'Home',
