@@ -29,7 +29,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData.dark(),
 
       title: 'Flutter Example',
-      home: PaymentGatewayScreen(),
+      home: WeSlideTest(),
       // SignUpScreen(),
       //  LoginScreen(),
       // FinalReportPage(),
