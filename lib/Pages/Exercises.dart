@@ -30,18 +30,18 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Example',
 
       theme: ThemeData.dark().copyWith(
-        scaffoldBackgroundColor: Color(0xFF302B2B),
+        scaffoldBackgroundColor: const Color(0xFF302B2B),
       ),
 
       home: Scaffold(
-        body: MainLandingPage(),
+        body: const MainLandingPage(),
         bottomNavigationBar: Container(
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             borderRadius: BorderRadius.only(
                 topRight: Radius.circular(20), topLeft: Radius.circular(20)),
           ),
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20.0),
+          child: const Padding(
+            padding: EdgeInsets.symmetric(horizontal: 20.0),
             child: GNav(
               color: Colors.grey,
               duration: Duration(milliseconds: 200),

@@ -4,7 +4,6 @@ import 'package:we_slide/we_slide.dart';
 
 import '../Widgets/YotubePlayerPage.dart';
 import '../Widgets/backButton.dart';
-import 'package:miniplayer/miniplayer.dart';
 
 class WeSlideTest extends StatefulWidget {
   const WeSlideTest({super.key});
@@ -16,16 +15,16 @@ class WeSlideTest extends StatefulWidget {
 class _WeSlideTestState extends State<WeSlideTest> {
   @override
   Widget build(BuildContext context) {
-    final _colorScheme = Theme.of(context).colorScheme;
-    final double _panelMinSize = 70.0;
-    final double _panelMaxSize = MediaQuery.of(context).size.height / 2;
+    final colorScheme = Theme.of(context).colorScheme;
+    const double panelMinSize = 70.0;
+    final double panelMaxSize = MediaQuery.of(context).size.height / 2;
     return SafeArea(
       child: Scaffold(
         body: WeSlide(
-          panelMinSize: _panelMinSize,
-          panelMaxSize: _panelMaxSize,
+          panelMinSize: panelMinSize,
+          panelMaxSize: panelMaxSize,
           body: Container(
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               // color: Colors.grey.withOpacity(0.4),
               borderRadius: BorderRadius.only(
                 bottomLeft: Radius.circular(40),
@@ -36,17 +35,17 @@ class _WeSlideTestState extends State<WeSlideTest> {
                 Stack(
                   children: [
                     youtubplayer(),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
+                    const Padding(
+                      padding: EdgeInsets.all(8.0),
                       child: backButton(),
                     ),
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 20,
                 ),
                 Container(
-                  child: Column(
+                  child: const Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       ListTile(
@@ -55,7 +54,7 @@ class _WeSlideTestState extends State<WeSlideTest> {
                         subtitle: Text("The dicription"),
                       ),
                       Padding(
-                        padding: const EdgeInsets.symmetric(
+                        padding: EdgeInsets.symmetric(
                           horizontal: 28.0,
                           vertical: 20,
                         ),
@@ -69,7 +68,7 @@ class _WeSlideTestState extends State<WeSlideTest> {
           ),
           panel: Container(
             color: kSecondaryColor,
-            child: Center(child: Text("This is the panel 😊")),
+            child: const Center(child: Text("This is the panel 😊")),
           ),
         ),
       ),

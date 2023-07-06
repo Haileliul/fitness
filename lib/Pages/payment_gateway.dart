@@ -1,9 +1,8 @@
 import 'package:fitness/Widgets/backButton.dart';
-import 'package:fitness/constants/constants.dart';
 import 'package:flutter/material.dart';
 
 class PaymentGatewayScreen extends StatefulWidget {
-  const PaymentGatewayScreen({Key? key});
+  const PaymentGatewayScreen({super.key});
 
   @override
   State<PaymentGatewayScreen> createState() => _PaymentGatewayScreenState();
@@ -118,7 +117,7 @@ class _PaymentGatewayScreenState extends State<PaymentGatewayScreen> {
                                     style: ButtonStyle(
                                       foregroundColor:
                                           MaterialStateProperty.all<Color>(
-                                        Color.fromRGBO(0, 0, 0, 0.7),
+                                        const Color.fromRGBO(0, 0, 0, 0.7),
                                       ),
                                       alignment: Alignment.center,
                                       minimumSize:
@@ -135,7 +134,8 @@ class _PaymentGatewayScreenState extends State<PaymentGatewayScreen> {
                                       ),
                                       backgroundColor:
                                           MaterialStateProperty.all<Color>(
-                                        Color.fromRGBO(217, 217, 217, 0.5),
+                                        const Color.fromRGBO(
+                                            217, 217, 217, 0.5),
                                       ),
                                     ),
                                     onPressed: () {},

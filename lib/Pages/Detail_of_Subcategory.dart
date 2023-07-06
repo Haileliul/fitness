@@ -1,7 +1,6 @@
 import 'package:fitness/constants/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:miniplayer/miniplayer.dart';
-import '../Widgets/animatedIcon.dart';
 import '../Widgets/backButton.dart';
 import '../Widgets/YotubePlayerPage.dart';
 import 'package:assets_audio_player/assets_audio_player.dart';
@@ -17,7 +16,7 @@ class DetailSubList extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
         child: Container(
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
               // color: Colors.white.withOpacity(0.4),
               ),
           child: Column(
@@ -25,7 +24,7 @@ class DetailSubList extends StatelessWidget {
               Expanded(
                 flex: 12,
                 child: Container(
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                     // color: Colors.grey.withOpacity(0.4),
                     borderRadius: BorderRadius.only(
                       bottomLeft: Radius.circular(40),
@@ -36,17 +35,17 @@ class DetailSubList extends StatelessWidget {
                       Stack(
                         children: [
                           youtubplayer(),
-                          Padding(
-                            padding: const EdgeInsets.all(8.0),
+                          const Padding(
+                            padding: EdgeInsets.all(8.0),
                             child: backButton(),
                           ),
                         ],
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 20,
                       ),
                       Container(
-                        child: Column(
+                        child: const Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             ListTile(
@@ -55,7 +54,7 @@ class DetailSubList extends StatelessWidget {
                               subtitle: Text("The dicription"),
                             ),
                             Padding(
-                              padding: const EdgeInsets.symmetric(
+                              padding: EdgeInsets.symmetric(
                                 horizontal: 28.0,
                                 vertical: 20,
                               ),
@@ -82,7 +81,7 @@ class DetailSubList extends StatelessWidget {
                       builder: (height, percentage) {
                         return Container(
                           color: kSecondaryColor,
-                          child: Center(
+                          child: const Center(
                             child: Text('Music Player'),
                           ),
                         );

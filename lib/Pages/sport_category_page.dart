@@ -26,7 +26,7 @@ class _SportsCategoryState extends State<SportsCategory> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
+        title: const Text(
           'Abs',
           style: TextStyle(
             fontSize: 20.0,
@@ -50,17 +50,17 @@ class _SportsCategoryState extends State<SportsCategory> {
                   setState(() => activeIndex = index),
             ),
           ),
-          SizedBox(height: 10),
+          const SizedBox(height: 10),
           buildIndicator(),
           Expanded(
             child: Container(
-              margin: EdgeInsets.symmetric(
+              margin: const EdgeInsets.symmetric(
                 horizontal: 20,
                 vertical: 10,
               ),
               child: GridView.builder(
                 itemCount: 5,
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2,
                 ),
                 itemBuilder: (context, index) {
@@ -73,7 +73,7 @@ class _SportsCategoryState extends State<SportsCategory> {
                         borderRadius: BorderRadius.circular(80),
                       ),
                       child: ClipRRect(
-                        borderRadius: BorderRadius.only(
+                        borderRadius: const BorderRadius.only(
                           topLeft: Radius.circular(25.0),
                           bottomRight: Radius.circular(25.0),
                         ),
@@ -97,7 +97,7 @@ class _SportsCategoryState extends State<SportsCategory> {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           AnimatedSmoothIndicator(
-            effect: ExpandingDotsEffect(
+            effect: const ExpandingDotsEffect(
               dotColor: Colors.white,
               dotWidth: 10,
               dotHeight: 10,
@@ -110,7 +110,7 @@ class _SportsCategoryState extends State<SportsCategory> {
       );
 }
 
-Widget buildImage(String urlImage, int index) => Container(
+Widget buildImage(String urlImage, int index) => SizedBox(
       width: double.infinity,
       child: Image.network(
         urlImage,

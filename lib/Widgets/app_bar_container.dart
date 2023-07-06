@@ -1,4 +1,3 @@
-import 'package:fitness/constants/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -10,7 +9,7 @@ class AppBarContainer extends StatelessWidget {
     return Builder(builder: (context) {
       return Container(
         width: double.infinity,
-        padding: EdgeInsets.symmetric(horizontal: 20.0),
+        padding: const EdgeInsets.symmetric(horizontal: 20.0),
         color: Colors.black,
         height: 65.0,
         child: Row(
@@ -20,9 +19,9 @@ class AppBarContainer extends StatelessWidget {
               onTap: () {
                 Scaffold.of(context).openDrawer();
               },
-              child: Icon(FontAwesomeIcons.bars),
+              child: const Icon(FontAwesomeIcons.bars),
             ),
-            Text(
+            const Text(
               'Exercises',
               style: TextStyle(
                 fontWeight: FontWeight.w600,
@@ -37,7 +36,7 @@ class AppBarContainer extends StatelessWidget {
                   width: 2.0, // Set the desired border width
                 ),
               ),
-              child: CircleAvatar(
+              child: const CircleAvatar(
                 backgroundColor: Colors.white,
                 backgroundImage: NetworkImage(
                     'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8cHJvZmlsZXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60'),

@@ -6,7 +6,7 @@ import 'package:fitness/Pages/sport_category_page.dart';
 ExerciseCategories exerciseCategories = ExerciseCategories();
 
 class GridViewBuilder extends StatelessWidget {
-  GridViewBuilder({
+  const GridViewBuilder({super.key, 
     required this.length,
     required this.image,
     required this.name,
@@ -21,11 +21,11 @@ class GridViewBuilder extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 20.0),
       child: GlowingOverscrollIndicator(
         axisDirection: AxisDirection.down,
-        color: Color(0xFFE81818),
+        color: const Color(0xFFE81818),
         child: GridView.builder(
           itemCount: length,
           gridDelegate:
-              SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
+              const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
           itemBuilder: (context, index) {
             return Padding(
               padding: const EdgeInsets.all(8.0),
@@ -34,7 +34,7 @@ class GridViewBuilder extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => SportsCategory(),
+                      builder: (context) => const SportsCategory(),
                     ),
                   );
                 },
@@ -58,7 +58,7 @@ class GridViewBuilder extends StatelessWidget {
                         child: Text(
                           exerciseCategories.containerData[index][name]
                               .toString(),
-                          style: TextStyle(
+                          style: const TextStyle(
                             color: Colors.white,
                             fontSize: 20,
                             fontWeight: FontWeight.bold,

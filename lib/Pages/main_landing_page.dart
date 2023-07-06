@@ -1,22 +1,20 @@
-import 'package:fitness/Pages/sport_category_page.dart';
 import 'package:flutter/material.dart';
 import 'package:fitness/Widgets/app_bar_container.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:fitness/lists/exercises_categories.dart';
 import 'package:fitness/constants/constants.dart';
 
 import '../Widgets/bottom_nav_bar.dart';
 import '../widgets/grid_view_builder.dart';
 
 class MainLandingPage extends StatefulWidget {
-  MainLandingPage({Key? key}) : super(key: key);
+  const MainLandingPage({Key? key}) : super(key: key);
 
   @override
   State<MainLandingPage> createState() => _MainLandingPageState();
 }
 
 class _MainLandingPageState extends State<MainLandingPage> {
-  FocusNode _focusNode = FocusNode();
+  final FocusNode _focusNode = FocusNode();
 
   @override
   void dispose() {
@@ -33,7 +31,7 @@ class _MainLandingPageState extends State<MainLandingPage> {
         );
       },
       child: Scaffold(
-        bottomNavigationBar: BottomNavBar(),
+        bottomNavigationBar: const BottomNavBar(),
         drawer: Drawer(
           // Add a ListView to the drawer. This ensures the user can scroll
           // through the options in the drawer if there isn't enough vertical
@@ -72,17 +70,17 @@ class _MainLandingPageState extends State<MainLandingPage> {
         body: SafeArea(
           child: Column(
             children: [
-              AppBarContainer(),
+              const AppBarContainer(),
               Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   Expanded(
                     child: Container(
                       margin:
-                          EdgeInsets.symmetric(vertical: 15, horizontal: 25),
+                          const EdgeInsets.symmetric(vertical: 15, horizontal: 25),
                       child: TextField(
                         focusNode: _focusNode,
-                        style: TextStyle(
+                        style: const TextStyle(
                           color: Colors.black,
                         ),
                         decoration: InputDecoration(
@@ -92,11 +90,11 @@ class _MainLandingPageState extends State<MainLandingPage> {
                             FontAwesomeIcons.magnifyingGlass,
                             color: Colors.grey.shade600,
                           ),
-                          constraints: BoxConstraints(
+                          constraints: const BoxConstraints(
                             maxHeight: 45.0,
                           ),
                           filled: true,
-                          fillColor: Color(0xFFD9D9D9),
+                          fillColor: const Color(0xFFD9D9D9),
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(20.0),
                           ),
