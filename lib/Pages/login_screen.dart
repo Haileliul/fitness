@@ -26,6 +26,7 @@ class _LoginScreenState extends State<LoginScreen> {
     _emailController.dispose();
     super.dispose();
   }
+
   Widget _buildPasswordTextField() {
     return TextField(
       focusNode: _passwordFocusNode,
@@ -70,9 +71,9 @@ class _LoginScreenState extends State<LoginScreen> {
                 height: 160,
               ),
               CircleAvatar(
-
                 radius: 70,
-                backgroundImage: AssetImage('assets/images/fitness-sport-gym-logo-real - Copy.png'),
+                backgroundImage: AssetImage(
+                    'assets/images/fitness-sport-gym-logo-real - Copy.png'),
                 backgroundColor: Colors.transparent,
               ),
               SizedBox(
@@ -102,7 +103,6 @@ class _LoginScreenState extends State<LoginScreen> {
                       SizedBox(
                         height: 20,
                       ),
-
                       TextField(
                         focusNode: _emailFocusNode,
                         controller: _emailController,
@@ -118,15 +118,10 @@ class _LoginScreenState extends State<LoginScreen> {
                       SizedBox(
                         height: 20,
                       ),
-
                       _buildPasswordTextField(),
                       SizedBox(
                         height: 20,
                       ),
-
-
-
-
                       Align(
                         alignment: Alignment.center,
                         child: Container(
@@ -177,7 +172,6 @@ class _LoginScreenState extends State<LoginScreen> {
                               color: Colors.white,
                             ),
                           ),
-
                           Container(
                             height: 26,
                             width: 100,

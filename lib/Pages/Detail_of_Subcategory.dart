@@ -1,8 +1,12 @@
+import 'package:fitness/constants/constants.dart';
 import 'package:flutter/material.dart';
 import '../Widgets/animatedIcon.dart';
 import '../Widgets/backButton.dart';
 import '../Widgets/YotubePlayerPage.dart';
-import 'package:assets_audio_player/assets_audio_player.dart';
+
+import '../Widgets/YotubePlayerPage.dart';
+// import 'package:assets_audio_player/assets_audio_player.dart';
+// import 'package:miniplayer/miniplayer.dart';
 
 class DetailSubList extends StatelessWidget {
   const DetailSubList({super.key});
@@ -11,11 +15,11 @@ class DetailSubList extends StatelessWidget {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     //create a new player
-    final assetsAudioPlayer = AssetsAudioPlayer();
+    // final assetsAudioPlayer = AssetsAudioPlayer();
     return Scaffold(
       body: SafeArea(
         child: Container(
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
               // color: Colors.white.withOpacity(0.4),
               ),
           child: Column(
@@ -23,7 +27,7 @@ class DetailSubList extends StatelessWidget {
               Expanded(
                 flex: 12,
                 child: Container(
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                     // color: Colors.grey.withOpacity(0.4),
                     borderRadius: BorderRadius.only(
                       bottomLeft: Radius.circular(40),
