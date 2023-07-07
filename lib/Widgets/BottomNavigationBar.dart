@@ -43,7 +43,7 @@ class BottomnavigationBar extends StatelessWidget {
           icon: FontAwesomeIcons.calculator,
           text: 'BMI',
           onPressed: () {
-            Navigator.pushNamed(context, '/Schedule');
+            Navigator.pushNamed(context, '/Bmi');
           },
         ),
       ],
