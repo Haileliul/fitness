@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../Widgets/animatedIcon.dart';
 import '../Widgets/backButton.dart';
-import '../Widgets/YotubePlayerPage.dart';
+// import '../Widgets/YotubePlayerPage.dart';
 import '../Provider/exercises_categories.dart';
-// import 'package:assets_audio_player/assets_audio_player.dart';
+import 'package:fitness/constants/constants.dart';
+import 'package:miniplayer/miniplayer.dart';
+import 'package:assets_audio_player/assets_audio_player.dart';
 
 class DetailSubList extends StatelessWidget {
   var productState;
@@ -77,8 +79,27 @@ class DetailSubList extends StatelessWidget {
               ),
 
               // here will the music go
-
               Expanded(
+                  flex: 7,
+                  child: Stack(
+                    children: <Widget>[
+                      // YourApp(),
+                      Miniplayer(
+                        minHeight: 70,
+                        maxHeight: size.height,
+                        builder: (height, percentage) {
+                          return Container(
+                            color: kSecondaryColor,
+                            child: const Center(
+                              child: Text('Music Player'),
+                            ),
+                          );
+                        },
+                      ),
+                    ],
+                  ))
+
+              /*    Expanded(
                 flex: 2,
                 child: Container(
                   decoration: const BoxDecoration(
@@ -115,7 +136,7 @@ class DetailSubList extends StatelessWidget {
                     ],
                   ),
                 ),
-              ),
+              ), */
             ],
           ),
         ),
