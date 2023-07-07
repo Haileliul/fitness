@@ -1,6 +1,16 @@
 import 'package:fitness/Pages/we_slide_trial.dart';
 import 'package:flutter/material.dart';
 
+import 'Pages/Detail_of_Subcategory.dart';
+import 'Pages/FinalReportPage.dart';
+import 'Widgets/YotubePlayerPage.dart';
+import 'Widgets/chart.dart';
+import 'Pages/login_screen.dart';
+import 'Pages/signUp_screen.dart';
+import 'Pages/splash_screen.dart';
+import 'Widgets/backButton.dart';
+import 'Pages/main_landing_page.dart';
+import 'package:fitness/Pages/payment_gateway.dart';
 
 void main() {
   runApp(const MyApp());
@@ -19,7 +29,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData.dark(),
 
       title: 'Flutter Example',
-      home: const WeSlideTest(),
+      home: MainLandingPage(),
       // SignUpScreen(),
       //  LoginScreen(),
       // FinalReportPage(),

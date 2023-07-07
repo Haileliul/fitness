@@ -12,7 +12,10 @@ class backButton extends StatelessWidget {
       ),
       child: IconButton(
         alignment: Alignment.center,
-        icon: const Icon(Icons.keyboard_arrow_left),
+        icon: Icon(
+          Icons.keyboard_arrow_left,
+          textDirection: TextDirection.ltr,
+        ),
         onPressed: () {},
       ),
     );

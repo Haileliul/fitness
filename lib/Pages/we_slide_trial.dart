@@ -4,6 +4,7 @@ import 'package:we_slide/we_slide.dart';
 
 import '../Widgets/YotubePlayerPage.dart';
 import '../Widgets/backButton.dart';
+import 'package:miniplayer/miniplayer.dart';
 
 class WeSlideTest extends StatefulWidget {
   const WeSlideTest({super.key});
@@ -15,14 +16,14 @@ class WeSlideTest extends StatefulWidget {
 class _WeSlideTestState extends State<WeSlideTest> {
   @override
   Widget build(BuildContext context) {
-    final colorScheme = Theme.of(context).colorScheme;
-    const double panelMinSize = 70.0;
-    final double panelMaxSize = MediaQuery.of(context).size.height / 2;
+    final _colorScheme = Theme.of(context).colorScheme;
+    final double _panelMinSize = 70.0;
+    final double _panelMaxSize = MediaQuery.of(context).size.height / 3;
     return SafeArea(
       child: Scaffold(
         body: WeSlide(
-          panelMinSize: panelMinSize,
-          panelMaxSize: panelMaxSize,
+          panelMinSize: _panelMinSize,
+          panelMaxSize: _panelMaxSize,
           body: Container(
             decoration: const BoxDecoration(
               // color: Colors.grey.withOpacity(0.4),

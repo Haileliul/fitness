@@ -1,20 +1,23 @@
+import 'package:fitness/Pages/sport_category_page.dart';
 import 'package:flutter/material.dart';
 import 'package:fitness/Widgets/app_bar_container.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:fitness/lists/exercises_categories.dart';
 import 'package:fitness/constants/constants.dart';
+import 'package:fitness/Widgets/drawer_builder.dart';
 
 import '../Widgets/bottom_nav_bar.dart';
 import '../widgets/grid_view_builder.dart';
 
 class MainLandingPage extends StatefulWidget {
-  const MainLandingPage({Key? key}) : super(key: key);
+  MainLandingPage({Key? key}) : super(key: key);
 
   @override
   State<MainLandingPage> createState() => _MainLandingPageState();
 }
 
 class _MainLandingPageState extends State<MainLandingPage> {
-  final FocusNode _focusNode = FocusNode();
+  FocusNode _focusNode = FocusNode();
 
   @override
   void dispose() {
@@ -31,56 +34,22 @@ class _MainLandingPageState extends State<MainLandingPage> {
         );
       },
       child: Scaffold(
-        bottomNavigationBar: const BottomNavBar(),
-        drawer: Drawer(
-          // Add a ListView to the drawer. This ensures the user can scroll
-          // through the options in the drawer if there isn't enough vertical
-          // space to fit everything.
-          child: ListView(
-            // Important: Remove any padding from the ListView.
-            padding: EdgeInsets.zero,
-            children: [
-              const DrawerHeader(
-                decoration: BoxDecoration(
-                  color: kSecondaryColor,
-                ),
-                child: Text('Drawer Header'),
-              ),
-              ListTile(
-                title: const Text('Item 1'),
-                onTap: () {
-                  // Update the state of the app
-                  // ...
-                  // Then close the drawer
-                  Navigator.pop(context);
-                },
-              ),
-              ListTile(
-                title: const Text('Item 2'),
-                onTap: () {
-                  // Update the state of the app
-                  // ...
-                  // Then close the drawer
-                  Navigator.pop(context);
-                },
-              ),
-            ],
-          ),
-        ),
+        bottomNavigationBar: BottomNavBar(),
+        drawer: DrawerBuilder(),
         body: SafeArea(
           child: Column(
             children: [
-              const AppBarContainer(),
+              AppBarContainer(),
               Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   Expanded(
                     child: Container(
                       margin:
-                          const EdgeInsets.symmetric(vertical: 15, horizontal: 25),
+                          EdgeInsets.symmetric(vertical: 15, horizontal: 25),
                       child: TextField(
                         focusNode: _focusNode,
-                        style: const TextStyle(
+                        style: TextStyle(
                           color: Colors.black,
                         ),
                         decoration: InputDecoration(
@@ -90,11 +59,11 @@ class _MainLandingPageState extends State<MainLandingPage> {
                             FontAwesomeIcons.magnifyingGlass,
                             color: Colors.grey.shade600,
                           ),
-                          constraints: const BoxConstraints(
+                          constraints: BoxConstraints(
                             maxHeight: 45.0,
                           ),
                           filled: true,
-                          fillColor: const Color(0xFFD9D9D9),
+                          fillColor: Color(0xFFD9D9D9),
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(20.0),
                           ),
