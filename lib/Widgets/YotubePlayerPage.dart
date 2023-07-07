@@ -12,10 +12,10 @@ class youtubplayer extends StatelessWidget {
   final YoutubePlayerController _controller = YoutubePlayerController(
     initialVideoId: myVideoId,
     flags: const YoutubePlayerFlags(
-      // autoPlay: true,
+      autoPlay: true,
 
       mute: false,
-      autoPlay: false,
+      // autoPlay: false,
       disableDragSeek: false,
       loop: true,
       isLive: false,

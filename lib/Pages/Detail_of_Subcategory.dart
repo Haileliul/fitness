@@ -1,18 +1,23 @@
-import 'package:fitness/constants/constants.dart';
 import 'package:flutter/material.dart';
-import 'package:miniplayer/miniplayer.dart';
+import 'package:provider/provider.dart';
+import '../Widgets/animatedIcon.dart';
 import '../Widgets/backButton.dart';
 import '../Widgets/YotubePlayerPage.dart';
+import '../Provider/exercises_categories.dart';
 // import 'package:assets_audio_player/assets_audio_player.dart';
 
 class DetailSubList extends StatelessWidget {
-  const DetailSubList({super.key});
+  var productState;
+  var productStateModifier;
 
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     //create a new player
     // final assetsAudioPlayer = AssetsAudioPlayer();
+    productState = Provider.of<ExerciseCategories>(context);
+
+    Provider.of<ExerciseCategories>(context, listen: false);
     return Scaffold(
       body: SafeArea(
         child: Container(
@@ -22,7 +27,7 @@ class DetailSubList extends StatelessWidget {
           child: Column(
             children: [
               Expanded(
-                flex: 12,
+                flex: 17,
                 child: Container(
                   decoration: const BoxDecoration(
                     // color: Colors.grey.withOpacity(0.4),
@@ -45,20 +50,23 @@ class DetailSubList extends StatelessWidget {
                         height: 20,
                       ),
                       Container(
-                        child: const Column(
+                        child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             ListTile(
-                              leading: Icon(Icons.person),
-                              title: Text("The title of  sport"),
-                              subtitle: Text("The dicription"),
+                              leading: Image.network(
+                                  "${productState.containerData[productState.selectedCategoryIndex]["SubExercises"][productState.SubselectedCategoryIndex]["Img"]}"),
+                              title: Text(
+                                  "${productState.containerData[productState.selectedCategoryIndex]["SubExercises"][productState.SubselectedCategoryIndex]["Name"]}"),
+                              subtitle: Text("this is detaile"),
                             ),
                             Padding(
                               padding: EdgeInsets.symmetric(
                                 horizontal: 28.0,
                                 vertical: 20,
                               ),
-                              child: Text("This is the place where the"),
+                              child: Text(
+                                  "${productState.containerData[productState.selectedCategoryIndex]["SubExercises"][productState.SubselectedCategoryIndex]["Details"]}"),
                             ),
                           ],
                         ),
@@ -71,23 +79,52 @@ class DetailSubList extends StatelessWidget {
               // here will the music go
 
               Expanded(
-                flex: 7,
-                child: Stack(
-                  children: <Widget>[
-                    // YourApp(),
-                    Miniplayer(
-                      minHeight: 70,
-                      maxHeight: size.height,
-                      builder: (height, percentage) {
-                        return Container(
-                          color: kSecondaryColor,
-                          child: const Center(
-                            child: Text('Music Player'),
-                          ),
-                        );
-                      },
+                flex: 3,
+                child: Container(
+                  decoration: const BoxDecoration(
+                    gradient: LinearGradient(
+                      colors: [
+                        Colors.black,
+                        Colors.red,
+                        Color.fromARGB(255, 223, 99, 99),
+                      ],
+                      begin: Alignment.centerLeft,
+                      end: Alignment.centerRight,
                     ),
-                  ],
+                    borderRadius: BorderRadius.only(
+                      topRight: Radius.circular(40),
+                      topLeft: Radius.circular(40),
+                    ),
+                  ),
+                  child: Column(
+                    children: [
+                      TextButton(
+                        onPressed: () {
+                          showModalBottomSheet(
+                            context: context,
+                            builder: (context) {
+                              return Container(
+                                width: size.width,
+                                height: size.height,
+                                child: Text("Here will the list of musics"),
+                              );
+                            },
+                          );
+                        },
+                        style: const ButtonStyle(),
+                        child: const Icon(
+                          Icons.keyboard_arrow_up,
+                          color: Colors.white,
+                        ),
+                      ),
+                      const Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          AnimatedIconExample(),
+                        ],
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ],

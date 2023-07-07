@@ -4,7 +4,6 @@ import 'package:fitness/Pages/bmi_input_page.dart';
 
 import 'package:provider/provider.dart';
 
-
 // import 'Pages/Detail_of_Subcategory.txt';
 
 import 'Pages/Detail_of_Subcategory.dart';
@@ -12,11 +11,13 @@ import 'Pages/FinalReportPage.dart';
 import 'Pages/SchedulList.dart';
 import 'Pages/WorkoutList.dart';
 import 'Pages/main_landing_page.dart';
+import 'Pages/payment_gateway.dart';
 import 'Pages/sport_category_page.dart';
 import 'Pages/login_screen.dart';
 import 'Pages/signUp_screen.dart';
 import 'Pages/splash_screen.dart';
 import '../translations/codegen_loader.g.dart';
+
 import 'Provider/exercises_categories.dart';
 
 Future<void> main() async {
@@ -65,16 +66,15 @@ class Home extends StatelessWidget {
           '/Signup': (context) => const SignUpScreen(),
           '/Main': (context) => const MainLandingPage(),
 
-
-        '/Final': (context) => FinalReportPage(),
-        '/Detail': (context) => DetailSubList(),
-        '/SportCat': (context) => SportsCategory(),
-        // Pages for pro version
-        '/Schedule': (context) => SchedulList(),
-        '/Workout': (context) => WorkoutList(),
-        '/Bmi': (context) => InputPage(),
-      },
-
+          '/Final': (context) => FinalReportPage(),
+          '/Detail': (context) => DetailSubList(),
+          '/SportCat': (context) => SportsCategory(),
+          // Pages for pro version
+          '/Schedule': (context) => SchedulList(),
+          '/Workout': (context) => WorkoutList(),
+          '/Bmi': (context) => InputPage(),
+          '/Payment': (context) => PaymentGatewayScreen(),
+        },
 
         home:
             //  SportsCategory(),
@@ -83,6 +83,8 @@ class Home extends StatelessWidget {
 
             // SchedulList(),
             const SplashScreen(),
+        // WeSlideTest(),
+        // PaymentGatewayScreen(),
         // SignUpScreen(),
         // LoginScreen(),
         // FinalReportPage(),
