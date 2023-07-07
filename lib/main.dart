@@ -1,5 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:fitness/Pages/bmi_input_page.dart';
 import 'package:provider/provider.dart';
 
 // import 'Pages/Detail_of_Subcategory.txt';
@@ -68,6 +69,7 @@ class Home extends StatelessWidget {
           // Pages for pro version
           '/Schedule': (context) => SchedulList(),
           '/Workout': (context) => WorkoutList(),
+          '/Bmi': (context) => InputPage(),
         },
 
         home:
