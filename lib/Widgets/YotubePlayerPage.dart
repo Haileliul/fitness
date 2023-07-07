@@ -25,10 +25,12 @@ class youtubplayer extends StatelessWidget {
     ),
   );
 
+  youtubplayer({super.key});
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    return Container(
+    return SizedBox(
       width: size.width,
       height: size.height * 0.3,
       child: YoutubePlayer(

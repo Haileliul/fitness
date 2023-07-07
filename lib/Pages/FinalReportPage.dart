@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:fl_chart/fl_chart.dart';
 
 import '../Widgets/backButton.dart';
 import '../Widgets/chart.dart';
@@ -21,8 +20,8 @@ class _FinalReportPageState extends State<FinalReportPage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Padding(
-              padding: const EdgeInsets.all(8.0),
+            const Padding(
+              padding: EdgeInsets.all(8.0),
               child: backButton(),
             ),
             Expanded(
@@ -32,8 +31,8 @@ class _FinalReportPageState extends State<FinalReportPage> {
                     color: Colors.grey.withOpacity(
                       0.3,
                     ),
-                    borderRadius:
-                        BorderRadius.horizontal(right: Radius.circular(20))),
+                    borderRadius: const BorderRadius.horizontal(
+                        right: Radius.circular(20))),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -46,7 +45,7 @@ class _FinalReportPageState extends State<FinalReportPage> {
                           color: Colors.grey.withOpacity(
                             0.3,
                           ),
-                          borderRadius: BorderRadius.all(
+                          borderRadius: const BorderRadius.all(
                             Radius.circular(10),
                           ),
                         ),
@@ -63,21 +62,21 @@ class _FinalReportPageState extends State<FinalReportPage> {
                           itemBuilder: (context, index) {
                             return Container(
                               decoration: BoxDecoration(
-                                borderRadius: BorderRadius.all(
+                                borderRadius: const BorderRadius.all(
                                   Radius.circular(5),
                                 ),
                                 color:
                                     indicator != -1 ? Colors.red : Colors.white,
                               ),
                               width: 49,
-                              margin: EdgeInsets.all(2),
+                              margin: const EdgeInsets.all(2),
                               child: TextButton(
                                 onPressed: () {
                                   setState(() {
                                     indicator = index;
                                   });
                                 },
-                                child: Text("hi"),
+                                child: const Text("hi"),
                               ),
                             );
                           },

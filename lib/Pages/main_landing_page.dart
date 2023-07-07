@@ -1,24 +1,20 @@
-import '../Widgets/BottomNavigationBar.dart';
-import './sport_category_page.dart';
 import 'package:flutter/material.dart';
-
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import '../lists/exercises_categories.dart';
+import 'package:provider/provider.dart';
 
+import '../Provider/exercises_categories.dart';
 import '../Widgets/grid_view_builder.dart';
-
-import 'package:easy_localization/easy_localization.dart';
-import '../translations/local_keys.g.dart';
+import '../Widgets/BottomNavigationBar.dart';
 
 class MainLandingPage extends StatefulWidget {
-  MainLandingPage({Key? key}) : super(key: key);
+  const MainLandingPage({Key? key}) : super(key: key);
 
   @override
   State<MainLandingPage> createState() => _MainLandingPageState();
 }
 
 class _MainLandingPageState extends State<MainLandingPage> {
-  FocusNode _focusNode = FocusNode();
+  final FocusNode _focusNode = FocusNode();
 
   @override
   void dispose() {
@@ -26,8 +22,10 @@ class _MainLandingPageState extends State<MainLandingPage> {
     super.dispose();
   }
 
+  var productState;
   @override
   Widget build(BuildContext context) {
+    productState = Provider.of<ExerciseCategories>(context);
     return GestureDetector(
       onTap: () {
         FocusScope.of(context).requestFocus(
@@ -38,11 +36,11 @@ class _MainLandingPageState extends State<MainLandingPage> {
         appBar: AppBar(
           leading: IconButton(
             onPressed: () {},
-            icon: Icon(Icons.menu),
+            icon: const Icon(Icons.menu),
           ),
-          title: Text("Exercises"),
+          title: const Text("Exercises"),
           centerTitle: true,
-          actions: [
+          actions: const [
             CircleAvatar(
               backgroundColor: Colors.white,
               backgroundImage: NetworkImage(
@@ -59,10 +57,10 @@ class _MainLandingPageState extends State<MainLandingPage> {
                   Expanded(
                     child: Container(
                       margin:
-                          EdgeInsets.symmetric(vertical: 15, horizontal: 25),
+                          const EdgeInsets.symmetric(vertical: 15, horizontal: 25),
                       child: TextField(
                         focusNode: _focusNode,
-                        style: TextStyle(
+                        style: const TextStyle(
                           color: Colors.black,
                         ),
                         decoration: InputDecoration(
@@ -72,11 +70,11 @@ class _MainLandingPageState extends State<MainLandingPage> {
                             FontAwesomeIcons.magnifyingGlass,
                             color: Colors.grey.shade600,
                           ),
-                          constraints: BoxConstraints(
+                          constraints: const BoxConstraints(
                             maxHeight: 45.0,
                           ),
                           filled: true,
-                          fillColor: Color(0xFFD9D9D9),
+                          fillColor: const Color(0xFFD9D9D9),
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(20.0),
                           ),
@@ -89,16 +87,12 @@ class _MainLandingPageState extends State<MainLandingPage> {
                 ],
               ),
               Expanded(
-                child: GridViewBuilder(
-                  length: ExerciseCategories.containerData.length,
-                  image: 'exerciseCategoryImage',
-                  name: 'exerciseCategoryName',
-                ),
+                child: GridViewBuilder(),
               ),
             ],
           ),
         ),
-        bottomNavigationBar: BottomnavigationBar(),
+        bottomNavigationBar: const BottomnavigationBar(),
       ),
     );
   }

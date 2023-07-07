@@ -6,12 +6,12 @@ class backButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         borderRadius: BorderRadius.all(Radius.circular(7)),
         color: Colors.grey,
       ),
       child: IconButton(
-        icon: Icon(Icons.keyboard_arrow_left),
+        icon: const Icon(Icons.keyboard_arrow_left),
         onPressed: () {
           Navigator.pop(context);
         },
