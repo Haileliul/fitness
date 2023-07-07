@@ -2,6 +2,11 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:fitness/Pages/bmi_input_page.dart';
 
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+
+
+
 // import 'Pages/Detail_of_Subcategory.txt';
 
 import 'Pages/Detail_of_Subcategory.dart';
@@ -22,9 +27,21 @@ import 'mongotest.dart';
 import '../translations/codegen_loader.g.dart';
 import './translations/local_keys.g.dart';
 
+
+
+
+
+
+
+
+
+
+
+
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await EasyLocalization.ensureInitialized();
+  await Firebase.initializeApp();
 
   runApp(
     EasyLocalization(
@@ -91,3 +108,5 @@ class Home extends StatelessWidget {
     );
   }
 }
+
+

@@ -35,14 +35,14 @@ class _LoginScreenState extends State<LoginScreen> {
       focusNode: _passwordFocusNode,
       controller: _passwordController,
       obscureText: _isObscured,
-      style: TextStyle(
+      style: const TextStyle(
         color: Colors.black,
       ),
       decoration: InputDecoration(
         hintText: LocaleKeys.Password.tr(),
         filled: true,
-        fillColor: Color(0xFFFFF6F6),
-        hintStyle: TextStyle(color: Colors.black),
+        fillColor:const Color(0xFFFFF6F6),
+        hintStyle: const TextStyle(color: Colors.black),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(8),
         ),
@@ -57,6 +57,26 @@ class _LoginScreenState extends State<LoginScreen> {
       ),
     );
   }
+  void _Login() async {
+    try {
+      await FirebaseAuth.instance.signInWithEmailAndPassword(
+          email: _emailController.text,
+          password: _passwordController.text);
+      // showSnackBar('hello');
+      Navigator.pushNamed(context, '/Main');
+    } on FirebaseAuthException catch(e) {
+      print(e);
+      showSnackBar('Failed to log in');
+    }
+  }
+
+
+
+  void showSnackBar(String message){
+    ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text(message))
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -65,7 +85,7 @@ class _LoginScreenState extends State<LoginScreen> {
         child: Container(
           width: MediaQuery.of(context).size.width,
           height: MediaQuery.of(context).size.height,
-          decoration: BoxDecoration(
+          decoration:const BoxDecoration(
             image: DecorationImage(
               image: AssetImage('assets/images/back2.png'),
               fit: BoxFit.cover,
@@ -84,45 +104,45 @@ class _LoginScreenState extends State<LoginScreen> {
                       });
                       await context.setLocale(Locale("$newvalu"));
                     },
-                    items: [
+                    items: const [
                       DropdownMenuItem(
-                        child: Text("Eng"),
                         value: 'en',
+                        child: Text("Eng"),
                       ),
                       DropdownMenuItem(
+                        value: 'am',
                         child: Text(
                           "አማ",
                           style: TextStyle(color: Colors.white),
                         ),
-                        value: 'am',
                       ),
                     ],
                     value: dropdownValue,
-                    style: TextStyle(
+                    style:const TextStyle(
                       color: Colors.white,
                     ),
                   ),
                 ],
               ),
               //
-              SizedBox(
+              const SizedBox(
                 height: 100,
               ),
-              CircleAvatar(
+              const CircleAvatar(
                 radius: 70,
                 backgroundImage: AssetImage(
                     'assets/images/fitness-sport-gym-logo-real - Copy.png'),
                 backgroundColor: Colors.transparent,
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               Container(
                 width: double.infinity,
                 height: MediaQuery.of(context).size.height * 0.5,
-                margin: EdgeInsets.symmetric(horizontal: 26),
+                margin: const EdgeInsets.symmetric(horizontal: 26),
                 decoration: BoxDecoration(
-                  color: Color.fromRGBO(217, 217, 217, 0.3),
+                  color: const Color.fromRGBO(217, 217, 217, 0.3),
                   borderRadius: BorderRadius.circular(15),
                 ),
                 child: Padding(
@@ -132,38 +152,38 @@ class _LoginScreenState extends State<LoginScreen> {
                     children: [
                       Text(
                         LocaleKeys.Login.tr(),
-                        style: TextStyle(
+                        style:const  TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.bold,
                           color: Colors.white,
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 20,
                       ),
                       TextField(
                         focusNode: _emailFocusNode,
                         controller: _emailController,
-                        style: TextStyle(
+                        style: const TextStyle(
                           color: Colors.black,
                         ),
                         decoration: InputDecoration(
                           hintText: LocaleKeys.Email.tr(),
-                          hintStyle: TextStyle(
+                          hintStyle:const  TextStyle(
                             color: Colors.black,
                           ),
                           filled: true,
-                          fillColor: Color(0xFFFFF6F6),
+                          fillColor: const Color(0xFFFFF6F6),
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(8),
                           ),
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 20,
                       ),
                       _buildPasswordTextField(),
-                      SizedBox(
+                      const SizedBox(
                         height: 20,
                       ),
                       Align(
@@ -171,10 +191,10 @@ class _LoginScreenState extends State<LoginScreen> {
                         child: Container(
                           height: 48,
                           width: 124,
-                          margin: EdgeInsets.only(left: 0, top: 0),
+                          margin:const EdgeInsets.only(left: 0, top: 0),
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(56),
-                            gradient: LinearGradient(
+                            gradient: const LinearGradient(
                               begin: Alignment.topLeft,
                               end: Alignment.bottomRight,
                               colors: [
@@ -186,24 +206,24 @@ class _LoginScreenState extends State<LoginScreen> {
                             ),
                           ),
                           child: ElevatedButton(
-                            onPressed: () {},
-                            child: Text(
-                              LocaleKeys.SignIn.tr(),
-                              style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
+                            onPressed:_Login,
                             style: ElevatedButton.styleFrom(
-                              primary: Colors.transparent,
+                              backgroundColor : Colors.transparent,
                               elevation: 0,
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(56),
                               ),
                             ),
+                            child: Text(
+                              LocaleKeys.SignIn.tr(),
+                              style: const TextStyle(
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
                           ),
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 20,
                       ),
                       Row(
@@ -211,7 +231,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         children: [
                           Text(
                             LocaleKeys.have_no_account.tr(),
-                            style: TextStyle(
+                            style: const TextStyle(
                               fontWeight: FontWeight.bold,
                               color: Colors.white,
                             ),
@@ -219,10 +239,10 @@ class _LoginScreenState extends State<LoginScreen> {
                           Container(
                             height: 26,
                             width: 100,
-                            margin: EdgeInsets.only(left: 0, top: 0),
+                            margin:const EdgeInsets.only(left: 0, top: 0),
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(56),
-                              gradient: LinearGradient(
+                              gradient: const LinearGradient(
                                 begin: Alignment.topLeft,
                                 end: Alignment.bottomRight,
                                 colors: [
@@ -242,17 +262,17 @@ class _LoginScreenState extends State<LoginScreen> {
                                   ),
                                 );
                               },
-                              child: Text(
-                                LocaleKeys.Sign_up.tr(),
-                                style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
                               style: ElevatedButton.styleFrom(
-                                primary: Colors.transparent,
+                                backgroundColor: Colors.transparent,
                                 elevation: 0,
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(56),
+                                ),
+                              ),
+                              child: Text(
+                                LocaleKeys.Sign_up.tr(),
+                                style: const TextStyle(
+                                  fontWeight: FontWeight.bold,
                                 ),
                               ),
                             ),

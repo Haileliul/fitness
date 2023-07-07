@@ -4,12 +4,19 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:easy_localization/easy_localization.dart';
 import '../translations/local_keys.g.dart';
 
+
+
+
+
+
+
 class SignUpScreen extends StatefulWidget {
   @override
   _SignUpScreenState createState() => _SignUpScreenState();
 }
 
 class _SignUpScreenState extends State<SignUpScreen> {
+  final FirebaseAuth _auth = FirebaseAuth.instance;
   String dropdownSexValue = LocaleKeys.Male.tr();
   String dropdownAgeValue = '0';
   final FocusNode _nameFocusNode = FocusNode();
@@ -21,6 +28,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
   bool _isObscured = true;
 
   @override
+
+
   void dispose() {
     _nameFocusNode.dispose();
     _emailFocusNode.dispose();
@@ -43,15 +52,15 @@ class _SignUpScreenState extends State<SignUpScreen> {
       decoration: InputDecoration(
         hintText: LocaleKeys.hint_name.tr(),
         filled: true,
-        fillColor: Color(0xFFFFF6F6),
+        fillColor: const Color(0xFFFFF6F6),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(8),
         ),
-        hintStyle: TextStyle(
+        hintStyle: const TextStyle(
           color: Colors.black,
         ),
       ),
-      style: TextStyle(
+      style: const TextStyle(
         color: Colors.black,
       ),
     );
@@ -67,15 +76,15 @@ class _SignUpScreenState extends State<SignUpScreen> {
       decoration: InputDecoration(
         hintText: LocaleKeys.Email.tr(),
         filled: true,
-        fillColor: Color(0xFFFFF6F6),
+        fillColor: const Color(0xFFFFF6F6),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(8),
         ),
-        hintStyle: TextStyle(
+        hintStyle: const TextStyle(
           color: Colors.black,
         ),
       ),
-      style: TextStyle(
+      style: const TextStyle(
         color: Colors.black,
       ),
     );
@@ -248,6 +257,31 @@ class _SignUpScreenState extends State<SignUpScreen> {
     );
   }
 
+
+
+
+
+  void _signup() async {
+    try {
+      await _auth.createUserWithEmailAndPassword(
+          email: _emailController.text,
+          password: _passwordController.text);
+      showSnackBar('User created');
+      Navigator.pushNamed(context, '/Main');
+    } on FirebaseAuthException catch(e) {
+      print(e);
+      showSnackBar('Failed to create user');
+    }
+  }
+
+
+
+  void showSnackBar(String message){
+    ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text(message))
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -255,7 +289,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
         child: Container(
           width: MediaQuery.of(context).size.width,
           height: MediaQuery.of(context).size.height,
-          decoration: BoxDecoration(
+          decoration:const  BoxDecoration(
             image: DecorationImage(
               image: AssetImage('assets/images/back.png'),
               fit: BoxFit.cover,
@@ -264,6 +298,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+
               SizedBox(
                 height: 20,
               ),
@@ -305,6 +340,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       SizedBox(
                         height: 20,
                       ),
+
+
                       Align(
                         alignment: Alignment.center,
                         child: Container(
@@ -324,16 +361,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
                               stops: [0.0153, 0.9821, 0.9821],
                             ),
                           ),
+
+
                           child: ElevatedButton(
-                            onPressed: () {
-                              Navigator.pushNamed(context, '/Main');
-                            },
-                            child: Text(
-                              LocaleKeys.Sign_up.tr(),
-                              style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
+
+                  onPressed: _signup,
                             style: ElevatedButton.styleFrom(
                               primary: Colors.transparent,
                               elevation: 0,
@@ -341,10 +373,16 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                 borderRadius: BorderRadius.circular(56),
                               ),
                             ),
+                            child: Text(
+                              LocaleKeys.Sign_up.tr(),
+                              style: const TextStyle(
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
                           ),
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 20,
                       ),
                       Row(
@@ -352,17 +390,17 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         children: [
                           Text(
                             LocaleKeys.have_an_account.tr(),
-                            style: TextStyle(
+                            style:const TextStyle(
                               color: Colors.white,
                             ),
                           ),
                           Container(
                             height: 26,
                             width: 100,
-                            margin: EdgeInsets.only(left: 0, top: 0),
+                            margin: const EdgeInsets.only(left: 0, top: 0),
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(56),
-                              gradient: LinearGradient(
+                              gradient:const LinearGradient(
                                 begin: Alignment.topLeft,
                                 end: Alignment.bottomRight,
                                 colors: [
@@ -382,12 +420,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                   ),
                                 );
                               },
-                              child: Text(
-                                LocaleKeys.SignIn.tr(),
-                                style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
                               style: ElevatedButton.styleFrom(
                                 primary: Colors.transparent,
                                 elevation: 0,
@@ -395,11 +427,19 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                   borderRadius: BorderRadius.circular(56),
                                 ),
                               ),
+                              child: Text(
+                                LocaleKeys.SignIn.tr(),
+                                style:const TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
                             ),
+
                           ),
                         ],
                       ),
                     ],
+
                   ),
                 ),
               ),
