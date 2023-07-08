@@ -26,15 +26,15 @@ class Lang extends StatelessWidget {
               children: [
                 TextButton(
                   onPressed: () async {
-                    await context.setLocale(Locale("en"));
+                    await context.setLocale(const Locale("en"));
                   },
-                  child: Text("english"),
+                  child: const Text("english"),
                 ),
                 TextButton(
                   onPressed: () async {
-                    await context.setLocale(Locale("am"));
+                    await context.setLocale(const Locale("am"));
                   },
-                  child: Text("Amharic"),
+                  child: const Text("Amharic"),
                 ),
               ],
             )

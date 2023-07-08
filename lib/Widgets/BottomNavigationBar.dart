@@ -11,9 +11,9 @@ class BottomnavigationBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return GNav(
       color: Colors.grey,
-      duration: Duration(milliseconds: 200),
+      duration: const Duration(milliseconds: 200),
       gap: 12.0,
-      padding: EdgeInsets.symmetric(vertical: 15.0, horizontal: 10.0),
+      padding: const EdgeInsets.symmetric(vertical: 15.0, horizontal: 10.0),
       tabBorderRadius: 20.0,
       tabs: [
         GButton(
@@ -38,7 +38,7 @@ class BottomnavigationBar extends StatelessWidget {
           },
         ),
         GButton(
-          margin: EdgeInsets.all(0),
+          margin: const EdgeInsets.all(0),
           gap: 5.0,
           icon: FontAwesomeIcons.calculator,
           text: 'BMI',

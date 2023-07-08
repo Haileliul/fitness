@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 
 class LineChartWidget extends StatelessWidget {
   final List<Color> gradientColors = [
-    Color.fromARGB(255, 53, 57, 56),
-    Color.fromARGB(255, 230, 35, 35),
+    const Color.fromARGB(255, 53, 57, 56),
+    const Color.fromARGB(255, 230, 35, 35),
   ];
 
   @override
@@ -39,14 +39,14 @@ class LineChartWidget extends StatelessWidget {
           lineBarsData: [
             LineChartBarData(
               spots: [
-                FlSpot(0, 2),
-                FlSpot(0.3, 3),
-                FlSpot(0.7, 3),
-                FlSpot(1.3, 1),
-                FlSpot(1.7, 1),
-                FlSpot(2, 4),
-                FlSpot(2.5, 4.3),
-                FlSpot(3, 2.5),
+                const FlSpot(0, 2),
+                const FlSpot(0.3, 3),
+                const FlSpot(0.7, 3),
+                const FlSpot(1.3, 1),
+                const FlSpot(1.7, 1),
+                const FlSpot(2, 4),
+                const FlSpot(2.5, 4.3),
+                const FlSpot(3, 2.5),
               ],
               isCurved: true,
               // gradient: LinearGradient(colors: gradientColors),

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:mongo_dart/mongo_dart.dart';
 import './database.dart';
 import 'model/usermodel.dart';
 
@@ -11,6 +10,8 @@ class mongotest extends StatelessWidget {
   final user = User(name: "Haile", age: 15);
   dynamic collection;
   List<dynamic> data = [];
+
+  mongotest({super.key});
   void contest() async {
     final result = await connection.userCollection;
     if (result != null) {
@@ -46,7 +47,7 @@ class mongotest extends StatelessWidget {
               // inser();
               // dissplayall(data);
             },
-            child: Text(
+            child: const Text(
                 "Click"), /* ListView.builder(
                 itemCount: data.length,
                 itemBuilder: (context, index) {

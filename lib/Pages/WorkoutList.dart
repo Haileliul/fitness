@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
-import '../Widgets/backButton.dart';
 
 class WorkoutList extends StatelessWidget {
   WorkoutList({
@@ -35,12 +34,12 @@ class WorkoutList extends StatelessWidget {
           onPressed: () {
             Navigator.of(context).pop();
           },
-          icon: Icon(Icons.arrow_back),
+          icon: const Icon(Icons.arrow_back),
         ),
         actions: [
           IconButton(
             onPressed: () {},
-            icon: Icon(Icons.menu),
+            icon: const Icon(Icons.menu),
           ),
         ],
       ),
@@ -51,7 +50,7 @@ class WorkoutList extends StatelessWidget {
         ),
         child: Column(
           children: [
-            Row(
+            const Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Column(
@@ -111,7 +110,7 @@ class WorkoutList extends StatelessWidget {
               ],
             ),
             Container(
-              margin: EdgeInsets.only(
+              margin: const EdgeInsets.only(
                 top: 25,
                 bottom: 7,
               ),
@@ -121,8 +120,8 @@ class WorkoutList extends StatelessWidget {
                 controller: _controller,
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
+            const Padding(
+              padding: EdgeInsets.all(8.0),
               child: Column(
                 children: [
                   Text(
@@ -133,7 +132,7 @@ class WorkoutList extends StatelessWidget {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.all(5.0),
+                    padding: EdgeInsets.all(5.0),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
@@ -151,10 +150,10 @@ class WorkoutList extends StatelessWidget {
                 radius: 60,
                 lineWidth: 15,
                 percent: 0.7,
-                progressColor: Color(0xFFA70808),
+                progressColor: const Color(0xFFA70808),
                 backgroundColor: Colors.white,
                 circularStrokeCap: CircularStrokeCap.round,
-                center: Row(
+                center: const Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
@@ -183,7 +182,7 @@ class WorkoutList extends StatelessWidget {
                 ),
               ),
             ),
-            Row(
+            const Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
@@ -200,7 +199,7 @@ class WorkoutList extends StatelessWidget {
                 ),
               ],
             ),
-            Column(
+            const Column(
               children: [
                 // this is the place for Next set Button and Next Exercise
               ],

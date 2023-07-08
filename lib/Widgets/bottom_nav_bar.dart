@@ -38,7 +38,9 @@ class _BottomNavBarState extends State<BottomNavBar> {
             color: Colors.grey,
           ),
           color: Colors.grey,
-          duration:const Duration(milliseconds: 200),
+
+          duration: const Duration(milliseconds: 200),
+
           gap: 12.0,
           padding: const EdgeInsets.symmetric(vertical: 15.0, horizontal: 10.0),
           tabBorderRadius: 20.0,

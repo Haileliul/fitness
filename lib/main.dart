@@ -2,9 +2,13 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:fitness/Pages/bmi_input_page.dart';
 
+<<<<<<< HEAD
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
+=======
+import 'package:provider/provider.dart';
+>>>>>>> origin/medi
 
 
 // import 'Pages/Detail_of_Subcategory.txt';
@@ -12,21 +16,15 @@ import 'package:fitness/Pages/chat_screen.dart';
 
 import 'Pages/Detail_of_Subcategory.dart';
 import 'Pages/FinalReportPage.dart';
-import 'Pages/LanguageLocalTest.dart';
 import 'Pages/SchedulList.dart';
 import 'Pages/WorkoutList.dart';
 import 'Pages/main_landing_page.dart';
 import 'Pages/sport_category_page.dart';
-import 'Widgets/YotubePlayerPage.dart';
-import 'Widgets/chart.dart';
 import 'Pages/login_screen.dart';
 import 'Pages/signUp_screen.dart';
 import 'Pages/splash_screen.dart';
-import 'Widgets/backButton.dart';
-import 'model/usermodel.dart';
-import 'mongotest.dart';
 import '../translations/codegen_loader.g.dart';
-import './translations/local_keys.g.dart';
+import 'Provider/exercises_categories.dart';
 
 
 
@@ -46,14 +44,14 @@ Future<void> main() async {
 
   runApp(
     EasyLocalization(
-      supportedLocales: [
+      supportedLocales: const [
         Locale('en'),
         Locale('am'),
       ],
       path: 'assets/translations',
-      fallbackLocale: Locale('am'),
-      assetLoader: CodegenLoader(),
-      child: Home(),
+      fallbackLocale: const Locale('am'),
+      assetLoader: const CodegenLoader(),
+      child: const Home(),
     ),
   );
 }
@@ -63,25 +61,38 @@ class Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      // adding nessesary deligates for app localizasion
-      localizationsDelegates: context.localizationDelegates,
-      supportedLocales: context.supportedLocales,
-      locale: context.locale,
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (context) => ExerciseCategories()),
+      ],
+      child: MaterialApp(
+        // adding nessesary deligates for app localizasion
+        localizationsDelegates: context.localizationDelegates,
+        supportedLocales: context.supportedLocales,
+        locale: context.locale,
 
-      // Hide the debug banner
-      debugShowCheckedModeBanner: false,
+        // Hide the debug banner
+        debugShowCheckedModeBanner: false,
 
-      // Theme of the page
-      theme: ThemeData.dark(),
-      title: 'Flutter Example',
+        // Theme of the page
+        theme: ThemeData.dark(),
+        title: 'Flutter Example',
 
+        routes: {
+          // '/': (context) => SplashScreen(),
+          '/Login': (context) => const LoginScreen(),
+          '/Signup': (context) => const SignUpScreen(),
+          '/Main': (context) => const MainLandingPage(),
+
+<<<<<<< HEAD
       routes: {
         // '/': (context) => SplashScreen(),
         '/Login': (context) => LoginScreen(),
         '/Signup': (context) => SignUpScreen(),
         '/Main': (context) => MainLandingPage(),
         '/chat': (context) => ChatScreen(),
+=======
+>>>>>>> origin/medi
 
         '/Final': (context) => FinalReportPage(),
         '/Detail': (context) => DetailSubList(),
@@ -92,21 +103,23 @@ class Home extends StatelessWidget {
         '/Bmi': (context) => InputPage(),
       },
 
-      home:
-          //  SportsCategory(),
 
-          // WorkoutList(),
+        home:
+            //  SportsCategory(),
 
-          // SchedulList(),
-          SplashScreen(),
-      // SignUpScreen(),
-      // LoginScreen(),
-      // FinalReportPage(),
+            // WorkoutList(),
 
-      // MainLandingPage(),
-      // SchedulList(),
-      // mongotest(),
-      // Lang(),
+            // SchedulList(),
+            const SplashScreen(),
+        // SignUpScreen(),
+        // LoginScreen(),
+        // FinalReportPage(),
+
+        // MainLandingPage(),
+        // SchedulList(),
+        // mongotest(),
+        // Lang(),
+      ),
     );
   }
 }

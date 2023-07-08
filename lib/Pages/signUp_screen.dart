@@ -1,6 +1,5 @@
 import './login_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:easy_localization/easy_localization.dart';
 import '../translations/local_keys.g.dart';
 
@@ -11,6 +10,8 @@ import '../translations/local_keys.g.dart';
 
 
 class SignUpScreen extends StatefulWidget {
+  const SignUpScreen({super.key});
+
   @override
   _SignUpScreenState createState() => _SignUpScreenState();
 }
@@ -98,7 +99,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
       decoration: InputDecoration(
         hintText: LocaleKeys.Password.tr(),
         filled: true,
-        fillColor: Color(0xFFFFF6F6),
+        fillColor: const Color(0xFFFFF6F6),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(8),
         ),
@@ -110,11 +111,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
             });
           },
         ),
-        hintStyle: TextStyle(
+        hintStyle: const TextStyle(
           color: Colors.black,
         ),
       ),
-      style: TextStyle(
+      style: const TextStyle(
         color: Colors.black,
       ),
     );
@@ -124,7 +125,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
     return Container(
       height: 48,
       width: 116,
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.all(Radius.circular(
             10,
@@ -143,20 +144,21 @@ class _SignUpScreenState extends State<SignUpScreen> {
           },
           items: [
             DropdownMenuItem(
+              value: '0',
               child: Text(
                 LocaleKeys.Age.tr(),
-                style: TextStyle(color: Colors.black),
+                style: const TextStyle(color: Colors.black),
               ),
-              value: '0',
             ),
-            DropdownMenuItem(
+            const DropdownMenuItem(
+              value: '0-10',
               child: Text(
                 "0-10",
                 style: TextStyle(color: Colors.black),
               ),
-              value: '0-10',
             ),
-            DropdownMenuItem(
+            const DropdownMenuItem(
+              value: '11-23',
               child: Text(
                 "11-23",
                 style: TextStyle(
@@ -164,9 +166,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              value: '11-23',
             ),
-            DropdownMenuItem(
+            const DropdownMenuItem(
+              value: '23-35',
               child: Text(
                 "23-35",
                 style: TextStyle(
@@ -174,9 +176,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              value: '23-35',
             ),
-            DropdownMenuItem(
+            const DropdownMenuItem(
+              value: '35-45',
               child: Text(
                 "35-45",
                 style: TextStyle(
@@ -184,9 +186,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              value: '35-45',
             ),
-            DropdownMenuItem(
+            const DropdownMenuItem(
+              value: '45-80',
               child: Text(
                 "45-80",
                 style: TextStyle(
@@ -194,12 +196,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              value: '45-80',
             ),
           ],
-          underline: Text(" "),
+          underline: const Text(" "),
           value: dropdownAgeValue,
-          style: TextStyle(
+          style: const TextStyle(
             color: Colors.white,
           ),
         ),
@@ -211,7 +212,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
     return Container(
       height: 48,
       width: 116,
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.all(Radius.circular(
             10,
@@ -230,26 +231,26 @@ class _SignUpScreenState extends State<SignUpScreen> {
           },
           items: [
             DropdownMenuItem(
+              value: LocaleKeys.Male.tr(),
               child: Text(
                 LocaleKeys.Male.tr(),
-                style: TextStyle(color: Colors.black),
+                style: const TextStyle(color: Colors.black),
               ),
-              value: LocaleKeys.Male.tr(),
             ),
             DropdownMenuItem(
+              value: LocaleKeys.Femaile.tr(),
               child: Text(
                 LocaleKeys.Femaile.tr(),
-                style: TextStyle(
+                style: const TextStyle(
                   color: Colors.black,
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              value: LocaleKeys.Femaile.tr(),
             ),
           ],
-          underline: Text(" "),
+          underline: const Text(" "),
           value: dropdownSexValue,
-          style: TextStyle(
+          style: const TextStyle(
             color: Colors.white,
           ),
         ),
@@ -289,7 +290,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
         child: Container(
           width: MediaQuery.of(context).size.width,
           height: MediaQuery.of(context).size.height,
+<<<<<<< HEAD
           decoration:const  BoxDecoration(
+=======
+          decoration: const BoxDecoration(
+>>>>>>> origin/medi
             image: DecorationImage(
               image: AssetImage('assets/images/back.png'),
               fit: BoxFit.cover,
@@ -298,16 +303,20 @@ class _SignUpScreenState extends State<SignUpScreen> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+<<<<<<< HEAD
 
               SizedBox(
+=======
+              const SizedBox(
+>>>>>>> origin/medi
                 height: 20,
               ),
               Container(
                 width: double.infinity,
                 height: MediaQuery.of(context).size.height * 0.7,
-                margin: EdgeInsets.symmetric(horizontal: 26),
+                margin: const EdgeInsets.symmetric(horizontal: 26),
                 decoration: BoxDecoration(
-                  color: Color.fromRGBO(217, 217, 217, 0.3),
+                  color: const Color.fromRGBO(217, 217, 217, 0.3),
                   borderRadius: BorderRadius.circular(15),
                 ),
                 child: Padding(
@@ -315,19 +324,19 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      SizedBox(
+                      const SizedBox(
                         height: 20,
                       ),
                       _buildNameTextField(),
-                      SizedBox(
+                      const SizedBox(
                         height: 20,
                       ),
                       _buildEmailTextField(),
-                      SizedBox(
+                      const SizedBox(
                         height: 20,
                       ),
                       _buildPasswordTextField(),
-                      SizedBox(
+                      const SizedBox(
                         height: 20,
                       ),
                       Row(
@@ -337,7 +346,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           _buildSexButton(),
                         ],
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 20,
                       ),
 
@@ -347,10 +356,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         child: Container(
                           height: 48,
                           width: 124,
-                          margin: EdgeInsets.only(left: 0, top: 0),
+                          margin: const EdgeInsets.only(left: 0, top: 0),
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(56),
-                            gradient: LinearGradient(
+                            gradient: const LinearGradient(
                               begin: Alignment.topLeft,
                               end: Alignment.bottomRight,
                               colors: [
@@ -364,10 +373,16 @@ class _SignUpScreenState extends State<SignUpScreen> {
 
 
                           child: ElevatedButton(
+<<<<<<< HEAD
 
                   onPressed: _signup,
+=======
+                            onPressed: () {
+                              Navigator.pushNamed(context, '/Main');
+                            },
+>>>>>>> origin/medi
                             style: ElevatedButton.styleFrom(
-                              primary: Colors.transparent,
+                              backgroundColor: Colors.transparent,
                               elevation: 0,
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(56),
@@ -390,7 +405,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         children: [
                           Text(
                             LocaleKeys.have_an_account.tr(),
+<<<<<<< HEAD
                             style:const TextStyle(
+=======
+                            style: const TextStyle(
+>>>>>>> origin/medi
                               color: Colors.white,
                             ),
                           ),
@@ -400,7 +419,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
                             margin: const EdgeInsets.only(left: 0, top: 0),
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(56),
+<<<<<<< HEAD
                               gradient:const LinearGradient(
+=======
+                              gradient: const LinearGradient(
+>>>>>>> origin/medi
                                 begin: Alignment.topLeft,
                                 end: Alignment.bottomRight,
                                 colors: [
@@ -416,12 +439,12 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                    builder: (_) => LoginScreen(),
+                                    builder: (_) => const LoginScreen(),
                                   ),
                                 );
                               },
                               style: ElevatedButton.styleFrom(
-                                primary: Colors.transparent,
+                                backgroundColor: Colors.transparent,
                                 elevation: 0,
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(56),
@@ -429,7 +452,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
                               ),
                               child: Text(
                                 LocaleKeys.SignIn.tr(),
+<<<<<<< HEAD
                                 style:const TextStyle(
+=======
+                                style: const TextStyle(
+>>>>>>> origin/medi
                                   fontWeight: FontWeight.bold,
                                 ),
                               ),
