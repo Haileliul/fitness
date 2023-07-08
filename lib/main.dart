@@ -8,6 +8,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 
 
 // import 'Pages/Detail_of_Subcategory.txt';
+import 'package:fitness/Pages/chat_screen.dart';
 
 import 'Pages/Detail_of_Subcategory.dart';
 import 'Pages/FinalReportPage.dart';
@@ -80,6 +81,7 @@ class Home extends StatelessWidget {
         '/Login': (context) => LoginScreen(),
         '/Signup': (context) => SignUpScreen(),
         '/Main': (context) => MainLandingPage(),
+        '/chat': (context) => ChatScreen(),
 
         '/Final': (context) => FinalReportPage(),
         '/Detail': (context) => DetailSubList(),
