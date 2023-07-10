@@ -23,23 +23,35 @@ class DrawerBuilder extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: EdgeInsets.symmetric(
-                horizontal: 30.0,
-                vertical: 5.0,
+              padding: EdgeInsets.only(
+                left: 10.0,
+                top: 5.0,
+                bottom: 5.0,
+                right: 30.0,
               ),
               child: Container(
-                color: Colors.white,
-                padding: EdgeInsets.only(left: 30.0),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(10.0),
+                ),
+                padding: EdgeInsets.symmetric(
+                  horizontal: 10.0,
+                  vertical: 10.0,
+                ),
                 child: DefaultTextStyle(
                   style: TextStyle(
                     color: Colors.black,
+                    fontWeight: FontWeight.w500,
+                    fontSize: 16.0,
                   ),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text('Name'),
-                      Text('Age'),
-                      Text('Sex'),
+                      Text('Name : John Smith'),
+                      SizedBox(height: 10.0),
+                      Text('Age: 23'),
+                      SizedBox(height: 10.0),
+                      Text('Sex: M'),
                     ],
                   ),
                 ),

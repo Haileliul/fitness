@@ -34,7 +34,7 @@ class MyApp extends StatelessWidget {
       ),
 
       home: Scaffold(
-        body: const MainLandingPage(),
+        body: MainLandingPage(),
         bottomNavigationBar: Container(
           decoration: const BoxDecoration(
             borderRadius: BorderRadius.only(
