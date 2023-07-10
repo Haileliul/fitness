@@ -129,30 +129,33 @@ class DrawerButton extends StatelessWidget {
         ),
         SizedBox(
           height: size.height * 0.08,
-          child: Container(
-            decoration: BoxDecoration(
-              color: Colors.grey.shade300,
-              borderRadius: BorderRadius.circular(10.0),
-            ),
-            padding: EdgeInsets.symmetric(
-              horizontal: 10.0,
-              vertical: 10.0,
-            ),
-            child: DefaultTextStyle(
-              style: TextStyle(
-                color: Colors.black,
-                fontWeight: FontWeight.w500,
-                fontSize: 16.0,
+          child: GestureDetector(
+            onTap: () {},
+            child: Container(
+              decoration: BoxDecoration(
+                color: Colors.grey.shade300,
+                borderRadius: BorderRadius.circular(10.0),
               ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Icon(
-                    icon,
-                    color: kSecondaryColor,
-                    size: size.width * 0.08,
-                  ),
-                ],
+              padding: EdgeInsets.symmetric(
+                horizontal: 10.0,
+                vertical: 10.0,
+              ),
+              child: DefaultTextStyle(
+                style: TextStyle(
+                  color: Colors.black,
+                  fontWeight: FontWeight.w500,
+                  fontSize: 16.0,
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Icon(
+                      icon,
+                      color: kSecondaryColor,
+                      size: size.width * 0.08,
+                    ),
+                  ],
+                ),
               ),
             ),
           ),
