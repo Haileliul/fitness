@@ -31,19 +31,19 @@ class BottomnavigationBar extends StatelessWidget {
           },
         ),
         GButton(
-          icon: FontAwesomeIcons.dumbbell,
-          text: 'Workouts',
-          onPressed: () {
-            Navigator.pushNamed(context, '/Workout');
-          },
-        ),
-        GButton(
           margin: const EdgeInsets.all(0),
           gap: 5.0,
           icon: FontAwesomeIcons.calculator,
           text: 'BMI',
           onPressed: () {
             Navigator.pushNamed(context, '/Bmi');
+          },
+        ),
+        GButton(
+          icon: FontAwesomeIcons.dumbbell,
+          text: 'Workouts',
+          onPressed: () {
+            Navigator.pushNamed(context, '/Schedule');
           },
         ),
       ],

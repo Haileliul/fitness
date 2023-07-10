@@ -12,10 +12,44 @@ class LineChartWidget extends StatelessWidget {
   Widget build(BuildContext context) => LineChart(
         LineChartData(
           minX: 0,
-          maxX: 5,
+          maxX: 30,
           minY: 0,
-          maxY: 6,
+          maxY: 40,
           // titlesData: LineTitles.getTitleData(),
+
+          titlesData: FlTitlesData(
+            show: true,
+            bottomTitles: AxisTitles(
+              sideTitles: SideTitles(
+                showTitles: true,
+                interval: 1,
+                getTitlesWidget: (value, meta) {
+                  switch (value.toInt()) {
+                    case 0:
+                      return Text('Week one');
+                    case 10:
+                      return Text('Week Two');
+                    case 20:
+                      return Text('Week Three');
+                    case 30:
+                      return Text('Week Four');
+                  }
+                  return Text(" ");
+                },
+              ),
+            ),
+            topTitles: AxisTitles(
+              sideTitles: SideTitles(
+                showTitles: false,
+              ),
+            ),
+            leftTitles: AxisTitles(
+              sideTitles: SideTitles(
+                showTitles: false,
+              ),
+            ),
+          ),
+
           gridData: FlGridData(
             show: true,
             getDrawingHorizontalLine: (value) {
@@ -24,7 +58,7 @@ class LineChartWidget extends StatelessWidget {
                 strokeWidth: 1,
               );
             },
-            drawVerticalLine: true,
+            drawVerticalLine: false,
             getDrawingVerticalLine: (value) {
               return FlLine(
                 color: const Color(0xff37434d),
@@ -34,19 +68,21 @@ class LineChartWidget extends StatelessWidget {
           ),
           borderData: FlBorderData(
             show: true,
-            border: Border.all(color: const Color(0xff37434d), width: 1),
+            border: Border.all(color: Color.fromRGBO(55, 67, 77, 1), width: 1),
+
+            // border: Border.fromBorderSide(BorderSide())
           ),
           lineBarsData: [
             LineChartBarData(
               spots: [
-                const FlSpot(0, 2),
-                const FlSpot(0.3, 3),
-                const FlSpot(0.7, 3),
-                const FlSpot(1.3, 1),
-                const FlSpot(1.7, 1),
-                const FlSpot(2, 4),
-                const FlSpot(2.5, 4.3),
-                const FlSpot(3, 2.5),
+                const FlSpot(0, 0),
+                const FlSpot(5, 18),
+                const FlSpot(10, 19),
+                const FlSpot(13, 23),
+                const FlSpot(14, 14),
+                const FlSpot(16, 29),
+                const FlSpot(18, 38),
+                const FlSpot(29, 27),
               ],
               isCurved: true,
               // gradient: LinearGradient(colors: gradientColors),
@@ -54,6 +90,7 @@ class LineChartWidget extends StatelessWidget {
 
               barWidth: 2,
               // dotData: FlDotData(show: false),
+
               belowBarData: BarAreaData(
                 show: true,
                 gradient: LinearGradient(

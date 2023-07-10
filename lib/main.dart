@@ -16,6 +16,7 @@ import 'Pages/sport_category_page.dart';
 import 'Pages/login_screen.dart';
 import 'Pages/signUp_screen.dart';
 import 'Pages/splash_screen.dart';
+import 'Pages/MusicList.dart';
 import '../translations/codegen_loader.g.dart';
 
 import 'Provider/exercises_categories.dart';
@@ -82,7 +83,9 @@ class Home extends StatelessWidget {
             // WorkoutList(),
 
             // SchedulList(),
-            const SplashScreen(),
+            // const SplashScreen(),
+            Music(),
+
         // WeSlideTest(),
         // PaymentGatewayScreen(),
         // SignUpScreen(),

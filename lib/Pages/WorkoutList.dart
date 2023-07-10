@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
-
 class WorkoutList extends StatelessWidget {
   WorkoutList({
     super.key,
@@ -199,9 +198,14 @@ class WorkoutList extends StatelessWidget {
                 ),
               ],
             ),
-            const Column(
+            Row(
               children: [
                 // this is the place for Next set Button and Next Exercise
+                TextButton(
+                  child: Text("hi"),
+                  onPressed: () => print("hi"),
+                  style: ButtonStyle(),
+                )
               ],
             ),
           ],
