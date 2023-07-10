@@ -10,7 +10,7 @@ class DrawerBuilder extends StatelessWidget {
     return SafeArea(
       child: Drawer(
         child: Container(
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             color: Colors.grey,
             borderRadius: BorderRadius.only(
               topRight: Radius.circular(50.0),
@@ -53,8 +53,8 @@ class DrawerBuilder extends StatelessWidget {
                         horizontal: 10.0,
                         vertical: 10.0,
                       ),
-                      child: const DefaultTextStyle(
-                        style: TextStyle(
+                      child: DefaultTextStyle(
+                        style: const TextStyle(
                           color: Colors.black,
                           fontWeight: FontWeight.w200,
                           fontSize: 16.0,
@@ -62,23 +62,15 @@ class DrawerBuilder extends StatelessWidget {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text('Name : Jane Smith'),
-                            SizedBox(height: 10.0),
-                            Divider(
-                              height: 2.0,
-                              thickness: 1.0,
-                              color: kDrawerDividerColor,
-                            ),
-                            SizedBox(height: 10.0),
-                            Text('Age: 23'),
-                            SizedBox(height: 10.0),
-                            Divider(
-                              height: 2.0,
-                              thickness: 1.0,
-                              color: kDrawerDividerColor,
-                            ),
-                            SizedBox(height: 10.0),
-                            Text('Sex: F'),
+                            const Text('Name : Jane Smith'),
+                            const SizedBox(height: 10.0),
+                            DividerBuilder(size: size),
+                            const SizedBox(height: 10.0),
+                            const Text('Age: 23'),
+                            const SizedBox(height: 10.0),
+                            DividerBuilder(size: size),
+                            const SizedBox(height: 10.0),
+                            const Text('Sex: F'),
                           ],
                         ),
                       ),
@@ -116,6 +108,27 @@ class DrawerBuilder extends StatelessWidget {
   }
 }
 
+class DividerBuilder extends StatelessWidget {
+  const DividerBuilder({
+    super.key,
+    required this.size,
+  });
+
+  final Size size;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: size.width * 0.5,
+      child: const Divider(
+        height: 2.0,
+        thickness: 1.0,
+        color: kDrawerDividerColor,
+      ),
+    );
+  }
+}
+
 class DrawerButton extends StatelessWidget {
   DrawerButton({required this.icon, required this.text});
 
@@ -128,7 +141,7 @@ class DrawerButton extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        SizedBox(
+        const SizedBox(
           height: 15.0,
         ),
         SizedBox(
@@ -140,12 +153,12 @@ class DrawerButton extends StatelessWidget {
                 color: Colors.grey.shade300,
                 borderRadius: BorderRadius.circular(10.0),
               ),
-              padding: EdgeInsets.symmetric(
+              padding: const EdgeInsets.symmetric(
                 horizontal: 10.0,
                 vertical: 10.0,
               ),
               child: DefaultTextStyle(
-                style: TextStyle(
+                style: const TextStyle(
                   color: Colors.black,
                   fontWeight: FontWeight.w500,
                   fontSize: 16.0,
