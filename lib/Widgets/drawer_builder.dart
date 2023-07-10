@@ -23,7 +23,7 @@ class DrawerBuilder extends StatelessWidget {
                 decoration: const BoxDecoration(
                   color: Color(0xFF607D8B),
                   borderRadius: BorderRadius.only(
-                    bottomRight: Radius.circular(30.0),
+                    bottomRight: Radius.circular(60.0),
                   ),
                 ),
                 accountName: const Text('John Smith'),
