@@ -85,12 +85,15 @@ class DrawerBuilder extends StatelessWidget {
                     ),
                     DrawerButton(
                       icon: Icons.chat,
+                      text: 'Chat',
                     ),
                     DrawerButton(
                       icon: Icons.calculate,
+                      text: 'BMI Calculator',
                     ),
                     DrawerButton(
                       icon: Icons.music_note,
+                      text: 'Musics',
                     ),
                   ],
                 ),
@@ -114,9 +117,10 @@ class DrawerBuilder extends StatelessWidget {
 }
 
 class DrawerButton extends StatelessWidget {
-  DrawerButton({required this.icon});
+  DrawerButton({required this.icon, required this.text});
 
   final IconData icon;
+  String text;
 
   @override
   Widget build(BuildContext context) {
@@ -149,10 +153,20 @@ class DrawerButton extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Icon(
-                      icon,
-                      color: kSecondaryColor,
-                      size: size.width * 0.08,
+                    Row(
+                      children: [
+                        Icon(
+                          icon,
+                          color: kSecondaryColor,
+                          size: size.width * 0.08,
+                        ),
+                        SizedBox(
+                          width: size.width * 0.02,
+                        ),
+                        Text(
+                          text,
+                        ),
+                      ],
                     ),
                   ],
                 ),
