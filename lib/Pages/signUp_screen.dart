@@ -2,6 +2,7 @@ import './login_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
 import '../translations/local_keys.g.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 
 
@@ -290,11 +291,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
         child: Container(
           width: MediaQuery.of(context).size.width,
           height: MediaQuery.of(context).size.height,
-<<<<<<< HEAD
-          decoration:const  BoxDecoration(
-=======
+
           decoration: const BoxDecoration(
->>>>>>> origin/medi
+
             image: DecorationImage(
               image: AssetImage('assets/images/back.png'),
               fit: BoxFit.cover,
@@ -303,12 +302,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-<<<<<<< HEAD
 
-              SizedBox(
-=======
               const SizedBox(
->>>>>>> origin/medi
+
                 height: 20,
               ),
               Container(
@@ -373,14 +369,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
 
 
                           child: ElevatedButton(
-<<<<<<< HEAD
 
-                  onPressed: _signup,
-=======
                             onPressed: () {
                               Navigator.pushNamed(context, '/Main');
                             },
->>>>>>> origin/medi
+
                             style: ElevatedButton.styleFrom(
                               backgroundColor: Colors.transparent,
                               elevation: 0,
@@ -400,30 +393,19 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       const SizedBox(
                         height: 20,
                       ),
+                      //
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Text(
                             LocaleKeys.have_an_account.tr(),
-<<<<<<< HEAD
-                            style:const TextStyle(
-=======
                             style: const TextStyle(
->>>>>>> origin/medi
-                              color: Colors.white,
+                              // Remove the 'child' named parameter
                             ),
                           ),
                           Container(
-                            height: 26,
-                            width: 100,
-                            margin: const EdgeInsets.only(left: 0, top: 0),
                             decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(56),
-<<<<<<< HEAD
-                              gradient:const LinearGradient(
-=======
-                              gradient: const LinearGradient(
->>>>>>> origin/medi
+                              gradient: LinearGradient(
                                 begin: Alignment.topLeft,
                                 end: Alignment.bottomRight,
                                 colors: [
@@ -433,6 +415,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                 ],
                                 stops: [0.0153, 0.9821, 0.9821],
                               ),
+                              borderRadius: BorderRadius.circular(56),
                             ),
                             child: ElevatedButton(
                               onPressed: () {
@@ -444,7 +427,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                 );
                               },
                               style: ElevatedButton.styleFrom(
-                                backgroundColor: Colors.transparent,
+                                primary: Colors.transparent,
                                 elevation: 0,
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(56),
@@ -452,16 +435,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
                               ),
                               child: Text(
                                 LocaleKeys.SignIn.tr(),
-<<<<<<< HEAD
-                                style:const TextStyle(
-=======
                                 style: const TextStyle(
->>>>>>> origin/medi
                                   fontWeight: FontWeight.bold,
                                 ),
                               ),
                             ),
-
                           ),
                         ],
                       ),

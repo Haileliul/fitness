@@ -2,13 +2,13 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:fitness/Pages/bmi_input_page.dart';
 
-<<<<<<< HEAD
+
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
-=======
+
 import 'package:provider/provider.dart';
->>>>>>> origin/medi
+
 
 
 // import 'Pages/Detail_of_Subcategory.txt';
@@ -78,21 +78,14 @@ class Home extends StatelessWidget {
         theme: ThemeData.dark(),
         title: 'Flutter Example',
 
-        routes: {
-          // '/': (context) => SplashScreen(),
-          '/Login': (context) => const LoginScreen(),
-          '/Signup': (context) => const SignUpScreen(),
-          '/Main': (context) => const MainLandingPage(),
 
-<<<<<<< HEAD
       routes: {
         // '/': (context) => SplashScreen(),
         '/Login': (context) => LoginScreen(),
         '/Signup': (context) => SignUpScreen(),
         '/Main': (context) => MainLandingPage(),
         '/chat': (context) => ChatScreen(),
-=======
->>>>>>> origin/medi
+
 
         '/Final': (context) => FinalReportPage(),
         '/Detail': (context) => DetailSubList(),

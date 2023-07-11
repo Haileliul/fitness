@@ -50,12 +50,12 @@ class WorkoutList extends StatelessWidget {
         ),
         child: Column(
           children: [
-            const Row(
+            Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
+                  children:const [
                     Text(
                       "Work Out",
                       style: TextStyle(
@@ -63,7 +63,7 @@ class WorkoutList extends StatelessWidget {
                         fontSize: 20,
                       ),
                     ),
-                    Text(
+                      Text(
                       "Strong and Big Chest",
                       style: TextStyle(
                         fontSize: 11,
@@ -74,7 +74,7 @@ class WorkoutList extends StatelessWidget {
                 Column(
                   children: [
                     Row(
-                      children: [
+                      children:const [
                         Text(
                           "1",
                           style: TextStyle(
@@ -99,7 +99,7 @@ class WorkoutList extends StatelessWidget {
                         ),
                       ],
                     ),
-                    Text(
+                    const Text(
                       "workouts",
                       style: TextStyle(
                         fontSize: 11,
@@ -120,11 +120,11 @@ class WorkoutList extends StatelessWidget {
                 controller: _controller,
               ),
             ),
-            const Padding(
-              padding: EdgeInsets.all(8.0),
+             Padding(
+              padding:const  EdgeInsets.all(8.0),
               child: Column(
                 children: [
-                  Text(
+                  const Text(
                     "Bench Press",
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
@@ -132,10 +132,10 @@ class WorkoutList extends StatelessWidget {
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsets.all(5.0),
+                    padding: const EdgeInsets.all(5.0),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
+                      children: const [
                         Text("Next:"),
                         Text(" Dumbbell Press"),
                       ],
@@ -153,9 +153,9 @@ class WorkoutList extends StatelessWidget {
                 progressColor: const Color(0xFFA70808),
                 backgroundColor: Colors.white,
                 circularStrokeCap: CircularStrokeCap.round,
-                center: const Row(
+                center:  Row(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
+                  children: const[
                     Text(
                       "1",
                       style: TextStyle(
@@ -182,9 +182,9 @@ class WorkoutList extends StatelessWidget {
                 ),
               ),
             ),
-            const Row(
+             Row(
               mainAxisAlignment: MainAxisAlignment.center,
-              children: [
+              children:const [
                 Text(
                   "12x",
                   style: TextStyle(
@@ -199,8 +199,8 @@ class WorkoutList extends StatelessWidget {
                 ),
               ],
             ),
-            const Column(
-              children: [
+             Column(
+              children: const [
                 // this is the place for Next set Button and Next Exercise
               ],
             ),

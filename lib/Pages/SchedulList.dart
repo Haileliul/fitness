@@ -138,10 +138,10 @@ class SchedulList extends StatelessWidget {
         )),
         child: Column(
           children: [
-            const Padding(
-              padding: EdgeInsets.only(bottom: 18.0),
+             Padding(
+              padding: const EdgeInsets.only(bottom: 18.0),
               child: Row(
-                children: [
+                children: const  [
                   Padding(
                     padding: EdgeInsets.all(8.0),
                     child: backButton(),

@@ -106,7 +106,7 @@ class DetailSubList extends StatelessWidget {
                           color: Colors.white,
                         ),
                       ),
-                      const Row(
+                       Row(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           AnimatedIconExample(),
