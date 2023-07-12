@@ -42,7 +42,7 @@ class _PaymentGatewayScreenState extends State<PaymentGatewayScreen> {
                   child: backButton(),
                 ),
               ),
-              Container(
+              SizedBox(
                 width: size.width,
                 height: size.height * 0.9,
                 child: Column(
@@ -53,7 +53,7 @@ class _PaymentGatewayScreenState extends State<PaymentGatewayScreen> {
                         padding: const EdgeInsets.symmetric(horizontal: 2.0),
                         child: Container(
                           // color: Colors.amber,
-                          decoration: BoxDecoration(
+                          decoration: const BoxDecoration(
                             image: DecorationImage(
                               image:
                                   AssetImage('assets/images/rectangle49.png'),

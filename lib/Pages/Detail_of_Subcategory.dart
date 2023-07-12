@@ -11,6 +11,8 @@ class DetailSubList extends StatelessWidget {
   var productState;
   var productStateModifier;
 
+  DetailSubList({super.key});
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -43,7 +45,12 @@ class DetailSubList extends StatelessWidget {
                     children: [
                       Stack(
                         children: [
-                          youtubplayer(),
+                          youtubplayer(
+                              myVideoId: productState.containerData[productState
+                                              .selectedCategoryIndex]
+                                          ["SubExercises"]
+                                      [productState.SubselectedCategoryIndex]
+                                  ["V_url"]),
                           const Padding(
                             padding: EdgeInsets.all(8.0),
                             child: backButton(),
@@ -62,10 +69,10 @@ class DetailSubList extends StatelessWidget {
                                   "${productState.containerData[productState.selectedCategoryIndex]["SubExercises"][productState.SubselectedCategoryIndex]["Img"]}"),
                               title: Text(
                                   "${productState.containerData[productState.selectedCategoryIndex]["SubExercises"][productState.SubselectedCategoryIndex]["Name"]}"),
-                              subtitle: Text("this is detaile"),
+                              subtitle: const Text("this is detaile"),
                             ),
                             Padding(
-                              padding: EdgeInsets.symmetric(
+                              padding: const EdgeInsets.symmetric(
                                 horizontal: 28.0,
                                 vertical: 20,
                               ),
@@ -87,24 +94,24 @@ class DetailSubList extends StatelessWidget {
         appBar: AppBar(),
         panel: Expanded(
           child: Container(
+            color: Colors.transparent,
+            width: size.width,
             child: Column(
               children: [
                 IconButton(
                     onPressed: () {},
-                    icon: Icon(
+                    icon: const Icon(
                       Icons.menu,
                     )),
-                Text("This is the Panel Part "),
+                const Text("This is the Panel Part "),
                 TextButton(
                   onPressed: () {
                     Navigator.pop(context);
                   },
-                  child: Text("Click me "),
+                  child: const Text("Click me "),
                 ),
               ],
             ),
-            color: Colors.transparent,
-            width: size.width,
           ),
         ),
         panelHeader: Container(

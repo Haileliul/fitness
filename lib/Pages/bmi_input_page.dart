@@ -15,6 +15,8 @@ enum Gender {
 }
 
 class InputPage extends StatefulWidget {
+  const InputPage({super.key});
+
   @override
   _InputPageState createState() => _InputPageState();
 }
@@ -29,7 +31,7 @@ class _InputPageState extends State<InputPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('BMI CALCULATOR'),
+        title: const Text('BMI CALCULATOR'),
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -47,7 +49,7 @@ class _InputPageState extends State<InputPage> {
                       colour: selectedGender == Gender.male
                           ? kActiveCardColour
                           : kInactiveColour,
-                      cardChild: IconContent(
+                      cardChild: const IconContent(
                         icon: FontAwesomeIcons.mars,
                         lable: 'MALE',
                       )),
@@ -62,7 +64,7 @@ class _InputPageState extends State<InputPage> {
                     colour: selectedGender == Gender.female
                         ? kActiveCardColour
                         : kInactiveColour,
-                    cardChild: IconContent(
+                    cardChild: const IconContent(
                       icon: FontAwesomeIcons.venus,
                       lable: 'FEMALE',
                     ),
@@ -77,7 +79,7 @@ class _InputPageState extends State<InputPage> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text(
+                    const Text(
                       'HEIGHT',
                       style: kLableTextStyle,
                     ),
@@ -91,7 +93,7 @@ class _InputPageState extends State<InputPage> {
                           height.toString(),
                           style: kNumberStyle,
                         ),
-                        Text(
+                        const Text(
                           'cm',
                           style: kLableTextStyle,
                         )
@@ -100,13 +102,13 @@ class _InputPageState extends State<InputPage> {
                     SliderTheme(
                       data: SliderTheme.of(context).copyWith(
                         activeTrackColor: Colors.white,
-                        inactiveTrackColor: Color(0xFF8D8E98),
-                        thumbColor: Color(0xFFDE3707),
+                        inactiveTrackColor: const Color(0xFF8D8E98),
+                        thumbColor: const Color(0xFFDE3707),
                         thumbShape:
-                        RoundSliderThumbShape(enabledThumbRadius: 15),
-                        overlayColor: Color(0x29EB1555),
+                        const RoundSliderThumbShape(enabledThumbRadius: 15),
+                        overlayColor: const Color(0x29EB1555),
                         overlayShape:
-                        RoundSliderOverlayShape(overlayRadius: 30),
+                        const RoundSliderOverlayShape(overlayRadius: 30),
                       ),
                       child: Slider(
                         value: height.toDouble(),
@@ -134,7 +136,7 @@ class _InputPageState extends State<InputPage> {
                     cardChild: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text(
+                        const Text(
                           'WEIGHT',
                           style: kLableTextStyle,
                         ),
@@ -153,7 +155,7 @@ class _InputPageState extends State<InputPage> {
                                 });
                               },
                             ),
-                            SizedBox(
+                            const SizedBox(
                               width: 10.0,
                             ),
                             RoundIconButton(
@@ -177,7 +179,7 @@ class _InputPageState extends State<InputPage> {
                     cardChild: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text(
+                        const Text(
                           'AGE',
                           style: kLableTextStyle,
                         ),
@@ -196,7 +198,7 @@ class _InputPageState extends State<InputPage> {
                                 });
                               },
                             ),
-                            SizedBox(
+                            const SizedBox(
                               width: 10.0,
                             ),
                             RoundIconButton(

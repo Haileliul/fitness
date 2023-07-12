@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../Widgets/backButton.dart';
 import '../Widgets/chart.dart';
 
 class FinalReportPage extends StatefulWidget {
@@ -13,18 +12,18 @@ class FinalReportPage extends StatefulWidget {
 class _FinalReportPageState extends State<FinalReportPage> {
   static int indicator = 0;
   int _currentStep = 0;
-  List<Step> _steps = [
-    Step(
+  final List<Step> _steps = [
+    const Step(
       title: Text('Monday'),
       content: Text('Content of Step 1'),
       isActive: true,
     ),
-    Step(
+    const Step(
       title: Text('Tusday'),
       content: Text('Content of Step 2'),
       isActive: true,
     ),
-    Step(
+    const Step(
       title: Text('Wednsday'),
       content: Text('Content of Step 3'),
       isActive: true,
@@ -71,7 +70,7 @@ class _FinalReportPageState extends State<FinalReportPage> {
                           ),
                         ),
                         child: Padding(
-                          padding: const EdgeInsets.only(top: 8.0, left: 28.0),
+                          padding: EdgeInsets.only(top: 8.0, left: 28.0),
                           child: LineChartWidget(),
                         ),
                       ),
@@ -88,12 +87,12 @@ class _FinalReportPageState extends State<FinalReportPage> {
                               height: 20,
                               width: 100,
                               margin: const EdgeInsets.only(left: 5, top: 0),
-                              decoration: BoxDecoration(
+                              decoration: const BoxDecoration(
                                 borderRadius: BorderRadius.only(
                                   topRight: Radius.circular(20),
                                   bottomLeft: Radius.circular(20),
                                 ),
-                                gradient: const LinearGradient(
+                                gradient: LinearGradient(
                                   begin: Alignment.topLeft,
                                   end: Alignment.bottomRight,
                                   colors: [
@@ -113,9 +112,9 @@ class _FinalReportPageState extends State<FinalReportPage> {
                                     borderRadius: BorderRadius.circular(56),
                                   ),
                                 ),
-                                child: Text(
+                                child: const Text(
                                   "week one",
-                                  style: const TextStyle(
+                                  style: TextStyle(
                                     fontWeight: FontWeight.bold,
                                   ),
                                 ),
@@ -158,7 +157,7 @@ class _FinalReportPageState extends State<FinalReportPage> {
                                 }
                               },
                               currentStep: _currentStep,
-                              physics: AlwaysScrollableScrollPhysics(),
+                              physics: const AlwaysScrollableScrollPhysics(),
                             ),
                           ),
                         ),

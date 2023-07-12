@@ -5,7 +5,7 @@ import 'package:fitness/Widgets/bmi_bottom_button.dart';
 
 class ResultsPage extends StatelessWidget {
   ResultsPage(
-      {required this.bmiResult,
+      {super.key, required this.bmiResult,
         required this.interpretation,
         required this.resultText});
   String bmiResult;
@@ -16,7 +16,7 @@ class ResultsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('BMI calculator'),
+        title: const Text('BMI calculator'),
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -24,7 +24,7 @@ class ResultsPage extends StatelessWidget {
         children: [
           Expanded(
             child: Container(
-              child: Text(
+              child: const Text(
                 'YOUR RESULT',
                 style: kLargeTextStyle,
               ),

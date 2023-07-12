@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../Widgets/backButton.dart';
 
 class SchedulList extends StatelessWidget {
   List<Map> Scheduller = [
@@ -154,7 +153,7 @@ class SchedulList extends StatelessWidget {
                       ],
                     ),
                   ), */
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
                   Expanded(
@@ -295,7 +294,7 @@ class SchedulList extends StatelessWidget {
                   onPressed: () {
                     Navigator.pushNamed(context, '/Final');
                   },
-                  child: Icon(Icons.bar_chart),
+                  child: const Icon(Icons.bar_chart),
                 ),
               ),
             ],

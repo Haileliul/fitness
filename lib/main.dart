@@ -12,10 +12,10 @@ import 'Pages/SchedulList.dart';
 import 'Pages/WorkoutList.dart';
 import 'Pages/main_landing_page.dart';
 import 'Pages/payment_gateway.dart';
+import 'Pages/splash_screen.dart';
 import 'Pages/sport_category_page.dart';
 import 'Pages/login_screen.dart';
 import 'Pages/signUp_screen.dart';
-import 'Pages/splash_screen.dart';
 import 'Pages/MusicList.dart';
 import '../translations/codegen_loader.g.dart';
 
@@ -67,14 +67,14 @@ class Home extends StatelessWidget {
           '/Signup': (context) => const SignUpScreen(),
           '/Main': (context) => const MainLandingPage(),
 
-          '/Final': (context) => FinalReportPage(),
+          '/Final': (context) => const FinalReportPage(),
           '/Detail': (context) => DetailSubList(),
-          '/SportCat': (context) => SportsCategory(),
+          '/SportCat': (context) => const SportsCategory(),
           // Pages for pro version
           '/Schedule': (context) => SchedulList(),
           '/Workout': (context) => WorkoutList(),
-          '/Bmi': (context) => InputPage(),
-          '/Payment': (context) => PaymentGatewayScreen(),
+          '/Bmi': (context) => const InputPage(),
+          '/Payment': (context) => const PaymentGatewayScreen(),
         },
 
         home:
@@ -83,8 +83,8 @@ class Home extends StatelessWidget {
             // WorkoutList(),
 
             // SchedulList(),
-            // const SplashScreen(),
-            Music(),
+            SplashScreen(),
+        // const Music(),
 
         // WeSlideTest(),
         // PaymentGatewayScreen(),

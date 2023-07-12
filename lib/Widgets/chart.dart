@@ -8,6 +8,8 @@ class LineChartWidget extends StatelessWidget {
     const Color.fromARGB(255, 230, 35, 35),
   ];
 
+  LineChartWidget({super.key});
+
   @override
   Widget build(BuildContext context) => LineChart(
         LineChartData(
@@ -26,15 +28,15 @@ class LineChartWidget extends StatelessWidget {
                 getTitlesWidget: (value, meta) {
                   switch (value.toInt()) {
                     case 0:
-                      return Text('Week one');
+                      return const Text('Week one');
                     case 10:
-                      return Text('Week Two');
+                      return const Text('Week Two');
                     case 20:
-                      return Text('Week Three');
+                      return const Text('Week Three');
                     case 30:
-                      return Text('Week Four');
+                      return const Text('Week Four');
                   }
-                  return Text(" ");
+                  return const Text(" ");
                 },
               ),
             ),
@@ -68,7 +70,8 @@ class LineChartWidget extends StatelessWidget {
           ),
           borderData: FlBorderData(
             show: true,
-            border: Border.all(color: Color.fromRGBO(55, 67, 77, 1), width: 1),
+            border: Border.all(
+                color: const Color.fromRGBO(55, 67, 77, 1), width: 1),
 
             // border: Border.fromBorderSide(BorderSide())
           ),

@@ -1,13 +1,8 @@
-import 'package:fitness/main1.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:http/http.dart' as http;
 import 'package:assets_audio_player/assets_audio_player.dart';
 
-import 'dart:convert';
-
 class Music extends StatefulWidget {
-  Music({super.key});
+  const Music({super.key});
 
   @override
   State<Music> createState() => _MusicState();
@@ -24,19 +19,19 @@ class _MusicState extends State<Music> {
         artist: 'Florent Champigny',
         album: 'OnlineAlbum',
         // image: MetasImage.network('https://www.google.com')
-        image: MetasImage.network(
+        image: const MetasImage.network(
             'https://image.shutterstock.com/image-vector/pop-music-text-art-colorful-600w-515538502.jpg'),
       ),
     ),
     Audio.network(
-      'https://soundcloud.com/joseph-pompeo-422599025/turn-around-pomp-bootleg?si=635d716eb4f54f18bd135caac45cba8b&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing',
+      'https://prosearch.tribeofnoise.com/artists/show/24919/14195',
       metas: Metas(
         id: 'Online',
         title: 'Online',
         artist: 'Florent Champigny',
         album: 'OnlineAlbum',
         // image: MetasImage.network('https://www.google.com')
-        image: MetasImage.network(
+        image: const MetasImage.network(
             'https://image.shutterstock.com/image-vector/pop-music-text-art-colorful-600w-515538502.jpg'),
       ),
     ),
@@ -68,12 +63,13 @@ class _MusicState extends State<Music> {
 
   void openPlayer() async {
     await player.open(
-      Playlist(audios: audios),
+      Playlist(audios: audios, startIndex: 1),
       showNotification: true,
       autoStart: true,
     );
   }
 
+  @override
   void dispose() {
     player.dispose();
     print('dispose');
@@ -87,11 +83,11 @@ class _MusicState extends State<Music> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text("hi it is me"),
+            const Text("hi it is me"),
             Center(
               child: IconButton(
                 onPressed: openPlayer,
-                icon: Icon(Icons.play_arrow),
+                icon: const Icon(Icons.play_arrow),
               ),
             ),
           ],

@@ -202,9 +202,9 @@ class WorkoutList extends StatelessWidget {
               children: [
                 // this is the place for Next set Button and Next Exercise
                 TextButton(
-                  child: Text("hi"),
                   onPressed: () => print("hi"),
-                  style: ButtonStyle(),
+                  style: const ButtonStyle(),
+                  child: const Text("hi"),
                 )
               ],
             ),
