@@ -26,6 +26,7 @@ class DetailSubList extends StatelessWidget {
         hideAppBar: true,
         panelMaxSize: size.height,
         panelMinSize: size.height * 0.1,
+        appBarHeight: 55,
         body: Container(
           decoration: const BoxDecoration(
               // color: Colors.white.withOpacity(0.4),
@@ -43,23 +44,10 @@ class DetailSubList extends StatelessWidget {
                   ),
                   child: Column(
                     children: [
-                      Stack(
-                        children: [
-                          youtubplayer(
-                              myVideoId: productState.containerData[productState
-                                              .selectedCategoryIndex]
-                                          ["SubExercises"]
-                                      [productState.SubselectedCategoryIndex]
-                                  ["V_url"]),
-                          const Padding(
-                            padding: EdgeInsets.all(8.0),
-                            child: backButton(),
-                          ),
-                        ],
-                      ),
-                      const SizedBox(
-                        height: 20,
-                      ),
+                      youtubplayer(
+                          myVideoId: productState.containerData[productState
+                                  .selectedCategoryIndex]["SubExercises"]
+                              [productState.SubselectedCategoryIndex]["V_url"]),
                       Container(
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -130,6 +118,11 @@ class DetailSubList extends StatelessWidget {
               ],
               stops: [0.0153, 0.9821, 0.9821],
             ),
+          ),
+          child: Row(
+            children: [
+              // AnimatedIcon(icon: , progress: progress)
+            ],
           ),
         ),
       ),

@@ -19,6 +19,7 @@ import 'Pages/signUp_screen.dart';
 import 'Pages/MusicList.dart';
 import '../translations/codegen_loader.g.dart';
 
+import 'Provider/WorkOut Scheduler.dart';
 import 'Provider/exercises_categories.dart';
 
 Future<void> main() async {
@@ -47,6 +48,7 @@ class Home extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (context) => ExerciseCategories()),
+        ChangeNotifierProvider(create: (context) => WorkOutProvider()),
       ],
       child: MaterialApp(
         // adding nessesary deligates for app localizasion

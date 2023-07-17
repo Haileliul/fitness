@@ -37,7 +37,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   youtube_player_flutter: ^8.1.2
   # assets_audio_player: ^3.0.6
-  fl_chart: ^0.62.0
+  # fl_chart: ^0.62.0
   http: ^0.13.6
   # audioplayers: ^4.1.0  
   firebase_auth: ^4.6.3
@@ -53,8 +53,13 @@ dependencies:
   provider: ^6.0.5
   miniplayer: ^1.0.1
   we_slide: ^2.4.0
-  audioplayers: ^4.1.0
-  assets_audio_player: ^3.0.6
+  assets_audio_player: ^3.0.5
+  fl_chart: ^0.63.0
+  fan_side_drawer: ^0.0.1
+  side_sheet: ^1.0.4
+  quickalert: ^1.0.1
+  # audioplayers: ^4.1.0
+  # assets_audio_player: ^3.0.6
 
 
 dev_dependencies:

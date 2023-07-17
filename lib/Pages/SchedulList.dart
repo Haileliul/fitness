@@ -1,130 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
+import '../Provider/WorkOut Scheduler.dart';
+import '../Provider/exercises_categories.dart';
 
 class SchedulList extends StatelessWidget {
-  List<Map> Scheduller = [
-    {
-      "title": "Weak one",
-      "Excersise": [
-        {
-          "day": "Moonday",
-          "todo": ["running", "jumping", "walking", "helping"],
-        },
-        {
-          "day": "Tusday",
-          "todo": ["running", "jumping", "walking", "helping"],
-        },
-        {
-          "day": "Wednsday",
-          "todo": ["running", "jumping", "walking", "helping"],
-        },
-        {
-          "day": "Thursday",
-          "todo": ["running", "jumping", "walking", "helping"],
-        },
-        {
-          "day": "Friday",
-          "todo": ["running", "jumping", "walking", "helping"],
-        },
-        {
-          "day": "SaterDay",
-          "todo": ["running", "jumping", "walking", "helping"],
-        }
-      ]
-    },
-    {
-      "title": "Weak Two",
-      "Excersise": [
-        {
-          "day": "Moonday",
-          "todo": ["running", "jumping", "walking", "helping"],
-        },
-        {
-          "day": "Tusday",
-          "todo": ["running", "jumping", "walking", "helping"],
-        },
-        {
-          "day": "Wednsday",
-          "todo": ["running", "jumping", "walking", "helping"],
-        },
-        {
-          "day": "Thursday",
-          "todo": ["running", "jumping", "walking", "helping"],
-        },
-        {
-          "day": "Friday",
-          "todo": ["running", "jumping", "walking", "helping"],
-        },
-        {
-          "day": "SaterDay",
-          "todo": ["running", "jumping", "walking", "helping"],
-        }
-      ]
-    },
-    {
-      "title": "Weak Three",
-      "Excersise": [
-        {
-          "day": "Moonday",
-          "todo": ["running", "jumping", "walking", "helping"],
-        },
-        {
-          "day": "Tusday",
-          "todo": ["running", "jumping", "walking", "helping"],
-        },
-        {
-          "day": "Wednsday",
-          "todo": ["running", "jumping", "walking", "helping"],
-        },
-        {
-          "day": "Thursday",
-          "todo": ["running", "jumping", "walking", "helping"],
-        },
-        {
-          "day": "Friday",
-          "todo": ["running", "jumping", "walking", "helping"],
-        },
-        {
-          "day": "SaterDay",
-          "todo": ["running", "jumping", "walking", "helping"],
-        }
-      ]
-    },
-    {
-      "title": "Weak Fourth",
-      "Excersise": [
-        {
-          "day": "Moonday",
-          "todo": ["running", "jumping", "walking", "helping"],
-        },
-        {
-          "day": "Tusday",
-          "todo": ["running", "jumping", "walking", "helping"],
-        },
-        {
-          "day": "Wednsday",
-          "todo": ["running", "jumping", "walking", "helping"],
-        },
-        {
-          "day": "Thursday",
-          "todo": ["running", "jumping", "walking", "helping"],
-        },
-        {
-          "day": "Friday",
-          "todo": ["running", "jumping", "walking", "helping"],
-        },
-        {
-          "day": "SaterDay",
-          "todo": ["running", "jumping", "walking", "helping"],
-        }
-      ]
-    },
-  ];
-
   SchedulList({super.key});
-
+  var WorkoutState;
+  var WorkoutUpdater;
   @override
   Widget build(BuildContext context) {
+    WorkoutState = Provider.of<ExerciseCategories>(context);
+    WorkoutUpdater = Provider.of<ExerciseCategories>(context, listen: false);
     Size size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(),
@@ -142,17 +29,6 @@ class SchedulList extends StatelessWidget {
             children: [
               Column(
                 children: [
-                  /*   const Padding(
-                    padding: EdgeInsets.only(bottom: 18.0),
-                    child: Row(
-                      children: [
-                        Padding(
-                          padding: EdgeInsets.all(8.0),
-                          child: backButton(),
-                        ),
-                      ],
-                    ),
-                  ), */
                   const SizedBox(
                     height: 10,
                   ),
@@ -215,7 +91,11 @@ class SchedulList extends StatelessWidget {
                                   textColor: Colors.red,
                                   // backgroundColor: Colors.red,
                                   leading: Text(index.toString()),
-
+                                  onExpansionChanged: (value) {
+                                    if (value == true) {
+                                      WorkoutUpdater.WeekChangerIndex(index);
+                                    }
+                                  },
                                   title: Center(
                                     child: Padding(
                                       padding: const EdgeInsets.symmetric(
@@ -230,7 +110,7 @@ class SchedulList extends StatelessWidget {
                                           ).createShader(bounds);
                                         },
                                         child: Text(
-                                          "${Scheduller[index]["title"]}",
+                                          "${WorkoutState.Scheduller[index]["title"]}",
                                           style: const TextStyle(
                                             fontSize: 20.0,
                                             color: Colors.white,
@@ -250,6 +130,11 @@ class SchedulList extends StatelessWidget {
                                             padding: const EdgeInsets.all(8.0),
                                             child: TextButton(
                                               onPressed: () {
+                                                WorkoutUpdater.ListGenarater(
+                                                    index);
+
+                                                WorkoutUpdater
+                                                    .changeWorkoutIndex(index);
                                                 Navigator.pushNamed(
                                                     context, '/Workout');
                                               },
@@ -263,7 +148,7 @@ class SchedulList extends StatelessWidget {
                                                     const EdgeInsets.symmetric(
                                                         vertical: 20),
                                                 child: Text(
-                                                  "${Scheduller[0]["Excersise"][index]["day"]}",
+                                                  "${WorkoutState.Scheduller[0]["Excersise"][index]["day"]}",
                                                   style: const TextStyle(
                                                     color: Colors.white,
                                                     fontWeight: FontWeight.bold,
