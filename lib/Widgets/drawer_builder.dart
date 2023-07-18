@@ -50,7 +50,7 @@ class DrawerBuilder extends StatelessWidget {
                         borderRadius: BorderRadius.circular(10.0),
                       ),
                       padding: const EdgeInsets.symmetric(
-                        horizontal: 10.0,
+                        horizontal: 15.0,
                         vertical: 10.0,
                       ),
                       child: DefaultTextStyle(
