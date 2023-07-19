@@ -10,6 +10,7 @@ import 'Pages/Detail_of_Subcategory.dart';
 import 'Pages/FinalReportPage.dart';
 import 'Pages/SchedulList.dart';
 import 'Pages/WorkoutList.dart';
+import 'Pages/chatbot.dart';
 import 'Pages/main_landing_page.dart';
 import 'Pages/payment_gateway.dart';
 import 'Pages/splash_screen.dart';
@@ -72,6 +73,7 @@ class Home extends StatelessWidget {
           '/Final': (context) => const FinalReportPage(),
           '/Detail': (context) => DetailSubList(),
           '/SportCat': (context) => const SportsCategory(),
+          '/chat': (context) => Chatbot(),
           // Pages for pro version
           '/Schedule': (context) => SchedulList(),
           '/Workout': (context) => WorkoutList(),
@@ -85,7 +87,8 @@ class Home extends StatelessWidget {
             // WorkoutList(),
 
             // SchedulList(),
-            SplashScreen(),
+            // SplashScreen(),
+            Chatbot(),
         // const Music(),
 
         // WeSlideTest(),
