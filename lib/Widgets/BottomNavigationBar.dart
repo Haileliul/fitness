@@ -27,7 +27,7 @@ class BottomnavigationBar extends StatelessWidget {
           icon: FontAwesomeIcons.solidMessage,
           text: 'Chat',
           onPressed: () {
-            Navigator.pushNamed(context, '/Final');
+            Navigator.pushNamed(context, '/chat');
           },
         ),
         GButton(

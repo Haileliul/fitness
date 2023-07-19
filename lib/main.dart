@@ -87,8 +87,8 @@ class Home extends StatelessWidget {
             // WorkoutList(),
 
             // SchedulList(),
-            // SplashScreen(),
-            Chatbot(),
+            SplashScreen(),
+        // Chatbot(),
         // const Music(),
 
         // WeSlideTest(),
