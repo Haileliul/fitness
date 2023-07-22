@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "206150135181",
+    "project_id": "fitness-chat-e8c00",
+    "storage_bucket": "fitness-chat-e8c00.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:206150135181:android:99cf34ac82a0af92ece1c4",
+        "android_client_info": {
+          "package_name": "com.example.fitness"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "206150135181-blbf9r6g8vqfjpa7i51cqojdlr1s2nu0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBx3AAYFEagIYZ67vMPlZFL_pBRjVg6hsM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "206150135181-blbf9r6g8vqfjpa7i51cqojdlr1s2nu0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

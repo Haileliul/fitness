@@ -2,6 +2,13 @@ import './login_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
 import '../translations/local_keys.g.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+
+
+
+
+
+
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key});
@@ -11,6 +18,7 @@ class SignUpScreen extends StatefulWidget {
 }
 
 class _SignUpScreenState extends State<SignUpScreen> {
+  final FirebaseAuth _auth = FirebaseAuth.instance;
   String dropdownSexValue = LocaleKeys.Male.tr();
   String dropdownAgeValue = '0';
   final FocusNode _nameFocusNode = FocusNode();
@@ -22,6 +30,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
   bool _isObscured = true;
 
   @override
+
+
   void dispose() {
     _nameFocusNode.dispose();
     _emailFocusNode.dispose();
@@ -249,6 +259,31 @@ class _SignUpScreenState extends State<SignUpScreen> {
     );
   }
 
+
+
+
+
+  void _signup() async {
+    try {
+      await _auth.createUserWithEmailAndPassword(
+          email: _emailController.text,
+          password: _passwordController.text);
+      showSnackBar('User created');
+      Navigator.pushNamed(context, '/Main');
+    } on FirebaseAuthException catch(e) {
+      print(e);
+      showSnackBar('Failed to create user');
+    }
+  }
+
+
+
+  void showSnackBar(String message){
+    ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text(message))
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -256,7 +291,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
         child: Container(
           width: MediaQuery.of(context).size.width,
           height: MediaQuery.of(context).size.height,
+
           decoration: const BoxDecoration(
+
             image: DecorationImage(
               image: AssetImage('assets/images/back.png'),
               fit: BoxFit.cover,
@@ -265,7 +302,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+
               const SizedBox(
+
                 height: 20,
               ),
               Container(
@@ -306,6 +345,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       const SizedBox(
                         height: 20,
                       ),
+
+
                       Align(
                         alignment: Alignment.center,
                         child: Container(
@@ -325,10 +366,14 @@ class _SignUpScreenState extends State<SignUpScreen> {
                               stops: [0.0153, 0.9821, 0.9821],
                             ),
                           ),
+
+
                           child: ElevatedButton(
+
                             onPressed: () {
                               Navigator.pushNamed(context, '/Main');
                             },
+
                             style: ElevatedButton.styleFrom(
                               backgroundColor: Colors.transparent,
                               elevation: 0,
@@ -348,22 +393,19 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       const SizedBox(
                         height: 20,
                       ),
+                      //
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Text(
                             LocaleKeys.have_an_account.tr(),
                             style: const TextStyle(
-                              color: Colors.white,
+                              // Remove the 'child' named parameter
                             ),
                           ),
                           Container(
-                            height: 26,
-                            width: 100,
-                            margin: const EdgeInsets.only(left: 0, top: 0),
                             decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(56),
-                              gradient: const LinearGradient(
+                              gradient: LinearGradient(
                                 begin: Alignment.topLeft,
                                 end: Alignment.bottomRight,
                                 colors: [
@@ -373,6 +415,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                 ],
                                 stops: [0.0153, 0.9821, 0.9821],
                               ),
+                              borderRadius: BorderRadius.circular(56),
                             ),
                             child: ElevatedButton(
                               onPressed: () {
@@ -384,7 +427,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                 );
                               },
                               style: ElevatedButton.styleFrom(
-                                backgroundColor: Colors.transparent,
+                                primary: Colors.transparent,
                                 elevation: 0,
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(56),
@@ -401,6 +444,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         ],
                       ),
                     ],
+
                   ),
                 ),
               ),

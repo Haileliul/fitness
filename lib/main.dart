@@ -2,9 +2,15 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:fitness/Pages/bmi_input_page.dart';
 
+
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+
+
 import 'package:provider/provider.dart';
 
 // import 'Pages/Detail_of_Subcategory.txt';
+import 'package:fitness/Pages/chat_screen.dart';
 
 import 'Pages/Detail_of_Subcategory.dart';
 import 'Pages/FinalReportPage.dart';
@@ -23,9 +29,21 @@ import '../translations/codegen_loader.g.dart';
 import 'Provider/WorkOut Scheduler.dart';
 import 'Provider/exercises_categories.dart';
 
+
+
+
+
+
+
+
+
+
+
+
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await EasyLocalization.ensureInitialized();
+  await Firebase.initializeApp();
 
   runApp(
     EasyLocalization(
@@ -64,11 +82,13 @@ class Home extends StatelessWidget {
         theme: ThemeData.dark(),
         title: 'Flutter Example',
 
-        routes: {
-          // '/': (context) => SplashScreen(),
-          '/Login': (context) => const LoginScreen(),
-          '/Signup': (context) => const SignUpScreen(),
-          '/Main': (context) => const MainLandingPage(),
+
+      routes: {
+        // '/': (context) => SplashScreen(),
+        '/Login': (context) => LoginScreen(),
+        '/Signup': (context) => SignUpScreen(),
+        '/Main': (context) => MainLandingPage(),
+        '/chat': (context) => ChatScreen(),
 
           '/Final': (context) => const FinalReportPage(),
           '/Detail': (context) => DetailSubList(),
@@ -105,3 +125,5 @@ class Home extends StatelessWidget {
     );
   }
 }
+
+

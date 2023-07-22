@@ -161,7 +161,7 @@ class _WorkoutListState extends State<WorkoutList> {
               children: [
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
+                  children:const [
                     Text(
                       "Work Out",
                       style: TextStyle(
@@ -169,10 +169,12 @@ class _WorkoutListState extends State<WorkoutList> {
                         fontSize: 20,
                       ),
                     ),
+
                     Text(
                       // here it is
 
                       "${todo[todoIndex]["Name"]}",
+
                       style: TextStyle(
                         fontSize: 11,
                       ),
@@ -182,7 +184,7 @@ class _WorkoutListState extends State<WorkoutList> {
                 Column(
                   children: [
                     Row(
-                      children: [
+                      children:const [
                         Text(
                           "${todoIndex + 1}",
                           style: TextStyle(
@@ -207,7 +209,7 @@ class _WorkoutListState extends State<WorkoutList> {
                         ),
                       ],
                     ),
-                    Text(
+                    const Text(
                       "workouts",
                       style: TextStyle(
                         fontSize: 11,
@@ -228,26 +230,30 @@ class _WorkoutListState extends State<WorkoutList> {
                 controller: _controller,
               ),
             ),
+
             Padding(
               padding: EdgeInsets.all(8.0),
               child: Column(
                 children: [
                   Text(
                     "${todo[todoIndex]["Name"]}",
+
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 18,
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsets.all(5.0),
+                    padding: const EdgeInsets.all(5.0),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
+
                       children: [
                         Text("Next:  "),
                         Text(
                           "${todo[todoIndex + 1]["Name"]}",
                         ),
+
                       ],
                     ),
                   ),
@@ -256,11 +262,13 @@ class _WorkoutListState extends State<WorkoutList> {
             ),
             Padding(
               padding: const EdgeInsets.all(8.0),
+
               child: indicaor(),
             ),
             Row(
+
               mainAxisAlignment: MainAxisAlignment.center,
-              children: [
+              children:const [
                 Text(
                   "${weak["rep"]}x",
                   style: TextStyle(
@@ -275,6 +283,7 @@ class _WorkoutListState extends State<WorkoutList> {
                 ),
               ],
             ),
+
             Expanded(
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -350,6 +359,7 @@ class _WorkoutListState extends State<WorkoutList> {
                   ),
                 ],
               ),
+
             ),
           ],
         ),

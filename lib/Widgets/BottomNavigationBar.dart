@@ -28,6 +28,7 @@ class BottomnavigationBar extends StatelessWidget {
           text: 'Chat',
           onPressed: () {
             Navigator.pushNamed(context, '/chat');
+
           },
         ),
         GButton(

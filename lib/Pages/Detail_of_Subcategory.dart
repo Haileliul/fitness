@@ -76,6 +76,7 @@ class DetailSubList extends StatelessWidget {
               ),
 
               // here will the music go
+
             ],
           ),
         ),
@@ -97,6 +98,7 @@ class DetailSubList extends StatelessWidget {
                     Navigator.pop(context);
                   },
                   child: const Text("Click me "),
+
                 ),
               ],
             ),

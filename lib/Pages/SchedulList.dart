@@ -14,6 +14,7 @@ class SchedulList extends StatelessWidget {
     WorkoutUpdater = Provider.of<ExerciseCategories>(context, listen: false);
     Size size = MediaQuery.of(context).size;
     return Scaffold(
+
       appBar: AppBar(),
       body: SafeArea(
         child: Container(
@@ -31,6 +32,7 @@ class SchedulList extends StatelessWidget {
                 children: [
                   const SizedBox(
                     height: 10,
+
                   ),
                   Expanded(
                     child: Container(

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'signUp_screen.dart';
 import 'package:easy_localization/easy_localization.dart';
 import '../translations/local_keys.g.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -42,7 +43,9 @@ class _LoginScreenState extends State<LoginScreen> {
       decoration: InputDecoration(
         hintText: LocaleKeys.Password.tr(),
         filled: true,
+
         fillColor: const Color(0xFFFFF6F6),
+
         hintStyle: const TextStyle(color: Colors.black),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(8),
@@ -58,6 +61,26 @@ class _LoginScreenState extends State<LoginScreen> {
       ),
     );
   }
+  void _Login() async {
+    try {
+      await FirebaseAuth.instance.signInWithEmailAndPassword(
+          email: _emailController.text,
+          password: _passwordController.text);
+      // showSnackBar('hello');
+      Navigator.pushNamed(context, '/Main');
+    } on FirebaseAuthException catch(e) {
+      print(e);
+      showSnackBar('Failed to log in');
+    }
+  }
+
+
+
+  void showSnackBar(String message){
+    ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text(message))
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -66,7 +89,9 @@ class _LoginScreenState extends State<LoginScreen> {
         child: Container(
           width: MediaQuery.of(context).size.width,
           height: MediaQuery.of(context).size.height,
+
           decoration: const BoxDecoration(
+
             image: DecorationImage(
               image: AssetImage('assets/images/back2.png'),
               fit: BoxFit.cover,
@@ -99,7 +124,9 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                     ],
                     value: dropdownValue,
+
                     style: const TextStyle(
+
                       color: Colors.white,
                     ),
                   ),
@@ -133,7 +160,9 @@ class _LoginScreenState extends State<LoginScreen> {
                     children: [
                       Text(
                         LocaleKeys.Login.tr(),
+
                         style: const TextStyle(
+
                           fontSize: 20,
                           fontWeight: FontWeight.bold,
                           color: Colors.white,
@@ -150,7 +179,9 @@ class _LoginScreenState extends State<LoginScreen> {
                         ),
                         decoration: InputDecoration(
                           hintText: LocaleKeys.Email.tr(),
+
                           hintStyle: const TextStyle(
+
                             color: Colors.black,
                           ),
                           filled: true,
@@ -172,7 +203,9 @@ class _LoginScreenState extends State<LoginScreen> {
                         child: Container(
                           height: 48,
                           width: 124,
+
                           margin: const EdgeInsets.only(left: 0, top: 0),
+
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(56),
                             gradient: const LinearGradient(
@@ -187,9 +220,11 @@ class _LoginScreenState extends State<LoginScreen> {
                             ),
                           ),
                           child: ElevatedButton(
-                            onPressed: () {},
+
+                            onPressed:_Login,
                             style: ElevatedButton.styleFrom(
-                              backgroundColor: Colors.transparent,
+                              backgroundColor : Colors.transparent,
+
                               elevation: 0,
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(56),
@@ -220,7 +255,8 @@ class _LoginScreenState extends State<LoginScreen> {
                           Container(
                             height: 26,
                             width: 100,
-                            margin: const EdgeInsets.only(left: 0, top: 0),
+                 margin: const EdgeInsets.only(left: 0, top: 0),
+
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(56),
                               gradient: const LinearGradient(

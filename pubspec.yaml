@@ -49,6 +49,10 @@ dependencies:
   percent_indicator: ^4.2.3
   mongo_dart: ^0.9.1
   easy_localization: ^3.0.2
+
+  firebase_core: ^2.14.0
+  cloud_firestore: ^4.8.2
+
   youtube_api: ^1.0.4
   provider: ^6.0.5
   miniplayer: ^1.0.1
@@ -63,6 +67,7 @@ dependencies:
   dialog_flowtter: ^0.3.3
   # audioplayers: ^4.1.0
   # assets_audio_player: ^3.0.6
+
 
 
 dev_dependencies:
