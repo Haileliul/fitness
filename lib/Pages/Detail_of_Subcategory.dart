@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../Widgets/animatedIcon.dart';
+import 'package:we_slide/we_slide.dart';
+// import '../Widgets/animatedIcon.dart';
 import '../Widgets/backButton.dart';
 import '../Widgets/YotubePlayerPage.dart';
 import '../Provider/exercises_categories.dart';
@@ -10,24 +11,30 @@ class DetailSubList extends StatelessWidget {
   var productState;
   var productStateModifier;
 
+  DetailSubList({super.key});
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     //create a new player
     // final assetsAudioPlayer = AssetsAudioPlayer();
     productState = Provider.of<ExerciseCategories>(context);
-    productStateModifier =
-        Provider.of<ExerciseCategories>(context, listen: false);
+
+    Provider.of<ExerciseCategories>(context, listen: false);
     return Scaffold(
-      body: SafeArea(
-        child: Container(
+      body: WeSlide(
+        hideAppBar: true,
+        panelMaxSize: size.height,
+        panelMinSize: size.height * 0.1,
+        appBarHeight: 55,
+        body: Container(
           decoration: const BoxDecoration(
               // color: Colors.white.withOpacity(0.4),
               ),
           child: Column(
             children: [
               Expanded(
-                flex: 12,
+                flex: 17,
                 child: Container(
                   decoration: const BoxDecoration(
                     // color: Colors.grey.withOpacity(0.4),
@@ -37,18 +44,10 @@ class DetailSubList extends StatelessWidget {
                   ),
                   child: Column(
                     children: [
-                      Stack(
-                        children: [
-                          youtubplayer(),
-                          const Padding(
-                            padding: EdgeInsets.all(8.0),
-                            child: backButton(),
-                          ),
-                        ],
-                      ),
-                      const SizedBox(
-                        height: 20,
-                      ),
+                      youtubplayer(
+                          myVideoId: productState.containerData[productState
+                                  .selectedCategoryIndex]["SubExercises"]
+                              [productState.SubselectedCategoryIndex]["V_url"]),
                       Container(
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -58,10 +57,10 @@ class DetailSubList extends StatelessWidget {
                                   "${productState.containerData[productState.selectedCategoryIndex]["SubExercises"][productState.SubselectedCategoryIndex]["Img"]}"),
                               title: Text(
                                   "${productState.containerData[productState.selectedCategoryIndex]["SubExercises"][productState.SubselectedCategoryIndex]["Name"]}"),
-                              subtitle: Text("this is detaile"),
+                              subtitle: const Text("this is detaile"),
                             ),
                             Padding(
-                              padding: EdgeInsets.symmetric(
+                              padding: const EdgeInsets.symmetric(
                                 horizontal: 28.0,
                                 vertical: 20,
                               ),
@@ -78,44 +77,53 @@ class DetailSubList extends StatelessWidget {
 
               // here will the music go
 
-              Expanded(
-                flex: 2,
-                child: Container(
-                  decoration: const BoxDecoration(
-                    gradient: LinearGradient(
-                      colors: [
-                        Colors.black,
-                        Colors.red,
-                        Color.fromARGB(255, 223, 99, 99),
-                      ],
-                      begin: Alignment.centerLeft,
-                      end: Alignment.centerRight,
-                    ),
-                    borderRadius: BorderRadius.only(
-                      topRight: Radius.circular(40),
-                      topLeft: Radius.circular(40),
-                    ),
-                  ),
-                  child: Column(
-                    children: [
-                      TextButton(
-                        onPressed: () {},
-                        style: const ButtonStyle(),
-                        child: const Icon(
-                          Icons.keyboard_arrow_up,
-                          color: Colors.white,
-                        ),
-                      ),
-                       Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          AnimatedIconExample(),
-                        ],
-                      ),
-                    ],
-                  ),
+            ],
+          ),
+        ),
+        appBar: AppBar(),
+        panel: Expanded(
+          child: Container(
+            color: Colors.transparent,
+            width: size.width,
+            child: Column(
+              children: [
+                IconButton(
+                    onPressed: () {},
+                    icon: const Icon(
+                      Icons.menu,
+                    )),
+                const Text("This is the Panel Part "),
+                TextButton(
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  child: const Text("Click me "),
+
                 ),
-              ),
+              ],
+            ),
+          ),
+        ),
+        panelHeader: Container(
+          width: size.width,
+          height: size.height,
+          margin: const EdgeInsets.only(left: 0, top: 0),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(56),
+            gradient: const LinearGradient(
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+              colors: [
+                Color(0xFFF43800),
+                Color.fromRGBO(244, 56, 0, 0),
+                Color(0xFFF43800),
+              ],
+              stops: [0.0153, 0.9821, 0.9821],
+            ),
+          ),
+          child: Row(
+            children: [
+              // AnimatedIcon(icon: , progress: progress)
             ],
           ),
         ),

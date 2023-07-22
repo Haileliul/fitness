@@ -2,7 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
 import '../translations/local_keys.g.dart';
 
+List<Map> generaded = [];
+
 class ExerciseCategories extends ChangeNotifier {
+  ExerciseCategories();
+  // an iterater to access each value of List
+
   List containerData = [
     {
       'exerciseCategoryImage': 'assets/images/cat0n.png',
@@ -318,5 +323,168 @@ class ExerciseCategories extends ChangeNotifier {
     notifyListeners();
   }
 
+  ListGenarater(int index) {
+    List<Map> temp;
+    // an iterater to access each value of List
+    containerData.forEach((Items) {
+      generaded.add(Items["SubExercises"][index]);
+    });
+  }
+
+  cleaner() {
+    generaded.clear();
+  }
+
+  List<Map> Scheduller = [
+    {
+      "title": "Weak one",
+      "rep": 10,
+      "Excersise": [
+        {
+          "day": "Moonday",
+          "todo": generaded,
+        },
+        {
+          "day": "Tusday",
+          "todo": generaded,
+        },
+        {
+          "day": "Wednsday",
+          "todo": generaded,
+        },
+        {
+          "day": "Thursday",
+          "todo": generaded,
+        },
+        {
+          "day": "Friday",
+          "todo": generaded,
+        },
+        {
+          "day": "SaterDay",
+          "todo": generaded,
+        }
+      ]
+    },
+    {
+      "title": "Weak Two",
+      "rep": 15,
+      "Excersise": [
+        {
+          "day": "Moonday",
+          "todo": generaded,
+        },
+        {
+          "day": "Tusday",
+          "todo": generaded,
+        },
+        {
+          "day": "Wednsday",
+          "todo": generaded,
+        },
+        {
+          "day": "Thursday",
+          "todo": generaded,
+        },
+        {
+          "day": "Friday",
+          "todo": generaded,
+        },
+        {
+          "day": "SaterDay",
+          "todo": generaded,
+        }
+      ]
+    },
+    {
+      "title": "Weak Three",
+      "rep": 20,
+      "Excersise": [
+        {
+          "day": "Moonday",
+          "todo": generaded,
+        },
+        {
+          "day": "Tusday",
+          "todo": generaded,
+        },
+        {
+          "day": "Wednsday",
+          "todo": generaded,
+        },
+        {
+          "day": "Thursday",
+          "todo": generaded,
+        },
+        {
+          "day": "Friday",
+          "todo": generaded,
+        },
+        {
+          "day": "SaterDay",
+          "todo": generaded,
+        }
+      ]
+    },
+    {
+      "title": "Weak Fourth",
+      "rep": 25,
+      "Excersise": [
+        {
+          "day": "Moonday",
+          "todo": generaded,
+        },
+        {
+          "day": "Tusday",
+          "todo": generaded,
+        },
+        {
+          "day": "Wednsday",
+          "todo": generaded,
+        },
+        {
+          "day": "Thursday",
+          "todo": generaded,
+        },
+        {
+          "day": "Friday",
+          "todo": generaded,
+        },
+        {
+          "day": "SaterDay",
+          "todo": generaded,
+        }
+      ]
+    },
+  ];
+  int weekIndicatorIndex = 0;
+  void WeekChangerIndex(int index) {
+    weekIndicatorIndex = index;
+    notifyListeners();
+  }
+
+  int selectedWorkOutIndex = 0;
+  void changeWorkoutIndex(int index) {
+    selectedWorkOutIndex = index;
+    notifyListeners();
+  }
+
+  int SubselectedWorkOutIndex = 0;
+  void changeSubWorkIndexSub(int index) {
+    SubselectedWorkOutIndex = index;
+    notifyListeners();
+  }
+
+  int todoIndex = 0;
+
+  void todoIndexadder() {
+    todoIndex += 1;
+    notifyListeners();
+  }
+
+  void todoIndexReset() {
+    todoIndex = 0;
+    notifyListeners();
+  }
   // this id the end of the class
 }

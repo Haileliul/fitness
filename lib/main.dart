@@ -9,8 +9,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 
 import 'package:provider/provider.dart';
 
-
-
 // import 'Pages/Detail_of_Subcategory.txt';
 import 'package:fitness/Pages/chat_screen.dart';
 
@@ -18,12 +16,17 @@ import 'Pages/Detail_of_Subcategory.dart';
 import 'Pages/FinalReportPage.dart';
 import 'Pages/SchedulList.dart';
 import 'Pages/WorkoutList.dart';
+import 'Pages/chatbot.dart';
 import 'Pages/main_landing_page.dart';
+import 'Pages/payment_gateway.dart';
+import 'Pages/splash_screen.dart';
 import 'Pages/sport_category_page.dart';
 import 'Pages/login_screen.dart';
 import 'Pages/signUp_screen.dart';
-import 'Pages/splash_screen.dart';
+import 'Pages/MusicList.dart';
 import '../translations/codegen_loader.g.dart';
+
+import 'Provider/WorkOut Scheduler.dart';
 import 'Provider/exercises_categories.dart';
 
 
@@ -64,6 +67,7 @@ class Home extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (context) => ExerciseCategories()),
+        ChangeNotifierProvider(create: (context) => WorkOutProvider()),
       ],
       child: MaterialApp(
         // adding nessesary deligates for app localizasion
@@ -86,16 +90,16 @@ class Home extends StatelessWidget {
         '/Main': (context) => MainLandingPage(),
         '/chat': (context) => ChatScreen(),
 
-
-        '/Final': (context) => FinalReportPage(),
-        '/Detail': (context) => DetailSubList(),
-        '/SportCat': (context) => SportsCategory(),
-        // Pages for pro version
-        '/Schedule': (context) => SchedulList(),
-        '/Workout': (context) => WorkoutList(),
-        '/Bmi': (context) => InputPage(),
-      },
-
+          '/Final': (context) => const FinalReportPage(),
+          '/Detail': (context) => DetailSubList(),
+          '/SportCat': (context) => const SportsCategory(),
+          '/chat': (context) => Chatbot(),
+          // Pages for pro version
+          '/Schedule': (context) => SchedulList(),
+          '/Workout': (context) => WorkoutList(),
+          '/Bmi': (context) => const InputPage(),
+          '/Payment': (context) => const PaymentGatewayScreen(),
+        },
 
         home:
             //  SportsCategory(),
@@ -103,7 +107,12 @@ class Home extends StatelessWidget {
             // WorkoutList(),
 
             // SchedulList(),
-            const SplashScreen(),
+            SplashScreen(),
+        // Chatbot(),
+        // const Music(),
+
+        // WeSlideTest(),
+        // PaymentGatewayScreen(),
         // SignUpScreen(),
         // LoginScreen(),
         // FinalReportPage(),

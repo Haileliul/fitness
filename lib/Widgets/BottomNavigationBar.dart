@@ -28,13 +28,7 @@ class BottomnavigationBar extends StatelessWidget {
           text: 'Chat',
           onPressed: () {
             Navigator.pushNamed(context, '/chat');
-          },
-        ),
-        GButton(
-          icon: FontAwesomeIcons.dumbbell,
-          text: 'Workouts',
-          onPressed: () {
-            Navigator.pushNamed(context, '/Workout');
+
           },
         ),
         GButton(
@@ -44,6 +38,13 @@ class BottomnavigationBar extends StatelessWidget {
           text: 'BMI',
           onPressed: () {
             Navigator.pushNamed(context, '/Bmi');
+          },
+        ),
+        GButton(
+          icon: FontAwesomeIcons.dumbbell,
+          text: 'Workouts',
+          onPressed: () {
+            Navigator.pushNamed(context, '/Schedule');
           },
         ),
       ],
